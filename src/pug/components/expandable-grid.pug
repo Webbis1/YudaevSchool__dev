@@ -1,0 +1,6 @@
+mixin expandable-grid(columns, initialRows=2, items=[])  
+  .expandable-grid(data-columns=columns data-initial-rows=initialRows)  
+    .expandable-grid__inner  
+      each item, index in items  
+        .expandable-grid__item= item || `Item ${index + 1}`  
+    button.expandable-grid__toggle(type="button") Показать ещё  

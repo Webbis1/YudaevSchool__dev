@@ -1,0 +1,96 @@
+.course-card {
+  border-radius: 30px;
+  box-shadow: 1px 5px 6px 0px rgba(0, 0, 0, 0.1);
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  //   height: 100%;
+  //   overflow: hidden;
+  //   justify-content: space-evenly;
+  justify-content: flex-end;
+  padding-bottom: 24px;
+  //   padding: 24px;
+  gap: 13px;
+  position: relative;
+
+  &__image {
+    width: 100%;
+    position: relative;
+    img {
+      width: 100%;
+      max-height: 343px;
+      object-fit: contain;
+      object-position: center;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 10%; // можно менять высоту зоны blur
+      background: white;
+      background-size: cover;
+      filter: blur(36px);
+      z-index: 1;
+      pointer-events: none;
+
+      // Добавляем прозрачность, чтобы эффект был мягче
+      opacity: 0.6;
+    }
+  }
+
+  .card-marker {
+    margin-inline: 24px;
+    .card-marker-text {
+      letter-spacing: -0.3px;
+    }
+  }
+
+  &__name {
+    // padding: 24px;
+    padding-bottom: 0;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%;
+    color: #000000;
+    padding-inline: 24px;
+    letter-spacing: -0.5px;
+  }
+  &__tags {
+    // padding: 0px 24px 24px 24px;
+    padding-inline: 24px;
+    // max-width: 350px;
+  }
+  &__tag {
+    color: rgb(145, 145, 145);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+        line-height: 141%;
+    display:  inline-flex;
+        letter-spacing: -0.3px;
+        margin-right: 8px;
+
+    align-items: center;
+    gap: 6px;
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        width: 2px;
+        aspect-ratio: 1;
+        // height: 3px;
+        background-color: rgb(145, 145, 145);
+      }
+      // margin-right: 8px; // или другой нужный отступ
+    }
+  }
+  &__link {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+  }
+}

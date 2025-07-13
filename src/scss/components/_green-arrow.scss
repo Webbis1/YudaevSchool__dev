@@ -1,0 +1,63 @@
+@use "../mixins/media";
+
+.green-arrow {
+  aspect-ratio: 1;
+  width: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cfff32;
+  position: relative;
+  padding: 2px;
+
+  box-shadow: 0px 6px 10px 0px #00000014;
+  transition: all 0.3s linear 0s;
+
+  &::before {
+    background: conic-gradient(
+      from -18.65deg at 50% 50%,
+      #ffffff4d 0deg,
+      #ffffffcc 90deg,
+      #ffffff4d 181.58deg,
+      #ffffffcc 270deg,
+      #ffffff4d 360deg
+    );
+    content: "";
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include media.inverse-circle-mask(
+      $radius: 20px,
+      $color: rgb(0, 0, 0),
+      $transparent-percent: 98%,
+      $filled-percent: 100%
+    );
+  }
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center;
+    // position: relative;
+    transition: all 0.3s linear 0s;
+  }
+
+  @include media.hover {
+    // filter: drop-shadow(0px 0px 13px #cfff32);
+    box-shadow: 0px -3px 24px 0px #cfff3266,
+      0px 0px 12px 1px rgb(255 255 255 / 75%) inset;
+  }
+
+  &:active {
+    box-shadow: none;
+    img {
+      // display: block;
+      opacity: 0.5;
+    }
+  }
+}

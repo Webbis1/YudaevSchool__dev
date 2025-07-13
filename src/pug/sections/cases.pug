@@ -1,0 +1,35 @@
+mixin caseCard()
+    .cases__card
+        .cases__image.gradient-border
+            img(src=`./assets/images/student-result-card.png` alt="Работа ученика")
+            .cases__image-counter
+                .counter.gradient-border
+        
+
+
++sectionName('06', 'КЕЙСЫ')
+.cases__title.section-title Работы студентов
+.cases__cases.gradient-border.tabs.column 
+    .tabs__header.gradient-border.row
+        button.tabs__btn.active(data-tab="tab1") Анимация
+        button.tabs__btn(data-tab="tab2") Постеры
+        button.tabs__btn(data-tab="tab3") Сайты
+        button.tabs__btn(data-tab="tab4") 3D
+        .tabs__indicator
+            +side-media("")
+
+    .tabs__content
+        each tab, index in ['tab1', 'tab2', 'tab3', 'tab4']
+            .tabs__panel(class=index === 0 ? 'active' : '' data-tab=tab)
+                .swiper
+                    .swiper-wrapper
+                        - for (let i = 0; i < 4; i++)
+                            - for (let j = 0; j < 16; j++)
+                                .swiper-slide
+                                    +caseCard()
+                .swiper-controllers.gradient-border.row
+                    .swiper__arrow.swiper__arrow_prev
+                        img(src="./assets/images/left-arrow.svg", alt="prev")
+                    .swiper__pagination
+                    .swiper__arrow.swiper__arrow_next
+                        img(src="./assets/images/next-arrow.svg", alt="next")

@@ -1,0 +1,13 @@
+mixin real-pros-card(role)
+    .real-pros__card(role="card")
+        img.real-pros__card-img(src=`./assets/images/circle-people.png`, alt='')
+
+.real-pros__content.column
+    +side-media("Делаем из студентов настоящих профи")
+    .real-pros__title
+        |  90% из них пришли без навыков       
+        b и обучались дизайну с нуля
+.real-pros__container#real-pros__container
+    - for (let i = 0; i < 10; i++)
+        +real-pros-card()
+

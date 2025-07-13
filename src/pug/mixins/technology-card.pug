@@ -1,0 +1,11 @@
+mixin technology-card(image, alt="alt")
+    .technology-card&attributes(attributes)
+        .technology-card__image.gradient-border
+            img(src= image, alt= alt)
+
+
+mixin wb-card(size=115)
+    +technology-card("./assets/images/wb.svg").technology-card_wb(rotation=26.6)&attributes(attributes)
+
+mixin ozon-card(size=115)
+    +technology-card("./assets/images/ozon.svg").technology-card_ozon(rotation=26.6)&attributes(attributes)

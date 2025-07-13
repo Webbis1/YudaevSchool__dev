@@ -1,0 +1,7 @@
+mixin green-arrow(img = "./assets/images/green-arrow.svg", link, alt = "" )
+  if link
+    a.green-arrow(href= link)&attributes(attributes)
+      img(src= img, alt= alt)
+  else
+    .green-arrow&attributes(attributes)
+      img(src= img, alt= alt)

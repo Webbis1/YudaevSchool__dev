@@ -1,0 +1,32 @@
+mixin student-results-card(data)  
+  .student-results-card.column&attributes(attributes)  
+    .student-results-card__image
+        .wrapper.gradient-border
+            .image-wrapper.gradient-border
+                img(
+                    src=data.image || "./assets/images/lamba.jpg", 
+                    alt=data.name,
+                    loading="lazy"
+                )
+    .student-results-card__content.column.gradient-border
+      .student-results-card__quote= data.quote  
+      .student-results-card__name= data.name  
+      .student-results-card__experience= data.experience  
+
++sectionName('05', 'результаты учеников').student-results__title
+
+.student-results__content(
+  data-columns="6"
+  data-initial-rows="2"
+)
+  .student-results__inner
+    - for (var i = 0; i < 24; i++)
+      +student-results-card({
+        quote: "На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к",
+        name: "Леонид Нечаев",
+        experience: "1,5 года опыта",
+        image: "./assets/images/lamba.jpg"
+      }).student-results__card
+  
+  .student-results__show-more
+    +side-media("Показать ещё")

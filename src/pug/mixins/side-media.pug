@@ -1,0 +1,5 @@
+mixin side-media(text, img, dir)
+    - const styleAttr = dir ? 'style="flex-direction: row-reverse"' : '';
+    .side-media.row.gradient-border&attributes({ style: dir ? 'flex-direction: row-reverse' : null })&attributes(attributes)
+        +green-arrow(img).side-media__img
+        .side-media__text= text

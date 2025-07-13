@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    /> -->
+    <title>Yudaev School</title>
+    <meta name="description" content="made by Webbis" />
+    <meta property="og:title" content="Yudaev School" />
+    <meta property="og:description" content="made by Webbis" />
+    <meta property="og:image" content="favicon.ico" />
+  </head>
+  <body>
+    <pug src="src/pug/pages/home.pug"></pug>
+    <script type="module" src="src/ts/main.ts"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script>
+      const lenis = new Lenis({
+        // Value between 0 and 1
+        // Default value: 0.1
+        // The lower the value, the smoother the scroll
+        lerp: 0.05,
+        // Default value: 1
+        // The higher the value, the faster the scrolling
+        wheelMultiplier: 1.5,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>

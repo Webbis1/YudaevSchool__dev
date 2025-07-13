@@ -1,0 +1,26 @@
+.expandable-grid {  
+  $self: &;  
+
+  &__inner {  
+    display: grid;  
+    gap: 16px;  
+    overflow: hidden;  
+    transition: height 0.5s ease;  
+  }  
+
+  &__item {  
+    background: #f0f0f0;  
+    padding: 16px;  
+    border-radius: 4px;  
+  }  
+
+  &__toggle {  
+    margin-top: 16px;  
+    padding: 8px 16px;  
+    background: #007bff;  
+    color: white;  
+    border: none;  
+    border-radius: 4px;  
+    cursor: pointer;  
+  }  
+}  

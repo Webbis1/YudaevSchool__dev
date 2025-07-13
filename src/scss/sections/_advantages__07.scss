@@ -1,0 +1,94 @@
+.advantages {
+  justify-content: space-between;
+  background-color: #e4e4e4;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -400px;
+
+    left: 0;
+    right: 0;
+
+    height: 460px;
+    background: linear-gradient(
+      to top,
+      #e4e4e4 0%,
+      #F8F8F8 100%
+    );
+    // filter: blur(20px);
+    z-index: 0;
+  }
+ 
+
+  background-image: url("@/assets/images/line.svg");
+  background-size: 176px 100%;
+
+  &__content {
+    padding-bottom: 250px;
+    padding-top: 150px;
+    align-items: flex-start;
+    flex: 1;
+
+  }
+  &__image {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      flex: 1;
+    }
+
+    .garbage {
+
+      flex: 1;
+    }
+    .image__container {
+
+      position: sticky;
+      bottom: 0px;
+    }
+    img {
+      // position: absolute;
+      display: none;
+      // transform: translateY(-100%);
+    }
+  }
+
+  &__cards {
+    margin-top: 83px;
+    flex: 1;
+    display: grid;
+    // width: 100%;
+    grid-template-columns: [col1] 1fr [col2] 13px [col3] 1fr [col-end];
+    grid-template-rows: [row1] auto [row2] auto [row3] 20px [row4] auto [sd] 20px [row5] 414px [row-end];
+  }
+
+  &__card {
+    border-radius: 30px;
+
+    &_1 {
+      grid-column: col1;
+      grid-row: row1 / sd;
+      height: 676px;
+      background-color: #ff9aa2; /* Нежный розовый */
+    }
+    &_2 {
+      grid-column: col3;
+      grid-row: row1 / row3;
+      background-color: #ffb7b2; /* Светлый коралловый */
+    }
+    &_3 {
+      grid-column: col3;
+      grid-row: row4;
+      background-color: #ffdac1; /* Персиковый */
+    }
+    &_4 {
+      grid-column: col1 / col-end;
+      grid-row: row5;
+      background-color: #e2f0cb; /* Мятно-зеленый */
+      width: 930px;
+    }
+  }
+}

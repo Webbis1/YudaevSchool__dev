@@ -1,0 +1,149 @@
+- var width = 1860;
+- var height = 1020;
+- var centerx = width / 2;
+- var centery = height / 2;
+- var r1 = 322;
+- var r2 = 378;
+- var r3 = 435;
+- var pr1 = 1118 / 2;
+- var pr2 = 1056 / 2;
+- var pr3 = 992 / 2;
+- var stroke_width = 1;
+- var progress_stroke_width = 25;
+
+.from-scratch-to-pro__background
+    .from-scratch-to-pro__background-right
+        img(src="./assets/images/spiral.png", alt="spiral")
+    .from-scratch-to-pro__background-left
+        img(src="./assets/images/spiral.png", alt="spiral")
+    
+
+.from-scratch-to-pro__title
+    span Обучаем дизайнеров
+    b
+        | с нуля 
+        .from-scratch-to-pro__direction.gradient-border
+            img(src="./assets/images/right-arrow.svg", alt="direction")
+        | до PRO
+
+.circle-section
+    .rectangle#rect
+        svg(width="100%" height="100%" viewBox=`0 0 ${width} ${height}`)
+            // Анимируемые круги
+            circle#circle-1(
+            cx=centerx 
+            cy=centery 
+            r=r1 
+            fill="none" 
+            stroke="#4caf50" 
+            stroke-width=stroke_width 
+            stroke-linecap="round"
+            transform=`rotate(-90 ${centerx} ${centery})`
+            )
+            circle#circle-2(
+            cx=centerx 
+            cy=centery 
+            r=r2 
+            fill="none" 
+            stroke="#2196f3" 
+            stroke-width=stroke_width 
+            stroke-linecap="round"
+            transform=`rotate(-90 ${centerx} ${centery})`
+            )
+            circle#circle-3(
+            cx=centerx 
+            cy=centery 
+            r=r3 
+            fill="none" 
+            stroke="#ff5722" 
+            stroke-width=stroke_width 
+            stroke-linecap="round"
+            transform=`rotate(-90 ${centerx} ${centery})`
+            )
+
+            circle#progress-barr-1(
+            cx=centerx 
+            cy=centery 
+            r=pr1 
+            fill="none" 
+            stroke="#E5E5E5" 
+            stroke-width=progress_stroke_width 
+            stroke-linecap="round"
+            transform=`rotate(-90 ${centerx} ${centery})`
+            )
+            circle#progress-barr-2(
+            cx=centerx 
+            cy=centery 
+            r=pr2 
+            fill="none" 
+            stroke="#E5E5E5" 
+            stroke-width=progress_stroke_width 
+            stroke-linecap="round"
+            transform=`rotate(-90 ${centerx} ${centery})`
+            )
+            circle#progress-barr-3(
+            cx=centerx 
+            cy=centery 
+            r=pr3 
+            fill="none" 
+            stroke="#E5E5E5" 
+            stroke-width=progress_stroke_width 
+            stroke-linecap="round"
+            transform=`rotate(-90 ${centerx} ${centery})`
+            )
+
+
+        .from-scratch-to-pro__cards
+            .from-scratch-to-pro__card-section
+                .from-scratch-to-pro__card.gradient-border.training-to-day
+                    +card__marker("./assets/images/study.svg", "Обучение сегодня", "white")
+                    .training-to-day__title.from-scratch-to-pro__card-title Начните с бесплатных базовых курсов сейчас
+                    .training-to-day__discription.from-scratch-to-pro__card-discription Чтобы понять, в каком направлении двигаться
+                    .training-to-day__images.from-scratch-to-pro__card-images
+                        .training-to-day__blander
+                            .training-to-day__image-text
+                                img(src="./assets/images/blender-text.svg", alt="blender")
+                            img(src="./assets/images/blender.svg", alt="blender")
+                        .training-to-day__ozon
+                            .training-to-day__image-text
+                                | Ozon
+                        .training-to-day__wb
+                            .training-to-day__image-text
+                                | WB
+                        .training-to-day__figma
+                            img(src="./assets/images/figma.svg", alt="figma")
+                .from-scratch-to-pro__card.gradient-border.payment-after
+                    .payment-after__image.from-scratch-to-pro__card-images
+                        .payment-after__month.gradient-border
+                            | 0₽
+                            span.gradient-border 2 МЕС
+                        .payment-after__month.gradient-border
+                            | 0₽
+                            span.gradient-border 1 МЕС
+                        .payment-after__month.payment-after__month_green.gradient-border
+                            | ₽₽₽
+                            span.gradient-border 3 МЕС
+                    +card__marker("./assets/images/payment.svg", "Оплата позже", "white")
+                    .payment-after__title.from-scratch-to-pro__card-title
+                        span Отсрочка 3 месяца
+                        b   
+                            br
+                            | для первого платежа
+                    .payment-after__discription.from-scratch-to-pro__card-discription Действует для всех флагманских программ с карьерной поддержкой
+            
+            
+            .from-scratch-to-pro__card-section
+                .from-scratch-to-pro__card.gradient-border.platform
+            
+            .from-scratch-to-pro__card-section
+                .from-scratch-to-pro__card.gradient-border.career-center-right
+                .from-scratch-to-pro__card.gradient-border.career-center-left
+            
+            
+            .from-scratch-to-pro__card-section
+                .from-scratch-to-pro__card.gradient-border.environment
+                .from-scratch-to-pro__card.gradient-border.verification-works
+            
+            
+            .from-scratch-to-pro__card-section
+                .from-scratch-to-pro__card_big.gradient-border.special-offer

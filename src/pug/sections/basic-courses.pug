@@ -1,0 +1,29 @@
+include ../components/basic-courses__card.pug
+
++sectionName('03', 'ОСНОВНЫЕ КУРСЫ')
+.basic-courses__title 
+    span Топ-5 курсов
+    b 
+        br
+        | с карьерной поддержкой 
+.basic-courses__group
+    .basic-courses__group-head
+        .basic-courses__group-title.gradient-border
+            +green-arrow()
+            .basic-courses__group-text Флагманские программы
+        .basic-courses__group-count.gradient-border 2
+    .basic-courses__cards
+        +basic-courses__card(1080)
+        +basic-courses__card(770)
+
+
+.basic-courses__group
+    .basic-courses__group-head
+        .basic-courses__group-title.gradient-border
+            +green-arrow()
+            .basic-courses__group-text Флагманские программы
+        .basic-courses__group-count.gradient-border 2
+    .basic-courses__cards
+        +basic-courses__card(925)
+        +basic-courses__card(458)
+        +basic-courses__card(458)

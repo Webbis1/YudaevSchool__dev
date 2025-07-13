@@ -1,0 +1,15 @@
+
+mixin course_card(image_src, marker_text, marker_icon, link, card_name, ...card_tags)
+    .course-card&attributes(attributes)
+        .course-card__image
+            img(src=image_src, alt=card_name)
+        +card__marker(marker_icon, marker_text, "black")
+        .course-card__name=card_name
+        .course-card__tags
+            each tag, index in card_tags
+                span.course-card__tag= tag
+                if index === 0
+                    br
+        +green-arrow().course-card__link
+
+

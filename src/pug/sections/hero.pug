@@ -1,0 +1,41 @@
+mixin hero-slide(num)
+    .hero-slide&attributes(attributes)
+        .hero-slide__image
+            img(src=`./assets/images/hero-big-slide${num}.png`, alt="")
+        +wb-card.hero__icon
+        +ozon-card.hero__icon
+
+section.hero.row
+    .hero__text.column.container
+        .hero__top-one.row.gradient-border
+            img(src="./assets/images/hugeicons_laurel-wreath-right-01.svg", alt="")
+            span.wave-text
+                | Топ-1 школа дизайна 
+                b по версии GetCourse
+            .hero__dots.gradient-border ...
+        .hero__card.gradient-border.column
+            .hero__start.wave-text
+                b Начни учиться
+                br
+                | креативным
+                br 
+                | профессиям
+            .hero__free.gradient-border.wave-text бесплатно
+            .hero__disc.wave-text
+                | Зарабатывайте от 1 млн рублей в год 
+                b благодаря скиллам, полученным на программах, и поддержке специалистов
+        .hero__running-line
+            span Начало сразу после регистрации • 
+            span Начало сразу после регистрации • 
+            span Начало сразу после регистрации • 
+        +side-media("Учиться бесплатно","" ,true).hero__cta.wave-text
+    .hero__content
+        .hero__fence
+            .hero__pagination.swiper-pagination
+        .hero__slider(id="heroSlider")
+            .hero__slider-wrapper.swiper-wrapper
+                +hero-slide(1).hero__slide.swiper-slide
+                +hero-slide(2).hero__slide.swiper-slide
+                +hero-slide(3).hero__slide.swiper-slide
+                +hero-slide(4).hero__slide.swiper-slide
+                +hero-slide(5).hero__slide.swiper-slide

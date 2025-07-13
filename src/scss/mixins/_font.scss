@@ -1,0 +1,16 @@
+@use "media";
+@use "../variables/resolutions";
+
+@mixin font-size($phone-size, $tablet-size, $desktop-size, $pc-size) {
+  font-size: $pc-size;
+  
+  @include media.less(resolutions.$desktop) {
+    font-size: $desktop-size;
+  }
+  @include media.less(resolutions.$tablet) {
+    font-size: $tablet-size;
+  }
+  @include media.less(resolutions.$phone) {
+    font-size: $phone-size;
+  }
+}

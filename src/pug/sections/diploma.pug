@@ -1,0 +1,34 @@
+
++sectionName('04', 'ДИПЛОМ')
+.diploma__title 
+    | Получи диплом
+    br    
+    | государственного образца
+.diploma__cards.row
+    .diploma__card.qualification.gradient-border.row
+        img(src="./assets/images/diploma-green.svg", alt="green").qualification__card.qualification__card_green
+        img(src="./assets/images/diploma-document.png", alt="document").qualification__card.qualification__card_document
+        .qualification__cta
+            +cta("Лицензия на образовательную деятельность")
+        .qualification__curtain.column
+            +side-media("Квалификация", "./assets/images/qualification.svg").qualification__side-media
+            .qualification__title 
+                | Профессия с документом, 
+                br 
+                | а не просто скилл
+            .qualification__discription Выпускники Yudaev School получают диплом установленного образца, который вносится в Реестр образовательных документов РФ
+    .diploma__card.benefits.column.gradient-border
+        +side-media("Льготы", "./assets/images/benefits.svg")
+        .benefits__title
+            span Возвращаем 13% налоговый вычет
+            b
+                br
+                | от стоимости курсов                
+        .benefits__detail
+            img(src="./assets/images/return.svg", alt="return")
+            .benefits__label 
+                +green-arrow(img)
+                .benefits__discription За деталями обращайтесь к куратору
+
+
+    

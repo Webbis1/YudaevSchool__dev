@@ -1,0 +1,20 @@
+mixin basic-courses__card(grow)
+    .basic-courses__card(style=`flex-grow: ${grow}`)
+        .basic-courses__card-image
+            img(src="./assets/images/Checker.png", alt="Digital-дизайнер")
+        .basic-courses__card-blur
+            .basic-courses__card-title Digital-дизайнер
+            .basic-courses__card-discription
+                .basic-courses__card-month-count.month-count.gradient-border
+                    +green-arrow("").month-count__icon
+                    .month-count__text 9 месяцев
+                .basic-courses__card-tags
+                    .basic-courses__card-tag Программа трудоустройства
+                    .basic-courses__card-tag Диплом
+                    .basic-courses__card-tag 5 курсов в 1
+        .basic-courses__card-footer
+            .basic-courses__card-price
+                .basic-courses__card-old-price 9 776 ₽ / мес
+                .basic-courses__card-new-price от 4 888 ₽ / мес
+            +cta("Учиться бесплатно")
+            

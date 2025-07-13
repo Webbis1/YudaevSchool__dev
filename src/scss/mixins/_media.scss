@@ -1,0 +1,58 @@
+@mixin more($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin less($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin inverse-circle-mask(
+  $radius: 100px,
+  $color: black,
+  $transparent-percent: 80%,
+  $filled-percent: 81%
+) {
+  -webkit-mask-image: radial-gradient(
+    circle $radius at center,
+    transparent $transparent-percent,
+    $color $filled-percent
+  );
+  mask-image: radial-gradient(
+    circle $radius at center,
+    transparent $transparent-percent,
+    $color $filled-percent
+  );
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin animated-border($padding-values, $background-image) {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: #{$padding-values};
+    background-image: $background-image;
+    border-radius: inherit;
+    mask: conic-gradient(#000 0 0) content-box exclude,
+          conic-gradient(#000 0 0);
+  }
+}
+
+
+@mixin abs_center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
