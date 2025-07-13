@@ -1,18 +1,21 @@
-
 .advantages__content.column
     +sectionName('07', 'Преимущества').advantages__name
     .section-title.advantages__title
         b Не просто учим дизайну,
         br
-        span а меняем мышление
+        p а меняем мышление
 
     .advantages__cards
-        .advantages__card.advantages__card_1.gradient-border
-        .advantages__card.advantages__card_2.gradient-border
-        .advantages__card.advantages__card_3.gradient-border
-        .advantages__card.advantages__card_4.gradient-border
+        .advantages__card.advantages__card_1.gradient-border.advantages-card
+            +side-media("Комплексный подход").advantages-card__side-media
+        .advantages__card.advantages__card_2.gradient-border.advantages-card
+            +side-media("Мышление").advantages-card__side-media
+        .advantages__card.advantages__card_3.gradient-border.advantages-card
+            +side-media("Окружение").advantages-card__side-media
+        .advantages__card.advantages__card_4.gradient-border.advantages-card
+            +side-media("Монетизация навыков").advantages-card__side-media
 
 .advantages__image.column
     //- div.garbage
     .image__container
-        img(src="./assets/images/microphone.png", alt="#")
+        img(src="./assets/images/07/Group 2087327081.png", alt="#")

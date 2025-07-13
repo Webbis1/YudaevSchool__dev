@@ -564,7 +564,7 @@ const initImageBlurEffect = () => {
   const parentElement = document.querySelector(".advantages") as HTMLElement;
 
   gsap.to(imageContainer, {
-    filter: "blur(10px)",
+    filter: "blur(0px)",
     scrollTrigger: {
       trigger: parentElement,
       start: "top top",
@@ -602,8 +602,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.querySelector('.fon-toggle');
-  const fonElement = document.querySelector('.fon');
+  const toggleBtn = document.querySelector('.fon-toggle') as HTMLElement;
+  // const fonElement = document.querySelector('.fon');
   
   // Проверяем сохраненное состояние в localStorage
   const isFonEnabled = localStorage.getItem('fonEnabled') !== 'false';

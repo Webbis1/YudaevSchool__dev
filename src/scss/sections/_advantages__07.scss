@@ -26,14 +26,14 @@
 
   &__content {
     padding-bottom: 250px;
-    padding-top: 150px;
+    padding-top: 252px;
     align-items: flex-start;
-    flex: 1;
+    // flex: 1;
 
   }
   &__image {
     position: relative;
-
+  flex: 1;
     &::before {
       content: "";
       display: block;
@@ -47,22 +47,34 @@
     .image__container {
 
       position: sticky;
-      bottom: 0px;
+      bottom: -14%;
     }
     img {
+      padding-left: 18%;
+      padding-right: 5.7%;
+      // width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      max-width: 100%;
+      width: 100%;
       // position: absolute;
-      display: none;
+      // display: none;
       // transform: translateY(-100%);
     }
   }
+  &__title{
+    padding-top: 20px;
+  }
 
   &__cards {
-    margin-top: 83px;
+    translate: -11px;
+    margin-top: 75px;
     flex: 1;
     display: grid;
     // width: 100%;
-    grid-template-columns: [col1] 1fr [col2] 13px [col3] 1fr [col-end];
-    grid-template-rows: [row1] auto [row2] auto [row3] 20px [row4] auto [sd] 20px [row5] 414px [row-end];
+    grid-template-columns: [col1] 364px [col2] 13px [col3] 553px [col-end];
+    grid-template-rows: [row1] 465px [row3] 29px [row4] 170px [sd] 32px [row5] 400px [row-end];
   }
 
   &__card {
@@ -71,13 +83,13 @@
     &_1 {
       grid-column: col1;
       grid-row: row1 / sd;
-      height: 676px;
-      background-color: #ff9aa2; /* Нежный розовый */
+      // height: 676px;
+      // background-color: #ff9aa2; /* Нежный розовый */
     }
     &_2 {
       grid-column: col3;
       grid-row: row1 / row3;
-      background-color: #ffb7b2; /* Светлый коралловый */
+      // background-color: #ffb7b2; /* Светлый коралловый */
     }
     &_3 {
       grid-column: col3;
@@ -90,5 +102,19 @@
       background-color: #e2f0cb; /* Мятно-зеленый */
       width: 930px;
     }
+  }
+}
+
+
+.advantages-card{
+  position: relative;
+  box-shadow: 0px 4px 15px 0px #0000001A;
+
+  &__side-media{
+    position: absolute;
+    top: 0;
+    left: 20px;
+    transform: translateY(-50%);
+    width: fit-content;
   }
 }
