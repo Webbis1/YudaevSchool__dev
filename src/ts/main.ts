@@ -26,7 +26,6 @@ import "swiper/css/effect-cube";
 // @ts-ignore
 import "swiper/css/autoplay";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 class Tabs {
@@ -103,7 +102,9 @@ class CasesSlider {
     if (!panel) return;
 
     const swiperEl = panel.querySelector<HTMLElement>(".swiper");
-    const paginationEl = panel.querySelector<HTMLElement>(".swiper__pagination");
+    const paginationEl = panel.querySelector<HTMLElement>(
+      ".swiper__pagination"
+    );
     const prevEl = panel.querySelector<HTMLElement>(".swiper__arrow_prev");
     const nextEl = panel.querySelector<HTMLElement>(".swiper__arrow_next");
 
@@ -279,12 +280,16 @@ const initRectangleAnimation = () => {
   const rectangle_time = 1500;
 
   const getCardsWrapperHeight = () => {
-    const el = document.querySelector(".from-scratch-to-pro__cards") as HTMLElement;
+    const el = document.querySelector(
+      ".from-scratch-to-pro__cards"
+    ) as HTMLElement;
     return el ? el.offsetHeight : 0;
   };
 
   const getCardHeight = (): number => {
-    const card = document.querySelector<HTMLElement>(".from-scratch-to-pro__cards .from-scratch-to-pro__card-section");
+    const card = document.querySelector<HTMLElement>(
+      ".from-scratch-to-pro__cards .from-scratch-to-pro__card-section"
+    );
     return card ? card.offsetHeight : 0;
   };
 
@@ -349,8 +354,12 @@ const initRectangleAnimation = () => {
 };
 
 const initSpiralAnimations = () => {
-  const leftSpiral = document.querySelector(".from-scratch-to-pro__background-left img");
-  const rightSpiral = document.querySelector(".from-scratch-to-pro__background-right img");
+  const leftSpiral = document.querySelector(
+    ".from-scratch-to-pro__background-left img"
+  );
+  const rightSpiral = document.querySelector(
+    ".from-scratch-to-pro__background-right img"
+  );
 
   if (!leftSpiral || !rightSpiral) return;
 
@@ -385,7 +394,9 @@ const initSpiralAnimations = () => {
 
 const initCircleModule = () => {
   const startDeg = -60;
-  const container = document.querySelector("#real-pros__container") as HTMLElement;
+  const container = document.querySelector(
+    "#real-pros__container"
+  ) as HTMLElement;
   const containerClientWidth = container.clientWidth;
   const radius = containerClientWidth / 2;
   const cards = gsap.utils.toArray<HTMLElement>(".real-pros__card");
@@ -406,9 +417,10 @@ const initCircleModule = () => {
   });
 
   cards.forEach((card, i) => {
-    const startAngleDeg = i % 2 == 0
-      ? startDeg + i * -angleBetween
-      : startDeg + 180 + i * -angleBetween;
+    const startAngleDeg =
+      i % 2 == 0
+        ? startDeg + i * -angleBetween
+        : startDeg + 180 + i * -angleBetween;
     const startAngleRad = (startAngleDeg * Math.PI) / 180;
 
     gsap.set(card, {
@@ -439,10 +451,30 @@ const initCircleModule = () => {
 };
 
 const initBurgerMenu = () => {
-  const burgerButton = document.querySelector<HTMLElement>(".header__burger");
+  // Элементы для PC версии
+  const burgerPc = document.querySelector<HTMLElement>("#burger-pc");
+  const burgerIconPc = burgerPc?.querySelector<HTMLElement>(".burger");
   const coursesBlock = document.querySelector<HTMLElement>(".header__courses");
   let isCoursesVisible = false;
 
+  // Элементы для Mobile версии
+  const burgerMobile = document.querySelector<HTMLElement>("#burger-mobile");
+  const burgerIconMobile = burgerMobile?.querySelector<HTMLElement>(".burger");
+  const burgerTextMobile = burgerMobile?.querySelector<HTMLElement>(
+    ".header__burger-text"
+  );
+  const mobileContent = document.querySelector<HTMLElement>(
+    ".header__mobile-content"
+  );
+  let isMobileContentVisible = false;
+
+  // Общие элементы
+  const hamburgerInput = document.querySelector<HTMLInputElement>(
+    '.hamburger input[type="checkbox"]'
+  );
+  const blurBackground = document.getElementById("background-blur");
+
+  // Анимация для блока курсов (PC)
   const animateCourses = () => {
     if (!coursesBlock) return;
 
@@ -470,24 +502,108 @@ const initBurgerMenu = () => {
     isCoursesVisible = !isCoursesVisible;
   };
 
-  burgerButton?.addEventListener("click", () => {
-    const hamburgerInput = document.querySelector<HTMLInputElement>('.hamburger input[type="checkbox"]');
-    if (hamburgerInput) {
-      hamburgerInput.checked = !hamburgerInput.checked;
-      hamburgerInput.dispatchEvent(new Event("change"));
+  // Анимация для мобильного контента
+  const animateMobileContent = () => {
+    if (!mobileContent) return;
 
-      const blurBackground = document.getElementById("background-blur");
-      blurBackground?.classList.toggle("active");
+    if (isMobileContentVisible) {
+      gsap.to(mobileContent, {
+        height: 0,
+        duration: 0.3,
+        ease: "power2.inOut",
+        onComplete: () => {
+          mobileContent.style.display = "none";
+        },
+      });
+    } else {
+      mobileContent.style.display = "flex";
+      gsap.fromTo(
+        mobileContent,
+        { height: 0 },
+        {
+          height: "100vh",
+          duration: 0.3,
+          ease: "power2.inOut",
+        }
+      );
+    }
+    isMobileContentVisible = !isMobileContentVisible;
+  };
 
-      if (hamburgerInput.checked) {
-        document.body.style.overflow = "hidden";
-        document.documentElement.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
+  // Обработчик для PC бургера
+  burgerPc?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    burgerIconPc?.classList.toggle("active");
+    blurBackground?.classList.toggle("active");
+    animateCourses();
+  });
+
+  // Обработчик для Mobile бургера
+  burgerMobile?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isActivating = !burgerIconMobile?.classList.contains("active");
+    burgerIconMobile?.classList.toggle("active");
+    blurBackground?.classList.toggle("active");
+    if (burgerTextMobile) {
+      burgerTextMobile.textContent = isActivating ? "Закрыть" : "Меню";
+    }
+    animateMobileContent();
+  });
+
+  // Закрытие по клику вне области
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+
+    if (
+      isCoursesVisible &&
+      !coursesBlock?.contains(target) &&
+      !burgerPc?.contains(target)
+    ) {
+      burgerIconPc?.classList.remove("active");
+      blurBackground?.classList.remove("active");
+      animateCourses();
+    }
+
+    if (
+      isMobileContentVisible &&
+      !mobileContent?.contains(target) &&
+      !burgerMobile?.contains(target)
+    ) {
+      burgerIconMobile?.classList.remove("active");
+      blurBackground?.classList.remove("active");
+      animateMobileContent();
+    }
+  });
+
+  // Закрытие по клику вне области (опционально)
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+
+    if (
+      isCoursesVisible &&
+      !coursesBlock?.contains(target) &&
+      !burgerPc?.contains(target)
+    ) {
+      animateCourses();
+      if (hamburgerInput?.checked) {
+        hamburgerInput.checked = false;
+        hamburgerInput.dispatchEvent(new Event("change"));
+        blurBackground?.classList.remove("active");
       }
     }
-    animateCourses();
+
+    if (
+      isMobileContentVisible &&
+      !mobileContent?.contains(target) &&
+      !burgerMobile?.contains(target)
+    ) {
+      animateMobileContent();
+      if (hamburgerInput?.checked) {
+        hamburgerInput.checked = false;
+        hamburgerInput.dispatchEvent(new Event("change"));
+        blurBackground?.classList.remove("active");
+      }
+    }
   });
 };
 
@@ -549,7 +665,9 @@ const initHeroSlider = () => {
         return `
           <div class="side-media row gradient-border ${className}">
             <div class="green-arrow side-media__img">
-              <img src="./assets/images/hero-pagination/${index + 1}.svg" alt="${labels[index]}"/>
+              <img src="./assets/images/hero-pagination/${
+                index + 1
+              }.svg" alt="${labels[index]}"/>
             </div>
             <div class="side-media__text">${labels[index]}</div>
           </div>
@@ -560,7 +678,9 @@ const initHeroSlider = () => {
 };
 
 const initImageBlurEffect = () => {
-  const imageContainer = document.querySelector(".image__container") as HTMLElement;
+  const imageContainer = document.querySelector(
+    ".image__container"
+  ) as HTMLElement;
   const parentElement = document.querySelector(".advantages") as HTMLElement;
 
   gsap.to(imageContainer, {
@@ -593,40 +713,149 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroSlider();
   initImageBlurEffect();
   initStudentResults();
-  
+
   new Tabs();
   new CasesSlider();
 });
 
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.querySelector('.fon-toggle') as HTMLElement;
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.querySelector(".fon-toggle") as HTMLElement;
   // const fonElement = document.querySelector('.fon');
-  
+
   // Проверяем сохраненное состояние в localStorage
-  const isFonEnabled = localStorage.getItem('fonEnabled') !== 'false';
-  
+  const isFonEnabled = localStorage.getItem("fonEnabled") !== "false";
+
   // Инициализируем начальное состояние
   if (isFonEnabled) {
-    document.body.classList.add('fon-enabled');
+    document.body.classList.add("fon-enabled");
   } else {
-    document.body.classList.remove('fon-enabled');
+    document.body.classList.remove("fon-enabled");
   }
-  
+
   // Обработчик клика
-  toggleBtn?.addEventListener('click', () => {
-    document.body.classList.toggle('fon-enabled');
-    
+  toggleBtn?.addEventListener("click", () => {
+    document.body.classList.toggle("fon-enabled");
+
     // Сохраняем состояние
-    const isEnabled = document.body.classList.contains('fon-enabled');
-    localStorage.setItem('fonEnabled', isEnabled.toString());
-    
+    const isEnabled = document.body.classList.contains("fon-enabled");
+    localStorage.setItem("fonEnabled", isEnabled.toString());
+
     // Анимация для обратной связи
-    toggleBtn.style.transform = 'scale(0.9)';
+    toggleBtn.style.transform = "scale(0.9)";
     setTimeout(() => {
-      toggleBtn.style.transform = '';
+      toggleBtn.style.transform = "";
     }, 200);
   });
 });
+
+const initMobileCoursesNavigation = () => {
+  console.log("Функция initMobileCoursesNavigation вызвана");
+
+  // Получаем элементы
+  console.log("Поиск элементов...");
+  const mobileBackButton = document.querySelector<HTMLElement>(
+    ".header__mobile-back"
+  );
+  const viewCourseButton = document.querySelector<HTMLElement>("#view-course");
+  const mobileCourses = document.querySelector<HTMLElement>(
+    ".header__mobile-curses"
+  );
+
+  console.log("Найденные элементы:", {
+    mobileBackButton,
+    viewCourseButton,
+    mobileCourses,
+  });
+
+  // Проверяем, что элементы существуют
+  if (!mobileBackButton) {
+    console.error("Элемент .header__mobile-back не найден");
+    return;
+  }
+  if (!viewCourseButton) {
+    console.error("Элемент #view-course не найден");
+    return;
+  }
+  if (!mobileCourses) {
+    console.error("Элемент .header__mobile-curses не найден");
+    return;
+  }
+
+  console.log("Все элементы найдены, инициализация анимаций...");
+
+  // Функция для скрытия курсов (уводит вправо)
+  const hideCourses = () => {
+    console.log("Вызвана функция hideCourses");
+    gsap.to(mobileCourses, {
+      x: "300%",
+      duration: 0.5,
+      ease: "power2.inOut",
+      onComplete: () => console.log("Анимация hideCourses завершена"),
+    });
+  };
+
+  // Функция для показа курсов (возвращает на место)
+  const showCourses = () => {
+    console.log("Начальные стили элемента:", {
+      transform: getComputedStyle(mobileCourses).transform,
+      visibility: getComputedStyle(mobileCourses).visibility,
+      display: getComputedStyle(mobileCourses).display,
+      opacity: getComputedStyle(mobileCourses).opacity,
+    });
+
+    gsap.to(mobileCourses, {
+      x: "0%",
+      duration: 0.5,
+      ease: "power2.inOut",
+      onUpdate: () => {
+        console.log("Текущие координаты:", {
+          x: gsap.getProperty(mobileCourses, "x"),
+          matrix: getComputedStyle(mobileCourses).transform,
+        });
+      },
+      onComplete: () => {
+        console.log(
+          "Финальные стили элемента:",
+          getComputedStyle(mobileCourses).transform
+        );
+        console.log(
+          "GSAP состояние анимации:",
+          gsap.getTweensOf(mobileCourses)
+        );
+      },
+    });
+  };
+
+  // Обработчики событий
+  console.log("Добавление обработчиков событий...");
+  mobileBackButton.addEventListener("click", (e) => {
+    console.log("Клик по mobileBackButton", e);
+    hideCourses();
+  });
+
+  viewCourseButton.addEventListener("click", (e) => {
+    console.log("Клик по viewCourseButton", e);
+    showCourses();
+  });
+
+  // Проверяем доступность GSAP
+
+  // Инициализация - скрываем курсы при загрузке (если нужно)
+  console.log("Инициализация начального состояния...");
+  gsap.set(mobileCourses, { clearProps: "transform" });
+  gsap.set(mobileCourses, {
+    x: "300%",
+    onComplete: () => console.log("Начальное состояние установлено"),
+  });
+
+  console.log("Инициализация завершена успешно");
+};
+
+// Проверяем, вызывается ли функция вообще
+console.log("Запуск инициализации мобильной навигации...");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM полностью загружен");
+  initMobileCoursesNavigation();
+});
+// Инициализация при загрузке
+// document.addEventListener('DOMContentLoaded', initMobileCoursesNavigation);

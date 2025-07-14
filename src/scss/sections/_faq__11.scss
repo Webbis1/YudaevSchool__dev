@@ -1,0 +1,133 @@
+@use "../variables/resolutions" as *;
+@use "../variables/colors" as *;
+@use "../mixins/media" as *;
+@use "../mixins/font" as *;
+
+.faq {
+  background: radial-gradient(
+      128.9% 26.53% at 59.71% 25.97%,
+      #ffffff 0%,
+      #f2f2f2 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+  &__header {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    .header__decor {
+      height: 106px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+
+    #header_ball {
+      z-index: 0;
+      height: 265px;
+    }
+  }
+
+  &-container {
+    // width: 89.3%;
+    margin: 0 auto;
+    padding-top: 214px;
+    &--center {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    margin-top: 58px;
+    width: 100%;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  &__subtitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  &-subtitle h3 {
+    font-weight: 400;
+    color: #00000080;
+    font-size: 16px;
+    font-family: GNF;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &__questions {
+    border-bottom: 1px solid;
+    gap: 10px;
+    border-image-source: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .question {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4));
+    border-radius: 40px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 4px 8px 0px #00000014;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    padding-left: 15px;
+    gap: 15px;
+    @include less($phone) {
+      padding: 12px;
+      padding-right: 10px;
+      padding-left: 30px;
+      // gap: 28px;
+    }
+    @include less($desktop) {
+      & .green-arrow {
+        width: 32px;
+        min-width: 32px;
+        min-height: 32px;
+      }
+    }
+    &__content {
+      color: #000000cc;
+      font-weight: 500;
+
+      @include font-size(14px, 15px, 15px, 18px);
+      //   text-wrap: nowrap;
+      font-family: "Inter";
+      line-height: 130%;
+    }
+  }
+
+  &__separator {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+
+  .separator {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.02),
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.02)
+    );
+  }
+}

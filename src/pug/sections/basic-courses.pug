@@ -9,21 +9,21 @@ include ../components/basic-courses__card.pug
 .basic-courses__group
     .basic-courses__group-head
         .basic-courses__group-title.gradient-border
-            +green-arrow()
+            +green-arrow("./assets/images/03/Vector (14).svg").basic-courses__logo
             .basic-courses__group-text Флагманские программы
         .basic-courses__group-count.gradient-border 2
     .basic-courses__cards
-        +basic-courses__card(1080)
-        +basic-courses__card(770)
+        +basic-courses__card(1080, 1)
+        +basic-courses__card(770, 2)
 
 
 .basic-courses__group
     .basic-courses__group-head
         .basic-courses__group-title.gradient-border
-            +green-arrow()
+            +green-arrow("./assets/images/03/Vector (15).svg").basic-courses__logo
             .basic-courses__group-text Флагманские программы
         .basic-courses__group-count.gradient-border 2
     .basic-courses__cards
-        +basic-courses__card(925)
-        +basic-courses__card(458)
-        +basic-courses__card(458)
+        +basic-courses__card(925, 3)
+        +basic-courses__card(458, 4)
+        +basic-courses__card(458, 5)

@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     font-family: 'GNF';
+    line-height: 130%;
     font-weight: 400;
     @include font.font-size(14px, 16px, 16px, 18px);
   }
@@ -23,18 +24,8 @@
   &__text-wrapper {
     position: relative;
     display: inline-block;
-    padding: 1.5px; // толщина градиентной рамки
+    // padding: 1.5px; // толщина градиентной рамки
     border-radius: 64px;
-
-    background: conic-gradient(
-      from -18.65deg at 50% 50%,
-      #cccccc 0deg,
-      #f0f0f0 90deg,
-      #cccccc 181.58deg,
-      #f0f0f0 270deg,
-      #cccccc 360deg
-    );
-
     overflow: hidden;
   }
   &__text {
@@ -43,6 +34,7 @@
     padding: 10px 16px;
     border-radius: 62px;
     display: block;
+    line-height: 130%;
     font-family: 'GNF';
     font-weight: 400;
     @include font.font-size(14px, 16px, 16px, 18px);

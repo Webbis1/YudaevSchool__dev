@@ -5,7 +5,7 @@ mixin hero-slide(num)
         +wb-card.hero__icon
         +ozon-card.hero__icon
 
-section.hero.row.null
+section.hero.row
     .hero__text.column.container
         .hero__top-one.row.gradient-border
             img(src="./assets/images/hugeicons_laurel-wreath-right-01.svg", alt="")
@@ -28,7 +28,8 @@ section.hero.row.null
             span Начало сразу после регистрации • 
             span Начало сразу после регистрации • 
             span Начало сразу после регистрации • 
-        +side-media("Учиться бесплатно","" ,true).hero__cta.wave-text
+        .hero__cta
+            +side-media("Учиться бесплатно","./assets/images/Vector (16).svg" ,true).wave-text
     .hero__content
         .hero__fence
             .hero__pagination.swiper-pagination

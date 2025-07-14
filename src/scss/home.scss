@@ -18,14 +18,16 @@
 @use "sections/hero";
 @use "components/expandable-grid";
 @use "sections/advantages__07";
+@use "sections/faq__11";
+@use "sections/questions__12";
+@use "sections/footer";
 
 
-.null{
+.null {
   display: none !important;
 }
 
-
-*{
+* {
   // outline: 1px darkcyan dashed;
 }
 
@@ -199,26 +201,37 @@ body {
 }
 
 .section-title {
-    // font-family: "Loos Extended", sans-serif;
-    font-family: "Headlines", sans-serif;
-    
-    font-weight: 500;
-    color: #000000;
-    line-height: 73%;
-    transform: scaleY(0.7);
-    letter-spacing: 0.4px;
-    @include font.font-size(26px, 34px, 34px, 54px);
-    b{
-      color: #00000040;
-    }
-    br{
-      display: block;
-      content: "";
-      padding-top: 17px;
-    }
-    p{
-      letter-spacing: -0.1px;
-    }
+  // font-family: "Loos Extended", sans-serif;
+  font-family: "Inter";
+
+  font-weight: 500;
+  color: #000000;
+  line-height: 73%;
+  transform: scaleY(0.7);
+  letter-spacing: 0.4px;
+  @include font.font-size(26px, 34px, 34px, 54px);
+  b {
+    color: #00000040;
+  }
+  br {
+    display: block;
+    content: "";
+    padding-top: 17px;
+  }
+  p {
+    letter-spacing: -0.1px;
+  }
+}
+
+.pc {
+  @include media.less(991px) {
+    display: none !important;
+  }
+}
+.mobile {
+  @include media.more(990px) {
+    display: none !important;
+  }
 }
 
 .side-media {
@@ -229,7 +242,7 @@ body {
   color: #00000066;
   align-items: center;
   justify-content: flex-start;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   &__img {
     height: 20px;
     width: 20px;
@@ -239,8 +252,8 @@ body {
   &__text {
     color: inherit;
     padding-inline: 9px;
-    // font-family: "Headlines", sans-serif;
-    font-family: "Loos Extended", sans-serif;
+    // font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 15px;
     letter-spacing: -0.1px;
@@ -272,7 +285,7 @@ body {
   padding: 5px;
   padding-left: 15px;
   &__text {
-    font-family: "Headlines", sans-serif;
+    font-family: "Inter";
     font-weight: 500;
     font-size: 16px;
     color: inherit;
@@ -319,7 +332,7 @@ body {
   border-bottom-right-radius: 0;
   // min-height: 100vh;
   // overflow: hidden;
-  padding-bottom: 300px;
+  // padding-bottom: 300px;
   background-color: white;
   // overflow-x: hidden;
 }
@@ -763,5 +776,63 @@ circle {
   &.active {
     opacity: 1;
     // display: block;
+  }
+}
+
+.after-footer {
+  background-color: #FAFAFA;
+  padding-block: 30px;
+  position: relative;
+  &__text {
+    background-color: #cfff32;
+
+    backdrop-filter: blur(90px);
+    box-shadow: 0px -3px 40px 0px #ffffff80 inset;
+
+    box-shadow: 0px 3px 40px 0px #ffffff80 inset;
+
+    box-shadow: 4px 0px 40px 0px #ffffff4d inset;
+
+    box-shadow: -4px 0px 40px 0px #ffffff4d inset;
+
+    box-shadow: 0px 6px 40px 0px #0000001a;
+    // font-size: 330px;
+    padding: 30px 32px;
+    border-radius: 40px;
+    img{
+      width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
+
+
+.go-to-start{
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  translate: -50%;
+  text-decoration: none;
+  @include media.less($phone){
+    display: none;
+  }
+  .green-arrow{
+    min-height: 26px;
+    min-width: 26px;
+  }
+  .side-media{
+    padding: 5px;
+    padding-left: 20px;
+    background-color: #FFFFFF66;
+  }
+  .side-media__text{
+    font-family: "Inter";
+    font-weight: 500;
+    text-decoration: none;
+    @include font.font-size(14px, 14px, 14px, 16px);
+    line-height: 130%;
+    
   }
 }

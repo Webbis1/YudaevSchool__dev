@@ -2,14 +2,18 @@ include ../mixins/index.pug
 include ../components/course_card.pug 
 //- include ../components/expandable-grid.pug
 include ../sections/header.pug
+.fon 
+    img(src="./assets/images/header/Hero (3).png", alt="").pc
+    img(src="./assets/images/header/Menu – Phone 2.png", alt="").mobile
+#hero
 include ../sections/hero
 
-img(src="./assets/images/header/Menu.png", alt="alt", style="padding-top: 300px; max-width: 100%")
+//- img(src="./assets/images/header/Menu.png", alt="alt", style="padding-top: 300px; max-width: 100%")
 
-main.main.null
+main.main
     
     //- 1 
-    section.start-with-the-basics
+    section.start-with-the-basics#first
         include ../sections/start-with-the-basics__01.pug
         .fon 
             img(src="./assets/images/section/01-1920.png", alt="")
@@ -22,19 +26,19 @@ main.main.null
         include ../sections/basic-courses.pug
         
     //- 4
-    section.diploma.container.column
+    section.diploma.container.column.null
         include ../sections/diploma.pug
     //- star
-    section.real-pros#real-pros
+    section.real-pros#real-pros.null
         include ../sections/real-pros.pug
     //- 5
-    section.student-results.column.container
+    section.student-results.column.container.null
         include ../sections/student-results__05.pug
     //- 6
-    section.cases.container.column
+    section.cases.container.column.null
         include ../sections/cases.pug
     //- 7
-    section.advantages.row.container
+    section.advantages.row.container.null
         include ../sections/advantages__07.pug
         .fon 
             img(src="./assets/images/section/07-1920.png", alt="")
@@ -45,14 +49,21 @@ main.main.null
     //- 10
     section.help-with-vacancies
     //- 11
-    section.faq
+    section.faq.column.container
+        include ../sections/faq__11.pug
+        .fon 
+            img(src="./assets/images/11/Frame 2147224401.png", alt="")
     //- 12
-    section.questions
-
+    section.questions-block.container.column
+        include ../sections/questions__12.pug
 
 footer.footer
-section.after-footer
-
+    include ../sections/footer.pug
+section.after-footer.container
+    .after-footer__text.gradient-border 
+        img(src="./assets/images/yudaev/Yudaev.png", alt="Yudaev")
+    a.go-to-start(href="#hero")
+        +side-media("Вернуться в начало сайта", "./assets/images/yudaev/Arrow Up 16.svg", true)
 
 .background-blur#background-blur
 

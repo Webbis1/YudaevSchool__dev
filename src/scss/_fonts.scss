@@ -1,116 +1,116 @@
 @font-face {
   font-family: "GNF";
-  src: url("./assets/fonts/GNF/GNF.ttf") format("truetype");
+  src: url("@/assets/fonts/GNF/GNF.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/Headlines/Headlines-Bold.otf") format("opentype");
+  src: url("@/assets/fonts/Headlines/Headlines-Bold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/Headlines/Headlines-BoldItalic.otf")
+  src: url("@/assets/fonts/Headlines/Headlines-BoldItalic.otf")
     format("opentype");
   font-weight: bold;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Loos_Extended";
-  src: url("./assets/fonts/Loos_Extended/loos-extended-regular.otf")
+  src: url("@/assets/fonts/Loos_Extended/loos-extended-regular.otf")
     format("opentype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: "Loos Extended";
-  src: url("Loos Latin, Cyrillic Extended-Thin-Web.eot");
-  src: url("Loos Latin, Cyrillic Extended-Thin-Web.eot#iefix")
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Thin-Web.eot");
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Thin-Web.eot#iefix")
       format("embedded-opentype"),
-    url("Loos Latin, Cyrillic Extended-Thin-Web.woff2") format("woff2"),
-    url("Loos Latin, Cyrillic Extended-Thin-Web.woff") format("woff"),
-    url("Loos Latin, Cyrillic Extended-Thin-Web.ttf") format("truetype");
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Thin-Web.woff2") format("woff2"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Thin-Web.woff") format("woff"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Thin-Web.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Loos Extended";
-  src: url("Loos Latin, Cyrillic Extended-ExtraLight-Web.eot");
-  src: url("Loos Latin, Cyrillic Extended-ExtraLight-Web.eot#iefix")
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-ExtraLight-Web.eot");
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-ExtraLight-Web.eot#iefix")
       format("embedded-opentype"),
-    url("Loos Latin, Cyrillic Extended-ExtraLight-Web.woff2") format("woff2"),
-    url("Loos Latin, Cyrillic Extended-ExtraLight-Web.woff") format("woff"),
-    url("Loos Latin, Cyrillic Extended-ExtraLight-Web.ttf") format("truetype");
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-ExtraLight-Web.woff2") format("woff2"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-ExtraLight-Web.woff") format("woff"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-ExtraLight-Web.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Loos Extended";
-  src: url("Loos Latin, Cyrillic Extended-Light-Web.eot");
-  src: url("Loos Latin, Cyrillic Extended-Light-Web.eot#iefix")
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Light-Web.eot");
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Light-Web.eot#iefix")
       format("embedded-opentype"),
-    url("Loos Latin, Cyrillic Extended-Light-Web.woff2") format("woff2"),
-    url("Loos Latin, Cyrillic Extended-Light-Web.woff") format("woff"),
-    url("Loos Latin, Cyrillic Extended-Light-Web.ttf") format("truetype");
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Light-Web.woff2") format("woff2"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Light-Web.woff") format("woff"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Light-Web.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Loos Extended";
-  src: url("Loos Latin, Cyrillic Extended-Regular-Web.eot");
-  src: url("Loos Latin, Cyrillic Extended-Regular-Web.eot#iefix")
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Regular-Web.eot");
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Regular-Web.eot#iefix")
       format("embedded-opentype"),
-    url("Loos Latin, Cyrillic Extended-Regular-Web.woff2") format("woff2"),
-    url("Loos Latin, Cyrillic Extended-Regular-Web.woff") format("woff"),
-    url("Loos Latin, Cyrillic Extended-Regular-Web.ttf") format("truetype");
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Regular-Web.woff2") format("woff2"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Regular-Web.woff") format("woff"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Regular-Web.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Loos Extended";
-  src: url("Loos Latin, Cyrillic Extended-Medium-Web.eot");
-  src: url("Loos Latin, Cyrillic Extended-Medium-Web.eot#iefix")
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Medium-Web.eot");
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Medium-Web.eot#iefix")
       format("embedded-opentype"),
-    url("Loos Latin, Cyrillic Extended-Medium-Web.woff2") format("woff2"),
-    url("Loos Latin, Cyrillic Extended-Medium-Web.woff") format("woff"),
-    url("Loos Latin, Cyrillic Extended-Medium-Web.ttf") format("truetype");
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Medium-Web.woff2") format("woff2"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Medium-Web.woff") format("woff"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Medium-Web.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Loos Extended";
-  src: url("Loos Latin, Cyrillic Extended-Bold-Web.eot");
-  src: url("Loos Latin, Cyrillic Extended-Bold-Web.eot#iefix")
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Bold-Web.eot");
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Bold-Web.eot#iefix")
       format("embedded-opentype"),
-    url("Loos Latin, Cyrillic Extended-Bold-Web.woff2") format("woff2"),
-    url("Loos Latin, Cyrillic Extended-Bold-Web.woff") format("woff"),
-    url("Loos Latin, Cyrillic Extended-Bold-Web.ttf") format("truetype");
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Bold-Web.woff2") format("woff2"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Bold-Web.woff") format("woff"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Bold-Web.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Loos Extended";
-  src: url("Loos Latin, Cyrillic Extended-Black-Web.eot");
-  src: url("Loos Latin, Cyrillic Extended-Black-Web.eot#iefix")
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Black-Web.eot");
+  src: url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Black-Web.eot#iefix")
       format("embedded-opentype"),
-    url("Loos Latin, Cyrillic Extended-Black-Web.woff2") format("woff2"),
-    url("Loos Latin, Cyrillic Extended-Black-Web.woff") format("woff"),
-    url("Loos Latin, Cyrillic Extended-Black-Web.ttf") format("truetype");
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Black-Web.woff2") format("woff2"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Black-Web.woff") format("woff"),
+    url("@/assets/fonts/LoosLatin/Loos Latin, Cyrillic Extended-Black-Web.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
@@ -118,132 +118,132 @@
 /* Headlines - Regular */
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-Regular.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-Regular.otf")
     format("opentype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-RegularItalic.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-RegularItalic.otf")
     format("opentype");
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 /* Headlines - Thin */
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-Thin.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-Thin.otf")
     format("opentype");
   font-weight: 100;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-ThinItalic.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-ThinItalic.otf")
     format("opentype");
   font-weight: 100;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 /* Headlines - Light */
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-Light.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-Light.otf")
     format("opentype");
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-LightItalic.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-LightItalic.otf")
     format("opentype");
   font-weight: 300;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 /* Headlines - SemiLight */
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-SemiLight.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-SemiLight.otf")
     format("opentype");
   font-weight: 350;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-SemiLightItalic.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-SemiLightItalic.otf")
     format("opentype");
   font-weight: 350;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 /* Headlines - Medium */
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-Medium.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-Medium.otf")
     format("opentype");
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-MediumItalic.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-MediumItalic.otf")
     format("opentype");
   font-weight: 500;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 /* Headlines - SemiBold */
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-SemiBold.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-SemiBold.otf")
     format("opentype");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-SemiBoldItalic.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-SemiBoldItalic.otf")
     format("opentype");
   font-weight: 600;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 /* Headlines - Bold */
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-Bold.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-Bold.otf")
     format("opentype");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Headlines";
-  src: url("./assets/fonts/headlines-cufonfonts/Headlines-BoldItalic.otf")
+  src: url("@/assets/fonts/headlines-cufonfonts/Headlines-BoldItalic.otf")
     format("opentype");
   font-weight: 700;
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }

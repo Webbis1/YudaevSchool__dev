@@ -1,13 +1,37 @@
-mixin basic-courses__card(grow)
+mixin basic-courses__card(grow, index = 1)
     .basic-courses__card(style=`flex-grow: ${grow}`)
         .basic-courses__card-image
-            img(src="./assets/images/Checker.png", alt="Digital-дизайнер")
+            case index
+                when 1
+                    img(src="./assets/images/03/card1.png", alt="Digital-дизайнер")
+                when 2
+                    img(src="./assets/images/03/card1.png", alt="UX/UI дизайнер")
+                when 3
+                    img(src="./assets/images/03/card1.png", alt="3D-визуализатор")
+                when 4
+                    img(src="./assets/images/03/card4.png", alt="Графический дизайнер")
+                when 5
+                    img(src="./assets/images/03/card5.png", alt="Моушн-дизайнер")
         .basic-courses__card-blur
-            .basic-courses__card-title Digital-дизайнер
+            .basic-courses__card-title
+                case index
+                    when 0
+                        | Digital-дизайнер
+                    when 1
+                        | UX/UI дизайнер
+                    when 2
+                        | 3D-визуализатор
+                    when 3
+                        | Графический дизайнер
+                    when 4
+                        | Моушн-дизайнер
+                    default
+                        | Курс по дизайну
             .basic-courses__card-discription
-                .basic-courses__card-month-count.month-count.gradient-border
-                    +green-arrow("").month-count__icon
-                    .month-count__text 9 месяцев
+                +side-media("9 месяцев", "./assets/images/03/Vector (13).svg").basic-courses__card-month-count
+                //- .basic-courses__card-month-count.month-count.gradient-border
+                //-     +green-arrow("").month-count__icon
+                //-     .month-count__text 9 месяцев
                 .basic-courses__card-tags
                     .basic-courses__card-tag Программа трудоустройства
                     .basic-courses__card-tag Диплом
@@ -16,5 +40,5 @@ mixin basic-courses__card(grow)
             .basic-courses__card-price
                 .basic-courses__card-old-price 9 776 ₽ / мес
                 .basic-courses__card-new-price от 4 888 ₽ / мес
-            +cta("Учиться бесплатно")
+            +side-media("Учиться бесплатно")
             

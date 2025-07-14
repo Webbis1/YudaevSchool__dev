@@ -1,0 +1,103 @@
+@use "../variables/resolutions" as *;
+@use "../variables/colors" as *;
+@use "../mixins/media" as *;
+@use "../mixins/font" as *;
+
+
+
+.questions-block {
+  background: radial-gradient(68.52% 33.45% at 59.55% 33.45%, #FFFFFF 0%, #fafafa 100%);
+    padding-bottom: 250px;
+  &__title-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    background: #FFFFFF80;
+    width: 89.3%;
+    margin: 0 auto;
+    border-radius: 30px;
+  }
+
+  &__subtitle {
+    margin: 69px 20px 10px;
+    width: 66.3%;
+
+    p {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 110%;
+      font-family: Headlines, sans-serif;
+      color: #000000;
+      text-align: center;
+    }
+  }
+}
+
+.questions-container {
+  width: 89.3%;
+  margin: 0 auto;
+}
+
+.question {
+  &-subtitle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 110px;
+  }
+
+  &__info {
+    width: 98%;
+    text-align: center;
+
+    p {
+      font-size: 14px;
+      line-height: 130%;
+      font-weight: 500;
+      letter-spacing: -2%;
+      color: #00000066;
+      margin-bottom: 110px;
+    }
+  }
+
+  &-block {
+    &__form {
+      width: 100%;
+    }
+
+    &__input {
+      padding: 21px 0 21px 20px;
+      border-radius: 14px;
+      border: 1.5px solid;
+      border-image-source: conic-gradient(from -18.65deg at 50% 50%, rgba(255, 255, 255, 0.2) 0deg, rgba(255, 255, 255, 0.6) 90deg, rgba(255, 255, 255, 0.2) 181.58deg, rgba(255, 255, 255, 0.6) 270deg, rgba(255, 255, 255, 0.2) 360deg);
+      box-shadow: 0px 4px 8px 0px #00000014;
+      backdrop-filter: blur(40px);
+      background: #0000000D;
+      margin-bottom: 10px;
+      width: 100%;
+      font-family: GNF;
+      text-transform: uppercase;
+    }
+
+    &__form-button {
+      padding: 20px 0 20px 24px;
+      width: 100%;
+      display: flex;
+      background: #CFFF32;
+      border: 1.5px solid;
+      border-image-source: conic-gradient(from -18.65deg at 50% 50%, rgba(255, 255, 255, 0.3) 0deg, rgba(255, 255, 255, 0.8) 90deg, rgba(255, 255, 255, 0.3) 181.58deg, rgba(255, 255, 255, 0.8) 270deg, rgba(255, 255, 255, 0.3) 360deg);
+      box-shadow: 
+        0px -6px 14px 0px #FFFFFF80 inset,
+        0px 6px 14px 0px #FFFFFF80 inset,
+        4px 0px 30px 0px #FFFFFFCC inset,
+        -4px 0px 30px 0px #FFFFFFCC inset,
+        0px 2px 10px 0px #00000026;
+    }
+  }
+}
+
+.text-gray {
+  color: #00000040;
+}

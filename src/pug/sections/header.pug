@@ -6,6 +6,16 @@ mixin header-course()
             img(src="./assets/images/Checker.png", alt="alt") 
         +green-arrow().header__course-cta
 
+mixin burger(text)
+    .header__burger.header__link.gradient-border.row&attributes(attributes)
+        .header__burger-icon.gradient-border.burger
+                input(type="checkbox")
+                label
+                    span 
+                    span 
+                    span 
+        .header__burger-text= text
+
 header.header.container
     nav.header__desktop.row
         .header__logo.row
@@ -13,14 +23,7 @@ header.header.container
                 img(src="./assets/images/logo.svg", alt="")
             h1.header__title Yudaev School
         .header__menu.gradient-border.row
-            .header__burger.header__link.gradient-border.row 
-                .header__burger-icon.gradient-border
-                        label.hamburger
-                            input(type="checkbox")
-                            svg(viewBox="0 0 32 32")
-                                path.line.line-top-bottom(d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22")
-                                path.line(d="M7 16 27 16")
-                .header__burger-text Курсы
+            +burger("Курсы")#burger-pc
             .header__links.row
                 a(href="#").link.header__link.gradient-border Материалы
                 a(href="#").header__link.gradient-border Блог
@@ -31,7 +34,7 @@ header.header.container
             .header__courses.column
                 .wrapper.gradient-border.column
                     .header__section.column
-                        +side-media("Бесплатные программы").header__section-title
+                        +side-media("Бесплатные программы", "./assets/images/header/Vector (7).svg").header__section-title
                         .header__section-content
                             +header-course
                             +header-course
@@ -41,7 +44,7 @@ header.header.container
                             +header-course
                             
                     .header__section.column
-                        +side-media("Бесплатные программы").header__section-title
+                        +side-media("Основные программы", "./assets/images/header/Vector (8).svg").header__section-title
                         .header__section-content
                             +header-course
                             +header-course
@@ -49,4 +52,82 @@ header.header.container
                             +header-course
                             +header-course
                             
-                            
+    nav.header__mobile.column
+        .header__head.row
+            .header__logo.row
+                .header__logo-image
+                    img(src="./assets/images/logo.svg", alt="")
+                h1.header__title Yudaev School                     
+
+            +burger("Меню")#burger-mobile
+                
+        
+
+        .header__mobile-content.column.gradient-border(style="display: none;")
+            .header__mobile-links.column
+                +side-media("Курсы", "./assets/images/header/plus.svg", true).header__mobile-link.gradient-border#view-course
+                +side-media("Материалы", "./assets/images/header/black-right.svg", true).header__mobile-link.gradient-border
+                +side-media("Бесплатные курс", "./assets/images/header/white-right.svg", true).header__mobile-link.gradient-border.header__mobile-link_green
+                .header__mobile-mini-link.gradient-border.first Центр карьеры
+                .header__mobile-mini-link.gradient-border Блог
+                .header__mobile-mini-link.gradient-border О школе
+            .header__mobile-foot.column
+                .header__mobile-foot-section.column
+                    .header__mobile-foot-title Мессенджеры
+                    .header__mobile-foot-links.row
+                        .header__mobile-mini-link.gradient-border Telegram
+                        .header__mobile-mini-link.gradient-border WhatsApp
+                .header__mobile-foot-section.column.social
+                    .header__mobile-foot-title Соц. сети
+                    .header__mobile-foot-links.row.social
+                        +green-arrow("./assets/images/header/icons/be.svg")
+                        +green-arrow("./assets/images/header/icons/pint.svg")
+                        +green-arrow("./assets/images/header/icons/inst.svg")
+                        +green-arrow("./assets/images/header/icons/tg.svg")
+                        +green-arrow("./assets/images/header/icons/vk.svg")
+                        +green-arrow("./assets/images/header/icons/yt.svg")
+
+            .header__mobile-curses.column 
+                +green-arrow("./assets/images/header/icons/left-arrow.svg").header__mobile-back
+                .header__mobile-course.column
+                    .header__mobile-course-head.row
+                        +side-media("Бесплатные программы", "./assets/images/header/Vector (7).svg").header__section-title
+                        .header__mobile-course-count.gradient-border 5
+                    .header__mobile-course-content.row
+                        .header__mobile-course-card.column
+                            .header__mobile-course-image.gradient-border
+                                img(src="./assets/images/Checker.png", alt="Web-дизайн с нуля")
+                            .header__mobile-course-title Web-дизайн с нуля
+                        .header__mobile-course-card.column
+                            .header__mobile-course-image.gradient-border
+                                img(src="./assets/images/Checker.png", alt="Web-дизайн с нуля")
+                            .header__mobile-course-title Web-дизайн с нуля
+                        .header__mobile-course-card.column
+                            .header__mobile-course-image.gradient-border
+                                img(src="./assets/images/Checker.png", alt="Web-дизайн с нуля")
+                            .header__mobile-course-title Web-дизайн с нуля
+                        .header__mobile-course-card.column
+                            .header__mobile-course-image.gradient-border
+                                img(src="./assets/images/Checker.png", alt="Web-дизайн с нуля")
+                            .header__mobile-course-title Web-дизайн с нуля
+                .header__mobile-course.column
+                    .header__mobile-course-head.row
+                        +side-media("Основные программы", "./assets/images/header/Vector (8).svg").header__section-title
+                        .header__mobile-course-count.gradient-border 5
+                    .header__mobile-course-content.row
+                        .header__mobile-course-card.column
+                            .header__mobile-course-image.gradient-border
+                                img(src="./assets/images/Checker.png", alt="Web-дизайн с нуля")
+                            .header__mobile-course-title Web-дизайн с нуля
+                        .header__mobile-course-card.column
+                            .header__mobile-course-image.gradient-border
+                                img(src="./assets/images/Checker.png", alt="Web-дизайн с нуля")
+                            .header__mobile-course-title Web-дизайн с нуля
+                        .header__mobile-course-card.column
+                            .header__mobile-course-image.gradient-border
+                                img(src="./assets/images/Checker.png", alt="Web-дизайн с нуля")
+                            .header__mobile-course-title Web-дизайн с нуля
+                        .header__mobile-course-card.column
+                            .header__mobile-course-image.gradient-border
+                                img(src="./assets/images/Checker.png", alt="Web-дизайн с нуля")
+                            .header__mobile-course-title Web-дизайн с нуля

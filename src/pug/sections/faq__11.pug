@@ -1,0 +1,33 @@
+
+//- .faq__header
+//-     .header__decor
+//-         img(src="./assets/images/Frame 2147224250.png" alt="decor")
+//-     .faq-container.faq-container--center
+//-         img(src="./assets/images/image 1944.png" alt="ball" id="header_ball")
+mixin quest(text)
+    .questions__question.question.gradient-border
+        p.question__content= text
+        +green-arrow("./assets/images/11/plus.svg")
+
+
+.faq-container
+    .faq__content
+    .faq__title
+        .section-name.gradient-border
+            .faq__number.section-name__index 11
+            .section-name__text-wrapper.gradient-border
+                .section-name__text FAQ
+    
+    .faq__subtitle.faq-subtitle
+        h3 Ответы на часто задаваемы вопросы
+    
+    .faq__questions.questions.column
+        +quest("Сколько нужно учиться на дизайнера?")
+        +quest("Как понять каким дизайнером становиться?")
+        +quest("Сколько времени в неделю нужно на обучение?")
+        +quest("Я получу практический опыт на обучении?")
+        +quest("Получится ли устроиться на работу после прохождения программы?")
+        +quest("Я смогу изучать материалы курса после обучения?")
+        +quest("Как я смогу подтвердить свое образование?")
+    
+    .faq__separator.separator

@@ -1,0 +1,67 @@
+.footer__container.container.gradient-border
+    .footer__logo-section
+        .footer__logo.gradient-border
+            img(src="./assets/images/logo.svg" alt="Логотип" width="30" height="30")
+        .footer__title
+            span.footer__title-main Профессиональное обучение дизайну
+            br
+            span.footer__title-sub с дипломом и трудоустройством
+            br
+            span.footer__copyright © 2025
+        .footer__info-wrapper
+            .footer__info
+                | ИП Лукин Константин Вячеславович
+                br
+                | ИНН: 503820900907
+                br
+                | Удмуртская Республика, г. Ижевск,
+                br
+                | ул. им. 40-летия ВЛКСМ, д. 29, кв. 165
+            .footer__links
+                a.footer__link(href="#") Договор оферты
+                a.footer__link(href="#") Политика конфиденциальности
+
+    .footer__right-section
+        .footer__social-section
+            each social in [{icon: 'be.svg', name: 'Behance'}, {icon: 'pint.svg', name: 'Pinterest'}, {icon: 'inst.svg', name: 'Instagram'}, {icon: 'tg.svg', name: 'Telegram'}, {icon: 'vk.svg', name: 'VK'}, {icon: 'yt.svg', name: 'YouTube'}]
+                a.footer__social-item
+                    .footer__social-icon
+                        img.footer__social-img(src=`./assets/images/header/icons/${social.icon}` alt=social.name)
+                    span.footer__social-name= social.name
+
+        .footer__bottom-section
+            .footer__courses-section
+                h3.footer__courses-title КУРСЫ
+                .footer__courses-links
+                    a.footer__course-link(href="#") Digital-дизайнер
+                    a.footer__course-link(href="#") UX / UI дизайнер
+                    a.footer__course-link(href="#") 3D-визуализатор
+                    a.footer__course-link(href="#") 3D-визуализатор
+                    a.footer__course-link(href="#") 3D-визуализатор
+                .footer__additional-links
+                    a.footer__additional-link(href="#") Бесплатные материалы
+                    a.footer__additional-link(href="#") Блог
+                    a.footer__additional-link(href="#") Блог
+                    a.footer__additional-link(href="#") О школе
+
+            .footer__contacts-messengers-wrapper
+                .footer__contacts-section
+                    h3.footer__contacts-title КОНТАКТЫ
+                    .footer__contact-item +7 495-137-45-28
+                    .footer__contact-item welcome@yudaevschool.online
+                .footer__messengers-section
+                    h3.footer__messengers-title МЕССЕНДЖЕРЫ
+                    .footer__messengers-buttons
+                        a.footer__messenger-button Telegram
+                        a.footer__messenger-button WhatsApp
+
+    .footer__mobile-social-section
+      h3.footer__socials-title СОЦ. СЕТИ
+      .footer__mobile-social-grid
+        each social in [{icon: 'be.svg', name: 'Behance'}, {icon: 'pint.svg', name: 'Pinterest'}, {icon: 'inst.svg', name: 'Instagram'}, {icon: 'tg.svg', name: 'Telegram'}, {icon: 'vk.svg', name: 'VK'}, {icon: 'yt.svg', name: 'YouTube'}]
+            .footer__social-item
+                .footer__social-icon
+                    img.footer__social-img(src=`./assets/images/header/icons/${social.icon}` alt=social.name)
+                span.footer__social-name= social.name
+
+    .footer__divider

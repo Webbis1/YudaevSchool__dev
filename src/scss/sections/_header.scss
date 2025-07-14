@@ -9,17 +9,20 @@
   }
   position: fixed;
   top: 20px;
+  @include less(990px) {
+    // top: 27px;
+  }
   left: 50%;
   transform: translateX(-50%);
   //   background-color: $light_green;
-  z-index: 90;
+  z-index: 11;
   &__link {
-    padding: 6.5px 15px;
+    padding: 5px 15px;
     border-radius: 64px;
     text-decoration: none;
     box-shadow: 0px 2px 5px 0px #0000000d;
     background-color: #ffffff66;
-    font-family: "Headlines", sans-serif;
+    font-family: "Inter";
     @include font-size(14px, 14px, 14px, 16px);
     letter-spacing: 1px;
     text-wrap: nowrap;
@@ -68,6 +71,8 @@
   &__links {
     align-items: center;
     gap: 10px;
+    align-items: stretch;
+    // height: 100%;
     z-index: 5;
     @include less($tablet) {
       flex: 1;
@@ -76,14 +81,20 @@
     }
     .scroll & {
       flex: 1;
+      
+
       justify-content: flex-end;
-      align-items: stretch;
     }
   }
   &__logo {
     align-items: center;
     gap: 5px;
     position: relative;
+    line-height: 120%;
+    @include more(990px) {
+      translate: -9px;
+    }
+    letter-spacing: -0.2px;
     @include less($tablet) {
       &::after {
         content: "";
@@ -108,6 +119,12 @@
         width: 1px;
         background: #cccccc; // Церта
         height: 22px;
+      }
+    }
+
+    @include less(990px) {
+      &::after {
+        display: none;
       }
     }
   }
@@ -122,31 +139,43 @@
     padding: 6px;
     background-color: $header_backgroud;
     border-radius: 80px;
-    gap: 205px;
+    max-width: 1071px;
+    // gap: 205px;
+    flex: 1;
+    align-items: stretch;
+    justify-content: flex-end;
+
     box-shadow: 0px 4px 8px 0px #00000014;
-    &::after {
-      // content: "";
-      // position: absolute;
-      // right: -7.5px; // Сдвигаем черту вправо от элемента
-      // top: 50%;
-      // transform: translateY(-50%);
-      // bottom: 0;
-      // width: 1px;
-      // background: #cccccc; // Церта
-      // height: 22px;
-    }
+    // box-shadow: 0px 4px 8px 0px #00000014;
+
+    backdrop-filter: blur(45px);
+
     @include less($tablet) {
       display: contents !important;
     }
     .scroll & {
       display: contents;
     }
+
+    @include less(990px) {
+      // display: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      background-color: transparent;
+      box-shadow: none;
+      align-items: flex-end;
+      justify-content: flex-start;
+      height: 100vh;
+      padding: 0;
+    }
   }
   &__title {
     font-family: "Loos_Extended";
-    font-weight: 500;
+    font-weight: 600;
     font-size: 13px;
+    text-wrap: nowrap;
     line-height: 130%;
+    padding-right: 20px;
     .scroll & {
       @include more($tablet) {
         display: none;
@@ -178,9 +207,12 @@
       //   width: fit-content;
       padding-left: 20px;
       padding-right: 6px;
+      backdrop-filter: blur(45px);
+
+      box-shadow: 0px 4px 8px 0px #00000014;
     }
-    @include less($phone) {
-      display: none;
+    @include less(990px) {
+      display: none !important;
     }
   }
   &__burger {
@@ -189,12 +221,22 @@
     box-shadow: 0px 2px 5px 0px #0000000d;
     padding-left: 5px;
     cursor: pointer;
-    align-self: flex-start;
+    // align-self: flex-start;
+    // justify-self: start;
+    @include more(990px) {
+      margin-right: auto;
+    }
     &-text {
       font-family: inherit;
       font-size: inherit;
       font-weight: inherit;
       color: inherit;
+      @include less(990px) {
+        padding-right: 10px;
+      }
+    }
+    @include less(990px) {
+      padding: 5px;
     }
   }
   &__burger-icon {
@@ -202,9 +244,12 @@
 
     background-color: #cfff32;
     border-radius: 50%;
-    padding: 5px;
+    // padding: 5px;
   }
 
+  &__head {
+    justify-content: space-between;
+  }
   &__courses {
     position: absolute;
     box-shadow: 0px 4px 8px 0px #00000014;
@@ -232,6 +277,12 @@
       column-gap: 10px;
       row-gap: 20px;
     }
+    &-title {
+      & .side-media__text {
+        font-family: "Inter", sans-serif;
+        line-height: 135%;
+      }
+    }
   }
   &__course {
     width: 100%;
@@ -252,11 +303,13 @@
       width: 100%;
       height: 100%;
       display: flex;
-      align-items: center;
+      // align-items: center;
       justify-content: center;
+      overflow: hidden;
+      border-radius: inherit;
       img {
-        max-width: 100%;
-        max-height: 100%;
+        min-width: 100%;
+        min-height: 100%;
         object-fit: cover;
         object-position: center;
       }
@@ -285,7 +338,8 @@
       width: fit-content;
       border-radius: 40px;
       background-color: #f7f7f7;
-      font-family: "Headlines", sans-serif;
+      // font-family: "Inter";
+      font-family: "Inter", sans-serif;
       font-weight: 600;
       color: #00000066;
       @include font-size(13px, 13px, 15px, 15px);
@@ -302,56 +356,272 @@
   }
 }
 
-.hamburger {
-  z-index: 4;
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// .hamburger {
+//   z-index: 4;
+//   // cursor: pointer;
+//   pointer-events: none;
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
 
-.hamburger input {
-  display: none;
-}
+// .hamburger input {
+//   display: none;
+// }
 
-.hamburger svg {
-  /* The size of the SVG defines the overall size */
-  height: 12px;
-  width: 12px; /* Явно задаем ширину */
-  /* Define the transition for transforming the SVG */
-  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+// .hamburger svg {
+//   /* The size of the SVG defines the overall size */
+//   height: 12px;
+//   width: 12px; /* Явно задаем ширину */
+//   /* Define the transition for transforming the SVG */
+//   transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
 
-.hamburger svg {
-}
+// .hamburger svg {
+// }
 
-.line {
-  fill: none;
-  stroke: black;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 3;
-  /* Define the transition for transforming the Stroke */
-  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+// .line {
+//   fill: none;
+//   stroke: black;
+//   stroke-linecap: round;
+//   stroke-linejoin: round;
+//   stroke-width: 3;
+//   /* Define the transition for transforming the Stroke */
+//   transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+//     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
 
-.line-top-bottom {
-  stroke-dasharray: 12 63;
-}
+// .line-top-bottom {
+//   stroke-dasharray: 12 63;
+// }
 
-.hamburger input:checked + svg {
-  transform: rotate(-45deg);
-}
+// .hamburger input:checked + svg {
+//   transform: rotate(-45deg);
+// }
 
-.hamburger input:checked + svg .line-top-bottom {
-  stroke-dasharray: 20 300;
-  stroke-dashoffset: -32.42;
-}
+// .hamburger input:checked + svg .line-top-bottom {
+//   stroke-dasharray: 20 300;
+//   stroke-dashoffset: -32.42;
+// }
 
 .scroll {
   // width: auto !important;
   max-width: 1100px;
   // margin-inline: auto;
+}
+
+.burger {
+  padding-inline: 8px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  // gap: 2px;
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+  }
+  input {
+    display: none;
+  }
+  span {
+    display: block;
+    width: 8px;
+    height: 1px;
+    background: #000000;
+    border-radius: 2px;
+    // margin-bottom: 3px;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+      opacity 0.3s ease;
+  }
+  &.active span:nth-child(1) {
+    position: absolute;
+    transform: rotate(45deg);
+  }
+
+  &.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  &.active span:nth-child(3) {
+    position: absolute;
+    transform: rotate(-45deg);
+  }
+}
+
+.header__mobile {
+  z-index: -1;
+  position: relative;
+  @include more(990px) {
+    display: none !important;
+  }
+  height: 100vh;
+  // overflow: hidden;
+  padding-bottom: 20px;
+  &-content {
+    margin-block: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px 0px #00000014;
+    overflow: hidden;
+    position: relative;
+    // pointer-events: none;
+    // flex: 1;
+  }
+  &-links {
+    gap: 20px;
+    flex: 1;
+    padding-bottom: 30px;
+    border-bottom: 1px solid gray;
+  }
+  &-link {
+    cursor: pointer;
+    &.side-media {
+      padding: 5px;
+      justify-content: space-between;
+      background-color: #ffffff26;
+    }
+    box-shadow: 0px 6px 10px 0px #0000000d;
+    & .side-media__img {
+      width: 32px;
+      height: 32px;
+    }
+
+    & .side-media__text {
+      color: #000000cc;
+      font-family: "Inter";
+      font-weight: 500;
+      padding-inline: 15px;
+      letter-spacing: -1px;
+    }
+    &_green {
+      &.side-media {
+        background-color: #cfff32;
+      }
+      & .side-media__img {
+        background-color: #000000;
+      }
+    }
+  }
+
+  &-mini-link {
+    margin-top: -10px;
+    &.first {
+      margin-top: auto;
+    }
+    align-self: flex-start;
+    // justify-self: flex-end;
+    background-color: #ffffff66;
+    box-shadow: 0px 2px 5px 0px #0000000d;
+
+    padding: 7px 15px;
+    border-radius: 64px;
+    color: #00000080;
+    font-family: "Inter";
+    line-height: 130%;
+    font-size: 14px;
+    letter-spacing: -0.1px;
+  }
+  &-foot {
+    // height: 210px;
+    padding-top: 30px;
+    gap: 30px;
+    align-items: flex-start;
+    // background-color: blanchedalmond;
+    &-section {
+      align-items: flex-start;
+      gap: 30px;
+      &.social {
+        gap: 20px;
+      }
+    }
+    &-title {
+      font-size: 16px;
+      line-height: 110%;
+      font-family: "GNF";
+      color: #00000066;
+      text-transform: uppercase;
+    }
+    &-links {
+      flex: 1;
+      gap: 10px;
+      &.social {
+        justify-content: space-evenly;
+        gap: 8px;
+      }
+      & .green-arrow {
+        background-color: #ffffff26;
+      }
+    }
+  }
+  &-curses {
+    position: absolute;
+    inset: -1px;
+    background-color: #f7f7f7;
+    padding: inherit;
+    align-items: flex-start;
+    gap: 40px;
+    padding-right: 0;
+    // translate: 300%;
+  }
+  &-back {
+    &.green-arrow {
+      width: 32px;
+    }
+  }
+  &-course {
+    gap: 25px;
+    max-width: 100%;
+    &-head {
+      gap: 6px;
+      align-items: stretch;
+      & .side-media {
+        background-color: #fafafa;
+      }
+    }
+    &-content {
+      gap: 10px;
+      padding-bottom: 10px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+    &-count {
+      font-family: "Inter";
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00000066;
+      border-radius: 40px;
+      background-color: #fafafa;
+      line-height: 130%;
+      font-weight: 600;
+      padding-inline: 12px;
+      box-shadow: 0px 6px 15px 0px #00000012;
+    }
+    &-card {
+      gap: 15px;
+      align-items: center;
+    }
+    &-image {
+      border-radius: 20px;
+      overflow: hidden;
+      max-width: 142px;
+      aspect-ratio: 1;
+    }
+    &-title {
+      font-weight: 600;
+      font-size: 12px;
+      font-family: "Inter";
+      line-height: 75%;
+    }
+  }
 }
