@@ -20,6 +20,10 @@
 @use "sections/advantages__07";
 
 
+.null{
+  display: none !important;
+}
+
 
 *{
   // outline: 1px darkcyan dashed;
@@ -116,7 +120,7 @@ body {
   position: relative;
   // height: 100vh;
   // overflow-x: hidden;
-  min-height: 100vh;
+  min-height: 200vh;
 }
 
 @function dynamic-padding($w, $h) {
@@ -219,23 +223,27 @@ body {
 
 .side-media {
   padding: 3px;
-  backdrop-filter: blur(40px);
+  // backdrop-filter: blur(40px);
   border-radius: 40px;
   box-shadow: 0px 2px 10px 0px #0000000d;
   color: #00000066;
   align-items: center;
   justify-content: flex-start;
+  background-color: #F2F2F2;
   &__img {
     height: 20px;
     width: 20px;
     // aspect-ratio: 1;
+    padding-right: 1px;
   }
   &__text {
     color: inherit;
     padding-inline: 9px;
-    font-family: "Headlines", sans-serif;
+    // font-family: "Headlines", sans-serif;
+    font-family: "Loos Extended", sans-serif;
     font-weight: 600;
     font-size: 15px;
+    letter-spacing: -0.1px;
   }
 }
 

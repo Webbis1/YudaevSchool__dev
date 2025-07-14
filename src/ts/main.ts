@@ -564,7 +564,7 @@ const initImageBlurEffect = () => {
   const parentElement = document.querySelector(".advantages") as HTMLElement;
 
   gsap.to(imageContainer, {
-    filter: "blur(0px)",
+    filter: "blur(10px)",
     scrollTrigger: {
       trigger: parentElement,
       start: "top top",

@@ -6,14 +6,38 @@
         p а меняем мышление
 
     .advantages__cards
-        .advantages__card.advantages__card_1.gradient-border.advantages-card
-            +side-media("Комплексный подход").advantages-card__side-media
-        .advantages__card.advantages__card_2.gradient-border.advantages-card
-            +side-media("Мышление").advantages-card__side-media
-        .advantages__card.advantages__card_3.gradient-border.advantages-card
-            +side-media("Окружение").advantages-card__side-media
-        .advantages__card.advantages__card_4.gradient-border.advantages-card
-            +side-media("Монетизация навыков").advantages-card__side-media
+        .advantages__card.advantages__card_1.gradient-border.advantages-card.column
+            .advantages-card__side-media
+                +side-media("Комплексный подход")
+            .advantages-card__title Объединяем эмоции и технологии
+            .advantages-card__discription Учим создавать такой дизайн, где каждый свайп, клик и переход это гармоничный и запоминающийся опыт
+            .advantages-card__image.column
+                img(src="./assets/images/07/Group 2087327124.png", alt="alt")
+        .advantages__card.advantages__card_2.gradient-border.advantages-card.column
+            .advantages-card__side-media
+                +side-media("Мышление")
+            .advantages-card__title Осознанность как результат
+            .advantages-card__discription Не просто учим дизайну, а меняем мышление. Прокачиваем уверенность, осознанность
+            .advantages-card__image.column
+                img(src="./assets/images/07/people.png", alt="alt")
+        .advantages__card.advantages__card_3.gradient-border.advantages-card.row
+            .advantages-card__side-media
+                +side-media("Окружение")
+            .advantages-card__text.column
+                .advantages-card__title 
+                    | Ты не такой как все?
+                    br
+                    | Здесь все такие!
+                .advantages-card__discription Создаем творческое комьюнити, где ты точно почувствуешь себя своим
+            .advantages-card__image
+                img(src="./assets/images/07/Group 2087327091.png", alt="")
+        .advantages__card.advantages__card_4.gradient-border.advantages-card.column
+            .advantages-card__side-media
+                +side-media("Монетизация навыков")
+            .advantages-card__image.column
+                img(src="./assets/images/07/image 1917.png", alt="alt")
+            .advantages-card__title Будь лучше, зарабатывай больше
+            .advantages-card__discription Учим зарабатывать на своих навыках. Обучаем бизнес-мышлению и осознанному подходу к карьере, проектам и себе
 
 .advantages__image.column
     //- div.garbage
