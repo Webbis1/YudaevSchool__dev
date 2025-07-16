@@ -10,6 +10,8 @@ mixin course_card(image_src, marker_text, marker_icon, link, card_name, ...card_
                 span.course-card__tag= tag
                 if index === 0
                     br
-        +green-arrow().course-card__link
+        
+        a(href="") 
+            +green-arrow().course-card__link
 
 

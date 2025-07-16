@@ -23,6 +23,10 @@
 @use "sections/footer";
 
 
+
+a{
+  cursor: pointer;
+}
 .null {
   display: none !important;
 }
@@ -224,12 +228,20 @@ body {
 }
 
 .pc {
-  @include media.less(991px) {
+  @include media.less(1400px) {
     display: none !important;
   }
 }
 .mobile {
-  @include media.more(990px) {
+  @include media.more(500px) {
+    display: none !important;
+  }
+}
+.tablet {
+  @include media.more(1400px) {
+    display: none !important;
+  }
+  @include media.less(500px) {
     display: none !important;
   }
 }
@@ -515,6 +527,9 @@ body {
       width: 1px;
       background: #e0e0e0; // Цвет линии
       margin: 0 24px; // Отступы вокруг линии
+      @include media.less($tablet){
+        display: none;
+      }
     }
     @include media.less($tablet) {
       grid-template-columns: 1fr 1px 1fr;
@@ -560,6 +575,63 @@ body {
       }
     }
 
+    &_big {
+      padding: 0;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: space-between;
+      .course-card__image {
+        flex: 1;
+        height: 100%;
+        img {
+          height: 100%;
+          max-height: 515px;
+          object-fit: contain;
+          object-position: right;
+        }
+      }
+
+      .course-card__left {
+        padding: 24px;
+        align-items: flex-start;
+        justify-content: flex-end;
+        .card-marker {
+          // flex: 1;
+          margin-inline: 0;
+          margin-bottom: auto;
+          justify-self: start;
+        }
+        .course-card__name {
+          margin-bottom: 14px;
+          padding: 0;
+        }
+        .course-card__tags {
+          margin-bottom: 30px;
+          padding: 0;
+        }
+        .side-media {
+          background-color: #cfff32;
+          padding: 5px;
+          padding-left: 20px;
+        }
+
+        .side-media__img {
+          background-color: #000000;
+          min-height: 32px;
+          min-width: 32px;
+        }
+        .side-media__text {
+          font-family: "Inter";
+          font-weight: 500;
+          font-style: Medium;
+          font-size: 16px;
+          line-height: 130%;
+          letter-spacing: -0.2px;
+          color: #000000;
+        }
+      }
+    }
+
     // &_big {
     //   grid-column: span 2;
     //   grid-row: span 1;
@@ -600,7 +672,7 @@ $rect-color: #f2f2f2;
     &-left {
       position: absolute;
       top: 0;
-      left: -180px;
+      left: 0;
       width: 60%;
       // height: 100px;
       img {
@@ -609,15 +681,15 @@ $rect-color: #f2f2f2;
         object-position: center;
         max-width: 100%;
         max-height: 100%;
-        rotate: 172deg;
+        // rotate: 172deg;
         // translate: -50% ;
-        transform: translate(30%, 20%);
+        transform: translate(-30%, -20%);
       }
     }
     &-right {
       position: absolute;
       bottom: 0;
-      right: -180px;
+      right: 0;
       width: 60%;
       img {
         z-index: 3;
@@ -625,9 +697,9 @@ $rect-color: #f2f2f2;
         object-position: center;
         max-width: 100%;
         max-height: 100%;
-        // rotate: 172deg;
+        rotate: 180deg;
         // translate: -50% ;
-        transform: translate(30%, 20%);
+        transform: translate(-60%, -20%);
       }
     }
   }
@@ -690,7 +762,7 @@ $rect-color: #f2f2f2;
     align-items: center;
     justify-content: flex-start;
     background: transparent;
-    gap: 30px;
+    gap: 230px;
   }
   // &__card-section {
   //   background: #a03f3f;
@@ -780,7 +852,7 @@ circle {
 }
 
 .after-footer {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   padding-block: 30px;
   position: relative;
   &__text {
@@ -799,7 +871,7 @@ circle {
     // font-size: 330px;
     padding: 30px 32px;
     border-radius: 40px;
-    img{
+    img {
       width: 100%;
       max-height: 100%;
       object-fit: contain;
@@ -808,31 +880,29 @@ circle {
   }
 }
 
-
-.go-to-start{
+.go-to-start {
   position: absolute;
   bottom: 50px;
   left: 50%;
   translate: -50%;
   text-decoration: none;
-  @include media.less($phone){
+  @include media.less($phone) {
     display: none;
   }
-  .green-arrow{
+  .green-arrow {
     min-height: 26px;
     min-width: 26px;
   }
-  .side-media{
+  .side-media {
     padding: 5px;
     padding-left: 20px;
-    background-color: #FFFFFF66;
+    background-color: #ffffff66;
   }
-  .side-media__text{
+  .side-media__text {
     font-family: "Inter";
     font-weight: 500;
     text-decoration: none;
     @include font.font-size(14px, 14px, 14px, 16px);
     line-height: 130%;
-    
   }
 }

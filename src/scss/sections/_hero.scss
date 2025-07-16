@@ -4,7 +4,7 @@
 @use "../mixins/media" as *;
 
 .hero {
-  height: 100vh;
+  height: 100lvh;
   width: 100%;
   background-color: #e4e4e4;
   position: sticky;
@@ -12,9 +12,14 @@
   left: 0px;
   z-index: 0;
   overflow-x: hidden;
+  // background-image: url("@/assets/images/blur.png");
+  // background-repeat: repeat-x; /* Повторять по горизонтали */
+  // background-position: bottom; /* Прижать к низу */
+  // background-size: auto 50px; /* Ширина: auto (оригинальный размер), высота: 50px */
   @include less(1400px) {
-    // height: auto;
-    // position: relative;
+    height: auto;
+    position: relative;
+    background-color: #E8E8E8;
     // overflow: scroll;
   }
 
@@ -44,13 +49,25 @@
   &__content {
     flex: 1;
     position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(232, 232, 232, 0) 0%, rgba(232, 232, 232, 0.64) 100%);
+
+      height: 50px;
+      z-index: 1;
+      backdrop-filter: blur(1px);
+
+    }
   }
   &__disc {
-    margin-top: 191px;
+    margin-top: 180px;
     font-family: "Inter";
     letter-spacing: 1px;
     font-weight: 500;
-
+    letter-spacing: 0.003rem;
     // font-size: 18;
     @include font-size(14px, 14px, 15px, 18px);
 
@@ -76,6 +93,8 @@
     height: 100%;
     margin-left: 328px;
     position: relative;
+    box-shadow: 10px 4px 55px 0px #00000012;
+
     @include less($desktop) {
       margin-left: 212px;
     }
@@ -83,6 +102,11 @@
       margin-left: 0;
       position: absolute;
       inset: 0;
+      box-shadow: 0px -20px 55px 0px #00000012;
+
+    }
+    @include less(500px){
+        box-shadow: none;
     }
     background: repeating-linear-gradient(
       to right,
@@ -91,23 +115,56 @@
       rgba(0, 0, 0, 0.1) 9px,
       rgba(255, 255, 255, 0.1) 18px
     );
+    backdrop-filter: blur(35px);
+
   }
   &__free {
     background-color: #cfff32;
     padding: 8px 20px;
-    font-family: "Inter";
+    font-family: "Loos Extended";
     font-weight: 500;
-    @include font-size(34px, 34px, 38px, 40px);
     line-height: 115%;
     border-radius: 60px;
     margin-top: 10px;
     box-shadow: 0px 2px 10px 0px #00000026, 0px 0px 24px 0px #cfff3266;
+    letter-spacing: -0.7px;
+    @include font-size(34px, 34px, 38px, 38px);
   }
 
   &__cta {
     z-index: 1;
-    .side-media{
-      background-color: #CFFF32;
+    cursor: pointer;
+
+    @include hover {
+      .side-media {
+        box-shadow: 0px 0px 24px 0px #cfff32b2,
+          0px -5px 14px 0px #ffffff4d inset, 0px 5px 14px 0px #ffffff4d inset,
+          4px 0px 30px 0px #ffffff80 inset, -4px 0px 30px 0px #ffffff80 inset,
+          0px 2px 10px 0px #0000000d;
+      }
+      .side-media__img {
+        background-color: #ffffff;
+        box-shadow: 0px 2px 10px 0px #0000001a, 0px 1px 3px 0px #0000001a;
+        img {
+          // filter: brightness(1) invert(0);
+          filter: invert(0%) brightness(0%);
+        }
+      }
+    }
+
+    &:active {
+      .side-media__text {
+        color: #00000066;
+      }
+      .side-media {
+        box-shadow: none;
+      }
+    }
+    @include more($desktop) {
+      padding-top: 40px;
+    }
+    .side-media {
+      background-color: #cfff32;
       padding-block: 17px;
       padding-left: 24px;
       padding-right: 17px;
@@ -119,20 +176,38 @@
       font-size: 18px;
       font-family: "GNF";
       text-wrap: nowrap;
+      padding: 0;
       text-transform: uppercase;
     }
 
-    .side-media__img{
+    .side-media__img {
       background-color: #000000;
       min-height: 26px;
       min-width: 26px;
+      img {
+        aspect-ratio: 1;
+      }
     }
     @include less(1400px) {
       position: absolute;
       bottom: 0;
       left: 50%;
       translate: -50% 50%;
+    }
+    @include less(500px){
+      &::after{
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 200%;
+        // background-color: #000000;
+        background: linear-gradient(180deg, #E8E8E8 0%, rgba(232, 232, 232, 0) 100%);
 
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        translate: -50%;
+      }
     }
   }
   &__running-line {
@@ -141,7 +216,7 @@
     padding-block: 12px;
     padding-inline: 3px;
     text-wrap: nowrap;
-    backdrop-filter: blur(60px);
+    // backdrop-filter: blur(60px);
     font-size: 16px;
     @include less(1400px) {
       display: none;
@@ -152,6 +227,7 @@
     overflow: hidden;
     width: 100%;
     span {
+      text-transform: uppercase;
       display: inline-block;
       // padding-left: 100%;
       color: #00000080;
@@ -196,16 +272,25 @@
   }
   &__pagination {
     // position: relative !important;
-    top: 164px !important;
-    left: 50% !important;
+    &.swiper-pagination-bullets.swiper-pagination-horizontal{
+
+      top: 164px;
+      left: 50% ;
+      transform: translateX(-50%);
+    }
     display: flex;
     width: 388px !important;
-    transform: translateX(-50%) !important;
     gap: 20px;
     align-items: flex-start;
 
+
     justify-content: center;
     // z-index: 0;
+    @include less(1400px){
+      &.swiper-pagination-bullets.swiper-pagination-horizontal{
+        top: 70px;
+      }
+    }
   }
   &__slide {
     // animation: marquee 5s linear infinite;
@@ -222,7 +307,88 @@
       // display: flex;
     }
   }
+
+  &__slide-light {
+    // background-color: #D8FF5A;
+    // backdrop-filter: blur(140px);
+    position: absolute;
+    bottom: 0;
+    transform: translate(-40%, 35%);
+    width: 100%;
+    left: 50%;
+    // border-radius: 50%;
+    aspect-ratio: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    background-position: center;
+    z-index: -1;
+    background-image: url("@/assets/images/Ellipse 347.svg");
+  }
   &__icon {
+    z-index: 50;
+    img {
+      pointer-events: none;
+    }
+    &--blander {
+      top: 26%;
+      left: 35%;
+    }
+
+    &--circle {
+      top: 51%;
+      right: 9%;
+    }
+
+    &--ps {
+      bottom: 42%;
+      left: 37%;
+    }
+
+    &--ai {
+      top: 20%;
+      right: 11%;
+    }
+
+    &--figma {
+      bottom: 52%;
+      left: 28%;
+    }
+
+    &--t {
+      top: 56%;
+      left: 70%;
+    }
+
+    &--arrow {
+      bottom: 67%;
+      right: 3%;
+    }
+
+    &--wb {
+      top: 31%;
+      right: 58%;
+    }
+
+    &--ozon {
+      bottom: 51%;
+      left: 82%;
+    }
+
+    &--gpt {
+      top: 24%;
+      left: 31%;
+    }
+
+    &--r {
+      bottom: 18%;
+      right: 19%;
+    }
+
+    &--ship {
+      top: 16%;
+      left: 79%;
+    }
     position: absolute;
     animation: icon 2.5s cubic-bezier(0.54, 0.19, 0.33, 0.9) infinite;
 
@@ -254,14 +420,15 @@
   }
 
   &__start {
-    font-family: "Inter";
+    font-family: "Loos Extended";
     font-weight: 500;
     @include font-size(34px, 34px, 38px, 40px);
-    line-height: 115%;
+    line-height: 114.6%;
+    letter-spacing: -0.6px;
     b {
       color: #00000040;
     }
-    @include less(1400px){
+    @include less(1400px) {
       text-align: center;
     }
   }
@@ -283,7 +450,7 @@
       text-wrap: nowrap;
       color: black;
       @include font-size(12px, 12px, 15px, 16px);
-      letter-spacing: 1px;
+      // letter-spacing: 1px;
       line-height: 135%;
       b {
         color: #00000080;
@@ -292,19 +459,19 @@
     }
     align-items: center;
     padding: 7px;
-    
   }
   &__text {
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     width: fit-content !important;
     position: relative;
-    padding-top: 187px;
+    // padding-top: 187px;
     // padding-right: 328px !important;
-    max-width: 450px;
+    max-width: 445px;
     padding-right: 0 !important;
     box-sizing: content-box;
     gap: 10px;
+    padding-top: 20px;
     // flex-grow: 1110;
     @include less($desktop) {
       padding-top: 112px;
@@ -355,6 +522,7 @@
   position: relative;
   &__image {
     width: 100%;
+    display: flex;
     img {
       width: 100%;
       object-fit: contain;

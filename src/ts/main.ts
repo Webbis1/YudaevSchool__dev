@@ -137,6 +137,37 @@ class CasesSlider {
       observer: true,
       observeParents: true,
       init: false,
+      breakpoints: {
+        // when window width is >= 1024px - default settings (4 columns, 3 rows)
+        1024: {
+          slidesPerView: 4,
+          grid: {
+            rows: 3,
+            fill: "row",
+          },
+          slidesPerGroup: 4,
+        },
+        // when window width is >= 768px and < 1024px - 2 columns, 2 rows
+        768: {
+          slidesPerView: 2,
+          grid: {
+            rows: 2,
+            fill: "row",
+          },
+          slidesPerGroup: 2,
+          spaceBetween: 20,
+        },
+        // when window width is < 768px (mobile) - 1 column, 2 rows
+        320: {
+          slidesPerView: 1,
+          grid: {
+            rows: 2,
+            fill: "row",
+          },
+          slidesPerGroup: 1,
+          spaceBetween: 15,
+        },
+      },
     });
 
     swiper.init();
@@ -203,7 +234,7 @@ class StudentResults {
 
     const gap = 95;
     const rows = parseInt(this.grid.dataset.initialRows || "2");
-    return item.offsetHeight * rows + gap * (rows - 1) + 10;
+    return item.offsetHeight * rows + gap * (rows - 1) + 50;
   }
 
   private toggleGrid() {
@@ -466,6 +497,8 @@ const initBurgerMenu = () => {
   const mobileContent = document.querySelector<HTMLElement>(
     ".header__mobile-content"
   );
+  const headerMobile = document.querySelector<HTMLElement>(".header__mobile");
+
   let isMobileContentVisible = false;
 
   // Общие элементы
@@ -504,9 +537,10 @@ const initBurgerMenu = () => {
 
   // Анимация для мобильного контента
   const animateMobileContent = () => {
-    if (!mobileContent) return;
+    if (!mobileContent || !headerMobile) return;
 
     if (isMobileContentVisible) {
+      headerMobile.style.height = "auto";
       gsap.to(mobileContent, {
         height: 0,
         duration: 0.3,
@@ -517,6 +551,7 @@ const initBurgerMenu = () => {
       });
     } else {
       mobileContent.style.display = "flex";
+      headerMobile.style.height = "100vh";
       gsap.fromTo(
         mobileContent,
         { height: 0 },

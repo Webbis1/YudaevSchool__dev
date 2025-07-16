@@ -13,18 +13,18 @@
 
 .from-scratch-to-pro__background
     .from-scratch-to-pro__background-right
-        img(src="./assets/images/spiral.png", alt="spiral")
+        img(src="./assets/images/02/Frame 2147224216 (2).png", alt="spiral")
     .from-scratch-to-pro__background-left
-        img(src="./assets/images/spiral.png", alt="spiral")
+        img(src="./assets/images/02/Frame 2147224216 (2).png", alt="spiral")
     
 
 .from-scratch-to-pro__title
-    span Обучаем дизайнеров
+    span.wave-text Обучаем дизайнеров
     b
-        | с нуля 
+        .wave-text с нуля 
         .from-scratch-to-pro__direction.gradient-border
             img(src="./assets/images/right-arrow.svg", alt="direction")
-        | до PRO
+        .wave-text до PRO
 
 .circle-section
     .rectangle#rect
@@ -35,7 +35,7 @@
             cy=centery 
             r=r1 
             fill="none" 
-            stroke="#4caf50" 
+            stroke="#0000000D" 
             stroke-width=stroke_width 
             stroke-linecap="round"
             transform=`rotate(-90 ${centerx} ${centery})`
@@ -45,7 +45,7 @@
             cy=centery 
             r=r2 
             fill="none" 
-            stroke="#2196f3" 
+            stroke="#0000000D" 
             stroke-width=stroke_width 
             stroke-linecap="round"
             transform=`rotate(-90 ${centerx} ${centery})`
@@ -55,7 +55,7 @@
             cy=centery 
             r=r3 
             fill="none" 
-            stroke="#ff5722" 
+            stroke="#0000000D" 
             stroke-width=stroke_width 
             stroke-linecap="round"
             transform=`rotate(-90 ${centerx} ${centery})`
@@ -97,21 +97,17 @@
             .from-scratch-to-pro__card-section
                 .from-scratch-to-pro__card.gradient-border.training-to-day
                     +card__marker("./assets/images/study.svg", "Обучение сегодня", "white")
-                    .training-to-day__title.from-scratch-to-pro__card-title Начните с бесплатных базовых курсов сейчас
-                    .training-to-day__discription.from-scratch-to-pro__card-discription Чтобы понять, в каком направлении двигаться
+                    .training-to-day__title.from-scratch-to-pro__card-title.wave-text Начните с бесплатных базовых курсов сейчас
+                    .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Чтобы понять, в каком направлении двигаться
                     .training-to-day__images.from-scratch-to-pro__card-images
                         .training-to-day__blander
-                            .training-to-day__image-text
-                                img(src="./assets/images/blender-text.svg", alt="blender")
-                            img(src="./assets/images/blender.svg", alt="blender")
+                            img(src="./assets/images/02/blender.svg", alt="blender")
                         .training-to-day__ozon
-                            .training-to-day__image-text
-                                | Ozon
+                            img(src="./assets/images/02/ozon.svg", alt="ozon")
                         .training-to-day__wb
-                            .training-to-day__image-text
-                                | WB
+                            img(src="./assets/images/02/wb.svg", alt="wb")
                         .training-to-day__figma
-                            img(src="./assets/images/figma.svg", alt="figma")
+                            img(src="./assets/images/02/figma.svg", alt="figma")
                 .from-scratch-to-pro__card.gradient-border.payment-after
                     .payment-after__image.from-scratch-to-pro__card-images
                         .payment-after__month.gradient-border
@@ -125,15 +121,29 @@
                             span.gradient-border 3 МЕС
                     +card__marker("./assets/images/payment.svg", "Оплата позже", "white")
                     .payment-after__title.from-scratch-to-pro__card-title
-                        span Отсрочка 3 месяца
+                        span.wave-text Отсрочка 3 месяца
                         b   
                             br
-                            | для первого платежа
+                            .wave-text для первого платежа
                     .payment-after__discription.from-scratch-to-pro__card-discription Действует для всех флагманских программ с карьерной поддержкой
-            
+                    .fon 
+                        img(src="./assets/images/02/Cards.png", alt="")
             
             .from-scratch-to-pro__card-section
+                .from-scratch-to-pro__card.gradient-border.platform.column 
+                    .platform__icon
+                        img(src="./assets/images/02/Frame 2147224271.svg", alt="")
+                    .platform__icon
+                        img(src="./assets/images/02/Frame 2147224270.svg", alt="")
+                        span.gradient-border В любое время
+                    .platform__icon
+                        img(src="./assets/images/02/Frame 2147224268.svg", alt="")
+                        span.gradient-border Навсегда
+                    .platform__icon
+                        img(src="./assets/images/02/Frame 2147224269.svg", alt="")
+                        span.gradient-border Доступно везде
                 .from-scratch-to-pro__card.gradient-border.platform
+                    +card__marker("./assets/images/02/Vector (17).svg", "Платформа", "white")
             
             .from-scratch-to-pro__card-section
                 .from-scratch-to-pro__card.gradient-border.career-center-right

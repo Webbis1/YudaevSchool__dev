@@ -8,10 +8,15 @@
     box-shadow: 0px 6px 30px 0px #0000001a;
     // height: 650px;
     aspect-ratio: 1227/650;
+    max-width: 100%;
   }
   &__cards {
     width: 100%;
     gap: 20px;
+
+    @include less(1400px){
+      flex-wrap: wrap;
+    }
     @include less($phone) {
       flex-direction: column;
     }

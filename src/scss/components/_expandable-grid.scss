@@ -1,26 +1,37 @@
-.expandable-grid {  
-  $self: &;  
+@use "../variables/resolutions" as *;
+@use "../variables/colors" as *;
+@use "../mixins/media" as *;
+@use "../mixins/font" as *;
 
-  &__inner {  
-    display: grid;  
-    gap: 16px;  
-    overflow: hidden;  
-    transition: height 0.5s ease;  
-  }  
+.expandable-grid {
+  $self: &;
 
-  &__item {  
-    background: #f0f0f0;  
-    padding: 16px;  
-    border-radius: 4px;  
-  }  
+  &__inner {
+    display: grid;
+    gap: 16px;
+    overflow: hidden;
+    transition: height 0.5s ease;
+  }
 
-  &__toggle {  
-    margin-top: 16px;  
-    padding: 8px 16px;  
-    background: #007bff;  
-    color: white;  
-    border: none;  
-    border-radius: 4px;  
-    cursor: pointer;  
-  }  
-}  
+  &__item {
+    background: #f0f0f0;
+    padding: 16px;
+    border-radius: 4px;
+  }
+
+  &__toggle {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    @include hover {
+      backdrop-filter: blur(45px);
+      box-shadow: 0px 6px 10px 0px #00000014, 0px -5px 5px 0px #ffffff1a inset,
+        0px 5px 5px 0px #ffffff1a inset, 4px 0px 10px 0px #ffffff1a inset,
+        -4px 0px 10px 0px #ffffff1a inset;
+    }
+  }
+}

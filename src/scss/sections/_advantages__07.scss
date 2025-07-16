@@ -21,6 +21,10 @@
     z-index: 0;
   }
 
+  @include less($tablet){
+    justify-content: center;
+  }
+
   background-image: url("@/assets/images/line.svg");
   background-size: 176px 100%;
 
@@ -40,6 +44,12 @@
       flex: 1;
     }
 
+    @include less(1024px) {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      z-index: 0;
+    }
     .garbage {
       flex: 1;
     }
@@ -71,10 +81,18 @@
     translate: -11px;
     margin-top: 75px;
     flex: 1;
+    z-index: 4;
     display: grid;
-    // width: 100%;
     grid-template-columns: [col1] 364px [col2] 13px [col3] 553px [col-end];
     grid-template-rows: [row1] 465px [row3] 29px [row4] 170px [sd] 32px [row5] 400px [row-end];
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr; // Один столбец
+      grid-template-rows: auto; // Автоматические строки
+      gap: 20px; // Добавляем отступ между карточками
+      translate: 0; // Убираем смещение
+      margin-top: 40px; // Уменьшаем отступ сверху
+    }
   }
 
   &__card {
@@ -84,43 +102,69 @@
       grid-column: col1;
       grid-row: row1 / sd;
       padding-bottom: 0 !important;
+
+      @media (max-width: 1024px) {
+        grid-column: 1;
+        grid-row: auto;
+        padding-bottom: 20px !important;
+      }
+
       & .advantages-card__title {
         max-width: 206px;
       }
-      & .advantages-card__image{
-        img{
+      & .advantages-card__image {
+        img {
           object-position: bottom;
         }
       }
     }
+
     &_2 {
       grid-column: col3;
       grid-row: row1 / row3;
       padding-bottom: 0 !important;
+
+      @media (max-width: 1024px) {
+        grid-column: 1;
+        grid-row: auto;
+        padding-bottom: 20px !important;
+      }
+
       & .advantages-card__discription {
         max-width: 365px;
       }
-
     }
+
     &_3 {
       padding: 0 !important;
       grid-column: col3;
       grid-row: row4;
       background-color: #ffdac1;
-      & .advantages-card__text {
-        max-width: 350px;
-        
+
+      @media (max-width: 1024px) {
+        grid-column: 1;
+        grid-row: auto;
+        padding: 20px !important;
       }
 
+      & .advantages-card__text {
+        max-width: 350px;
+      }
     }
+
     &_4 {
       grid-column: col1 / col-end;
       grid-row: row5;
       background-color: #e2f0cb;
+
+      @media (max-width: 1024px) {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
       & .advantages-card__discription {
         max-width: 500px;
       }
-      
     }
   }
 }

@@ -1,9 +1,15 @@
 @use "../variables/resolutions" as *;
+@use "../variables/colors" as *;
+@use "../mixins/media" as *;
+@use "../mixins/font" as *;
 
 .cases {
   align-items: center;
   // margin-top: 250px;
   padding-bottom: 300px;
+  @include less(1024px){
+    padding-bottom: 0;
+  }
   background-color: #F8F8F8;
   &__title {
     margin-top: 20px;
@@ -112,6 +118,7 @@
     &.active {
       font-weight: 600;
       padding-left: 45px;
+      z-index: 5;
     }
   }
 
