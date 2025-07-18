@@ -24,7 +24,7 @@
     background-color: #ffffff66;
     font-family: "Inter";
     @include font-size(14px, 14px, 14px, 16px);
-    letter-spacing: 1px;
+    letter-spacing: -0.02em;
     text-wrap: nowrap;
     display: flex;
     align-items: center;
