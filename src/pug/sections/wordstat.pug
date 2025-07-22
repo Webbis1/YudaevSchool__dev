@@ -145,7 +145,7 @@
         </div>
         <div class="div-people">
             <p class="p-people">05</p>
-            <p class="p-people-text">Человек стали потенциальными клиентами наших выпускников с момента, как вы зашли на сайт</p>
+            <p class="p-people-text"><span class="span-word">Человек</span> стали потенциальными клиентами наших выпускников с момента, как вы зашли на сайт</p>
             <div class="div-timer">
                 <p class="p-timer">
                     img(
@@ -174,7 +174,9 @@
 
 script.
     let timerSeconds = 0;
+
     const timerElement = document.querySelector('#wordstat .p-timer span');
+    const spanWord = document.querySelector('#wordstat .span-word');
 
     function updateTimer() {
         timerSeconds++;
@@ -188,9 +190,22 @@ script.
     let peopleCount = 5;
     const peopleElement = document.querySelector('#wordstat .p-people');
 
+    function pluralizePeople(n) {
+        n = Math.abs(n);
+        const lastTwo = n % 100;
+        const last = n % 10;
+
+        if (lastTwo > 10 && lastTwo < 20) return 'Человек';
+        if (last === 1) return 'Человек';
+        if (last >= 2 && last <= 4) return 'Человека';
+        return 'Человек';
+    }
+
     function updatePeople() {
         peopleCount++;
+        peopleCount = peopleCount >= 99 ? 99 : peopleCount;
         peopleElement.textContent = String(peopleCount).padStart(2, '0');
+        spanWord.innerText = pluralizePeople(peopleCount);
     }
 
     setInterval(updatePeople, 3000);
