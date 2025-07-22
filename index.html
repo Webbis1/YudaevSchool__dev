@@ -10,9 +10,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Marck+Script&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <title>Yudaev School</title>
     <meta name="description" content="made by Webbis" />
     <meta property="og:title" content="Yudaev School" />
@@ -20,7 +28,21 @@
     <meta property="og:image" content="favicon.ico" />
   </head>
   <body>
+    <!-- index.html -->
+    <script>
+      fetch("sprite.svg")
+        .then((response) => response.text())
+        .then((data) => {
+          const parser = new DOMParser();
+          const svg = parser
+            .parseFromString(data, "image/svg+xml")
+            .querySelector("svg");
+          svg.style.display = "none";
+          document.body.prepend(svg);
+        });
+    </script>
     <pug src="src/pug/pages/home.pug"></pug>
+    
 
     <script type="module" src="src/ts/main.ts"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
@@ -41,5 +63,6 @@
       }
       requestAnimationFrame(raf);
     </script>
+    <!-- <script type="module" src="/@vite-plugin-svg-sprite/inline"></script> -->
   </body>
 </html>

@@ -1,5 +1,5 @@
 mixin card__marker(icon_src, text, color=white)
-    .card-marker
+    .card-marker&attributes(attributes)
         .card-marker-icon.gradient-border(class= color)
-            img(src= icon_src, alt= text)
+            img(loading="lazy", src= icon_src, alt= text)
         .card-marker-text= text

@@ -1,102 +1,97 @@
 mixin hero-slide(num)
     .hero-slide&attributes(attributes)
         .hero-slide__image
-            img(src=`./assets/images/hero-big-slide${num}.png`, alt="")
+            img(loading="lazy", src=`./assets/images/hero-big-slide${num}.webp`, alt="")
         +wb-card.hero__icon
         +ozon-card.hero__icon
 
-section.hero.row
-    .hero__text.column.container
-        .hero__top-one.row.gradient-border
-            img(src="./assets/images/hugeicons_laurel-wreath-right-01.svg", alt="")
-            span.wave-text
-                | Топ-1 школа дизайна 
-                b по версии GetCourse
-            .hero__dots.gradient-border ...
-        .hero__card.gradient-border.column
-            .hero__start.wave-text
-                b Начни учиться
-                br
-                | креативным
-                br 
-                | профессиям
-            .hero__free.gradient-border.wave-text бесплатно
-            .hero__disc.wave-text
-                | Зарабатывайте от 1 млн рублей в год 
-                b благодаря скиллам, полученным на программах, и поддержке специалистов
-        .hero__running-line
-            span Начало сразу после регистрации • 
-            span Начало сразу после регистрации • 
-            span Начало сразу после регистрации • 
-        a.hero__cta
-            +side-media("Учиться бесплатно","./assets/images/Vector (16).svg" ,true)
-    .hero__content
-        .hero__fence
-            .hero__pagination.swiper-pagination
-        .hero__slider(id="heroSlider")
-            .hero__slider-wrapper.swiper-wrapper
-                .hero-slide.hero__slide.swiper-slide
-                    .hero-slide__image
-                        img(src=`./assets/images/hero-big-slide1.png`, alt="3D дизайн").pc
-                        img(src=`./assets/images/hero/tablet-slide/1.png`, alt="3D дизайн").tablet
-                        img(src=`./assets/images/hero/mobile-slide/1.png`, alt="3D дизайн").mobile
-                    .hero__icon.hero__icon--blander  
-                        img(src="./assets/images/hero/slider-icon/blander.svg", alt="blander")
-                    .hero__icon.hero__icon--circle  
-                        img(src="./assets/images/hero/slider-icon/circle.svg", alt="circle")
-                    .hero__slide-light
+
+.hero__text.column.container
+    .hero__top-one.row.gradient-border
+        img(loading="lazy", src="./assets/images/hugeicons_laurel-wreath-right-01.svg", alt="")
+        span.wave-text
+            | Топ-1 школа дизайна 
+            b по версии GetCourse
+        .hero__dots.gradient-border ...
+    .hero__card.gradient-border.column
+        .hero__start.wave-text
+            b Начни учиться
+            br
+            | креативным
+            br 
+            | профессиям
+        .hero__free.gradient-border.wave-text бесплатно
+        .hero__disc.wave-text
+            | Зарабатывайте от 1 млн рублей в год 
+            b благодаря скиллам, полученным на программах, и поддержке специалистов
+    .hero__running-line
+        span Начало сразу после регистрации • 
+        span Начало сразу после регистрации • 
+        span Начало сразу после регистрации • 
+    a.hero__cta
+        +side-media("Учиться бесплатно","./assets/images/Vector (16).svg" ,true)
+.hero__content
+    .hero__fence
+        .hero__pagination.swiper-pagination
+    .hero__slider(id="heroSlider")
+        .hero__slider-wrapper.swiper-wrapper
+            .hero-slide.hero__slide.swiper-slide
+                .hero-slide__image
+                    img(src=`./assets/images/hero-big-slide1.webp`, alt="3D дизайн").pc
+                    img(loading="lazy", src=`./assets/images/hero/tablet-slide/1.webp`, alt="3D дизайн").tablet
+                    img(loading="lazy", src=`./assets/images/hero/mobile-slide/1.webp`, alt="3D дизайн").mobile
+                .hero__icon.hero__icon--blander  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/blander.svg", alt="blander")
+                .hero__icon.hero__icon--circle  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/circle.svg", alt="circle")
+                .hero__slide-light
 
 
-                .hero-slide.hero__slide.swiper-slide
-                    .hero-slide__image
-                        img(src=`./assets/images/hero-big-slide2.png`, alt="Граф. дизайн").pc
-                        img(src=`./assets/images/hero/tablet-slide/2.png`, alt="3D дизайн").tablet
-                        img(src=`./assets/images/hero/mobile-slide/2.png`, alt="3D дизайн").mobile
-                    .hero__icon.hero__icon--figma  
-                        img(src="./assets/images/hero/slider-icon/figma.svg", alt="figma")
-                    .hero__icon.hero__icon--t  
-                        img(src="./assets/images/hero/slider-icon/t.svg", alt="t")
-                    .hero__icon.hero__icon--arrow  
-                        img(src="./assets/images/hero/slider-icon/arrow.svg", alt="arrow")
-                    .hero__slide-light
-                
-                .hero-slide.hero__slide.swiper-slide
-                    .hero-slide__image
-                        img(src=`./assets/images/hero-big-slide3.png`, alt="UX / UI дизайн").pc
-                        img(src=`./assets/images/hero/tablet-slide/3.png`, alt="3D дизайн").tablet
-                        img(src=`./assets/images/hero/mobile-slide/3.png`, alt="3D дизайн").mobile
-                    .hero__icon.hero__icon--ps  
-                        img(src="./assets/images/hero/slider-icon/ps.svg", alt="ps")
-                    .hero__icon.hero__icon--ai  
-                        img(src="./assets/images/hero/slider-icon/ai.svg", alt="ai")
-                    .hero__slide-light
+            .hero-slide.hero__slide.swiper-slide
+                .hero-slide__image
+                    img(loading="lazy", src=`./assets/images/hero-big-slide2.webp`, alt="Граф. дизайн").pc
+                    img(loading="lazy", src=`./assets/images/hero/tablet-slide/2.webp`, alt="3D дизайн").tablet
+                    img(loading="lazy", src=`./assets/images/hero/mobile-slide/2.webp`, alt="3D дизайн").mobile
+                .hero__icon.hero__icon--figma  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/figma.svg", alt="figma")
+                .hero__icon.hero__icon--t  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/t.svg", alt="t")
+                .hero__icon.hero__icon--arrow  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/arrow.svg", alt="arrow")
+                .hero__slide-light
+            
+            .hero-slide.hero__slide.swiper-slide
+                .hero-slide__image
+                    img(loading="lazy", src=`./assets/images/hero-big-slide3.webp`, alt="UX / UI дизайн").pc
+                    img(loading="lazy", src=`./assets/images/hero/tablet-slide/3.webp`, alt="3D дизайн").tablet
+                    img(loading="lazy", src=`./assets/images/hero/mobile-slide/3.webp`, alt="3D дизайн").mobile
+                .hero__icon.hero__icon--ps  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/ps.svg", alt="ps")
+                .hero__icon.hero__icon--ai  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/ai.svg", alt="ai")
+                .hero__slide-light
 
 
-                .hero-slide.hero__slide.swiper-slide
-                    .hero-slide__image
-                        img(src=`./assets/images/hero-big-slide4.png`, alt="Маркетплейсы").pc
-                        img(src=`./assets/images/hero/tablet-slide/4.png`, alt="3D дизайн").tablet
-                        img(src=`./assets/images/hero/mobile-slide/4.png`, alt="3D дизайн").mobile
-                    .hero__icon.hero__icon--wb  
-                        img(src="./assets/images/hero/slider-icon/wb.svg", alt="wb")
-                    .hero__icon.hero__icon--ozon  
-                        img(src="./assets/images/hero/slider-icon/ozon.svg", alt="ozon")
-                    .hero__slide-light
+            .hero-slide.hero__slide.swiper-slide
+                .hero-slide__image
+                    img(loading="lazy", src=`./assets/images/hero-big-slide4.webp`, alt="Маркетплейсы").pc
+                    img(loading="lazy", src=`./assets/images/hero/tablet-slide/4.webp`, alt="3D дизайн").tablet
+                    img(loading="lazy", src=`./assets/images/hero/mobile-slide/4.webp`, alt="3D дизайн").mobile
+                .hero__icon.hero__icon--wb  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/wb.svg", alt="wb")
+                .hero__icon.hero__icon--ozon  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/ozon.svg", alt="ozon")
+                .hero__slide-light
 
-                .hero-slide.hero__slide.swiper-slide
-                    .hero-slide__image
-                        img(src=`./assets/images/hero-big-slide5.png`, alt="AI дизайн").pc
-                        img(src=`./assets/images/hero/tablet-slide/5.png`, alt="3D дизайн").tablet
-                        img(src=`./assets/images/hero/mobile-slide/5.png`, alt="3D дизайн").mobile
-                    .hero__icon.hero__icon--gpt  
-                        img(src="./assets/images/hero/slider-icon/gpt.svg", alt="gpt")
-                    .hero__icon.hero__icon--r  
-                        img(src="./assets/images/hero/slider-icon/r.svg", alt="r")
-                    .hero__icon.hero__icon--ship  
-                        img(src="./assets/images/hero/slider-icon/ship.svg", alt="ship")
-                    .hero__slide-light
-                                    
-
-//- .fon 
-//-     img(src="./assets/images/hero/Hero (3).png", alt="").pc
-//-     //- img(src="./assets/images/header/Menu – Phone 2.png", alt="").mobile
+            .hero-slide.hero__slide.swiper-slide
+                .hero-slide__image
+                    img(loading="lazy", src=`./assets/images/hero-big-slide5.webp`, alt="AI дизайн").pc
+                    img(loading="lazy", src=`./assets/images/hero/tablet-slide/5.webp`, alt="3D дизайн").tablet
+                    img(loading="lazy", src=`./assets/images/hero/mobile-slide/5.webp`, alt="3D дизайн").mobile
+                .hero__icon.hero__icon--gpt  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/gpt.svg", alt="gpt")
+                .hero__icon.hero__icon--r  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/r.svg", alt="r")
+                .hero__icon.hero__icon--ship  
+                    img(loading="lazy", src="./assets/images/hero/slider-icon/ship.svg", alt="ship")
+                .hero__slide-light

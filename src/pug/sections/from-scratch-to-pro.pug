@@ -2,20 +2,21 @@
 - var height = 1020;
 - var centerx = width / 2;
 - var centery = height / 2;
-- var r1 = 322;
-- var r2 = 378;
-- var r3 = 435;
-- var pr1 = 1118 / 2;
-- var pr2 = 1056 / 2;
-- var pr3 = 992 / 2;
+- var scale = 1.114906832;
+- var r1 = 322 * scale;
+- var r2 = 378 * scale;
+- var r3 = 435 * scale;
+- var pr1 = 1118 * scale / 2.1;
+- var pr2 = 1056 * scale / 2.1;
+- var pr3 = 992  * scale / 2.1;
 - var stroke_width = 1;
 - var progress_stroke_width = 25;
 
 .from-scratch-to-pro__background
     .from-scratch-to-pro__background-right
-        img(src="./assets/images/02/Frame 2147224216 (2).png", alt="spiral")
+        img(loading="lazy", src="./assets/images/02/Frame 2147224216 (2).webp", alt="spiral")
     .from-scratch-to-pro__background-left
-        img(src="./assets/images/02/Frame 2147224216 (2).png", alt="spiral")
+        img(loading="lazy", src="./assets/images/02/Frame 2147224216 (2).webp", alt="spiral")
     
 
 .from-scratch-to-pro__title
@@ -23,73 +24,111 @@
     b
         .wave-text с нуля 
         .from-scratch-to-pro__direction.gradient-border
-            img(src="./assets/images/right-arrow.svg", alt="direction")
+            img(loading="lazy", src="./assets/images/right-arrow.svg", alt="direction")
         .wave-text до PRO
 
 .circle-section
     .rectangle#rect
         svg(width="100%" height="100%" viewBox=`0 0 ${width} ${height}`)
+            filter#progress-shadow 
+                feDropShadow(dx="0", dy="-1", stdDeviation="3", flood-color="rgba(0,0,0,0.2)")
+  
             // Анимируемые круги
             circle#circle-1(
-            cx=centerx 
-            cy=centery 
-            r=r1 
-            fill="none" 
-            stroke="#0000000D" 
-            stroke-width=stroke_width 
-            stroke-linecap="round"
-            transform=`rotate(-90 ${centerx} ${centery})`
+                cx=centerx 
+                cy=centery 
+                r=r1 
+                fill="none" 
+                stroke="#0000000D" 
+                stroke-width=stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(-90 ${centerx} ${centery})`
             )
             circle#circle-2(
-            cx=centerx 
-            cy=centery 
-            r=r2 
-            fill="none" 
-            stroke="#0000000D" 
-            stroke-width=stroke_width 
-            stroke-linecap="round"
-            transform=`rotate(-90 ${centerx} ${centery})`
+                cx=centerx 
+                cy=centery 
+                r=r2 
+                fill="none" 
+                stroke="#0000000D" 
+                stroke-width=stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(-90 ${centerx} ${centery})`
             )
             circle#circle-3(
-            cx=centerx 
-            cy=centery 
-            r=r3 
-            fill="none" 
-            stroke="#0000000D" 
-            stroke-width=stroke_width 
-            stroke-linecap="round"
-            transform=`rotate(-90 ${centerx} ${centery})`
+                cx=centerx 
+                cy=centery 
+                r=r3 
+                fill="none" 
+                stroke="#0000000D" 
+                stroke-width=stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(-90 ${centerx} ${centery})`
             )
 
             circle#progress-barr-1(
-            cx=centerx 
-            cy=centery 
-            r=pr1 
-            fill="none" 
-            stroke="#E5E5E5" 
-            stroke-width=progress_stroke_width 
-            stroke-linecap="round"
-            transform=`rotate(-90 ${centerx} ${centery})`
+                cx=centerx 
+                cy=centery 
+                
+                r=pr1 
+                fill="none" 
+                stroke="#E5E5E5" 
+                stroke-width=progress_stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(130 ${centerx} ${centery})`
+            )
+            circle#progress-barr-1-green(
+                cx=centerx 
+                cy=centery 
+                r=pr1 
+                fill="none" 
+                filter="url(#progress-shadow)"
+                stroke="#FAFAFA" 
+                stroke-width=progress_stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(130 ${centerx} ${centery})`
             )
             circle#progress-barr-2(
-            cx=centerx 
-            cy=centery 
-            r=pr2 
-            fill="none" 
-            stroke="#E5E5E5" 
-            stroke-width=progress_stroke_width 
-            stroke-linecap="round"
-            transform=`rotate(-90 ${centerx} ${centery})`
+                cx=centerx 
+                cy=centery 
+                r=pr2 
+                
+                fill="none" 
+                stroke="#E5E5E5" 
+                stroke-width=progress_stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(160 ${centerx} ${centery})`
+            )
+            circle#progress-barr-2-green(
+                cx=centerx 
+                cy=centery 
+                filter="url(#progress-shadow)"
+                r=pr2 
+                fill="none" 
+                stroke="#FAFAFA" 
+                stroke-width=progress_stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(160 ${centerx} ${centery})`
             )
             circle#progress-barr-3(
-            cx=centerx 
-            cy=centery 
-            r=pr3 
-            fill="none" 
-            stroke="#E5E5E5" 
-            stroke-width=progress_stroke_width 
-            stroke-linecap="round"
-            transform=`rotate(-90 ${centerx} ${centery})`
+                cx=centerx 
+                cy=centery 
+                r=pr3 
+                fill="none" 
+                stroke="#E5E5E5" 
+                stroke-width=progress_stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(216 ${centerx} ${centery})`
+            )
+            circle#progress-barr-3-green(
+                cx=centerx 
+                filter="url(#progress-shadow)"
+                cy=centery 
+                r=pr3 
+                fill="none" 
+                stroke="#FAFAFA" 
+                stroke-width=progress_stroke_width 
+                stroke-linecap="round"
+                transform=`rotate(216 ${centerx} ${centery})`
             )
 
 
@@ -101,13 +140,13 @@
                     .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Чтобы понять, в каком направлении двигаться
                     .training-to-day__images.from-scratch-to-pro__card-images
                         .training-to-day__blander
-                            img(src="./assets/images/02/blender.svg", alt="blender")
+                            img(loading="lazy", src="./assets/images/02/blender.svg", alt="blender")
                         .training-to-day__ozon
-                            img(src="./assets/images/02/ozon.svg", alt="ozon")
+                            img(loading="lazy", src="./assets/images/02/ozon.svg", alt="ozon")
                         .training-to-day__wb
-                            img(src="./assets/images/02/wb.svg", alt="wb")
+                            img(loading="lazy", src="./assets/images/02/wb.svg", alt="wb")
                         .training-to-day__figma
-                            img(src="./assets/images/02/figma.svg", alt="figma")
+                            img(loading="lazy", src="./assets/images/02/figma.svg", alt="figma")
                 .from-scratch-to-pro__card.gradient-border.payment-after
                     .payment-after__image.from-scratch-to-pro__card-images
                         .payment-after__month.gradient-border
@@ -126,34 +165,135 @@
                             br
                             .wave-text для первого платежа
                     .payment-after__discription.from-scratch-to-pro__card-discription Действует для всех флагманских программ с карьерной поддержкой
-                    .fon 
-                        img(src="./assets/images/02/Cards.png", alt="")
             
             .from-scratch-to-pro__card-section
                 .from-scratch-to-pro__card.gradient-border.platform.column 
                     .platform__icon
-                        img(src="./assets/images/02/Frame 2147224271.svg", alt="")
+                        img(loading="lazy", src="./assets/images/02/Frame 2147224271.svg", alt="")
                     .platform__icon
-                        img(src="./assets/images/02/Frame 2147224270.svg", alt="")
+                        img(loading="lazy", src="./assets/images/02/Frame 2147224270.svg", alt="")
                         span.gradient-border В любое время
                     .platform__icon
-                        img(src="./assets/images/02/Frame 2147224268.svg", alt="")
+                        img(loading="lazy", src="./assets/images/02/Frame 2147224268.svg", alt="")
                         span.gradient-border Навсегда
                     .platform__icon
-                        img(src="./assets/images/02/Frame 2147224269.svg", alt="")
+                        img(loading="lazy", src="./assets/images/02/Frame 2147224269.svg", alt="")
                         span.gradient-border Доступно везде
-                .from-scratch-to-pro__card.gradient-border.platform
-                    +card__marker("./assets/images/02/Vector (17).svg", "Платформа", "white")
+                .from-scratch-to-pro__card.platform.column
+                    +card__marker("./assets/images/02/Vector (17).svg", "Платформа", "white").platform__marker
+                    .platform__text.gradient-border.column
+                        h3.platform__title Доступ к курсам навсегда
+                        p.platform__disk Все материалы останутся у вас — пересматривайте их в любое удобное время
+                    .platform__text.gradient-border.column
+                        h3.platform__title Занимайтесь в любое комфортное время
+                        p.platform__disk Можете просматривать материалы с любых устройств и где бы вы не находились
             
             .from-scratch-to-pro__card-section
-                .from-scratch-to-pro__card.gradient-border.career-center-right
-                .from-scratch-to-pro__card.gradient-border.career-center-left
+                .from-scratch-to-pro__card.gradient-border.payment-after.career-center-left
+                    .payment-after__image.from-scratch-to-pro__card-images.career-center-left__image
+                        img(loading="lazy", src="./assets/images/02/Group 2087326974 1.webp", alt="").background
+                        .career-center-left__icon
+                            img(loading="lazy", src="./assets/images/02/centr-icon/Frame 2147224268.webp", alt="alt")
+                        .career-center-left__icon
+                            img(loading="lazy", src="./assets/images/02/centr-icon/Frame 2147224272.webp", alt="alt")
+                        .career-center-left__icon
+                            img(loading="lazy", src="./assets/images/02/centr-icon/Frame 2147224273.webp", alt="alt")
+                        .career-center-left__icon
+                            img(loading="lazy", src="./assets/images/02/centr-icon/Frame 2147224274.webp", alt="alt")
+                    +card__marker("./assets/images/02/Vector (19).svg", "Центр карьеры", "white")
+                    .payment-after__title.from-scratch-to-pro__card-title
+                        h3.from-scratch-to-pro__card-title От резюме до трудойстройства
+                    .payment-after__discription.from-scratch-to-pro__card-discription Помогает на каждом этапе — от составления резюме до выхода на фриланс или в компанию
+                .from-scratch-to-pro__card.gradient-border.training-to-day.career-center-right
+                    +card__marker("./assets/images/02/Vector (19).svg", "Центр карьеры", "white")
+                    .training-to-day__title.from-scratch-to-pro__card-title.wave-text На связи спустя годы
+                    .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Отвечаем на вопросы выпускников даже спустя годы после обучения
+                    .career-center-right__image
+                        img(loading="lazy", src="./assets/images/02/Frame 2147224283.webp", alt="alt")
+            
+            .from-scratch-to-pro__card-section
+                .from-scratch-to-pro__card.gradient-border.payment-after.career-center-left
+                    .payment-after__image.from-scratch-to-pro__card-images.career-center-left__image
+                        img(loading="lazy", src="./assets/images/02/Group 2087327115.webp", alt="").background
+                    +card__marker("./assets/images/02/Vector (19).svg", "Окружение", "white")
+                    .payment-after__title.from-scratch-to-pro__card-title
+                        h3.from-scratch-to-pro__card-title Дизайн-тусовка
+                    .payment-after__discription.from-scratch-to-pro__card-discription Мы собрали комьюнити новичков
+                        | и профи, чтобы обмениваться опытом, вдохновлять, находить полезные связи и поддерживать тёплую атмосферу
+                .from-scratch-to-pro__card.gradient-border.training-to-day.career-center-right.work-check
+                    +card__marker("./assets/images/02/Vector (19).svg", "Проверки работ", "white")
+                    .training-to-day__title.from-scratch-to-pro__card-title.wave-text Персональная обратная связь
+                    .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Каждое задание проверяется наставником в течение 24 часов. 
+                        br 
+                        | Даже на бесплатных курсах
+                    .career-center-right__image.payment-after__image
+                        img(loading="lazy", src="./assets/images/02/speedometr.webp", alt="alt")
+                        .work-check__info.column
+                            .work-check__time
+                                | 40
+                                .work-check__label.gradient-border минут
+                            .work-check__text Среднее время проверки
             
             
             .from-scratch-to-pro__card-section
-                .from-scratch-to-pro__card.gradient-border.environment
-                .from-scratch-to-pro__card.gradient-border.verification-works
-            
-            
-            .from-scratch-to-pro__card-section
-                .from-scratch-to-pro__card_big.gradient-border.special-offer
+                .from-scratch-to-pro__card_big.gradient-border.column.special-offer
+                    +card__marker("./assets/images/02/Vector (19).svg", "Спец. предложение", "white")
+                    .special-offer__title Получите скидку 
+                        br
+                        | -15% только сегодня
+                    button.special-offer__spa
+                        +side-media("Забрать скидку", "public/assets/images/02/Vector (20).svg", true)
+
+
++mobile-slider().from-scratch-to-pro__mobile-slider.container
+    .from-scratch-to-pro__slide.swiper-slide
+        .from-scratch-to-pro__card.gradient-border.training-to-day
+            .training-to-day__images.from-scratch-to-pro__card-images
+                .training-to-day__blander
+                    img(loading="lazy", src="./assets/images/02/blender.svg", alt="blender")
+                .training-to-day__ozon
+                    img(loading="lazy", src="./assets/images/02/ozon.svg", alt="ozon")
+                .training-to-day__wb
+                    img(loading="lazy", src="./assets/images/02/wb.svg", alt="wb")
+                .training-to-day__figma
+                    img(loading="lazy", src="./assets/images/02/figma.svg", alt="figma")
+            +card__marker("./assets/images/study.svg", "Обучение сегодня", "white")
+            .training-to-day__title.from-scratch-to-pro__card-title.wave-text Начните с бесплатных базовых курсов сейчас
+            .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Чтобы понять, в каком направлении двигаться
+            +card__marker("./assets/images/payment.svg", "Оплата позже", "white")
+            .payment-after__title.from-scratch-to-pro__card-title
+                span.wave-text Отсрочка 3 месяца
+                b   
+                    br
+                    .wave-text для первого платежа
+            .payment-after__discription.from-scratch-to-pro__card-discription Действует для всех флагманских программ с карьерной поддержкой
+
+    .from-scratch-to-pro__slide.swiper-slide
+        .from-scratch-to-pro__card.gradient-border.training-to-day
+            +card__marker("./assets/images/study.svg", "Обучение сегодня", "white")
+            .training-to-day__title.from-scratch-to-pro__card-title.wave-text Начните с бесплатных базовых курсов сейчас
+            .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Чтобы понять, в каком направлении двигаться
+            .training-to-day__images.from-scratch-to-pro__card-images
+                .training-to-day__blander
+                    img(loading="lazy", src="./assets/images/02/blender.svg", alt="blender")
+                .training-to-day__ozon
+                    img(loading="lazy", src="./assets/images/02/ozon.svg", alt="ozon")
+                .training-to-day__wb
+                    img(loading="lazy", src="./assets/images/02/wb.svg", alt="wb")
+                .training-to-day__figma
+                    img(loading="lazy", src="./assets/images/02/figma.svg", alt="figma")
+    .from-scratch-to-pro__slide.swiper-slide
+        .from-scratch-to-pro__card.gradient-border.training-to-day
+            +card__marker("./assets/images/study.svg", "Обучение сегодня", "white")
+            .training-to-day__title.from-scratch-to-pro__card-title.wave-text Начните с бесплатных базовых курсов сейчас
+            .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Чтобы понять, в каком направлении двигаться
+            .training-to-day__images.from-scratch-to-pro__card-images
+                .training-to-day__blander
+                    img(loading="lazy", src="./assets/images/02/blender.svg", alt="blender")
+                .training-to-day__ozon
+                    img(loading="lazy", src="./assets/images/02/ozon.svg", alt="ozon")
+                .training-to-day__wb
+                    img(loading="lazy", src="./assets/images/02/wb.svg", alt="wb")
+                .training-to-day__figma
+                    img(loading="lazy", src="./assets/images/02/figma.svg", alt="figma")
+                

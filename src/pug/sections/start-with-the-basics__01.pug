@@ -18,10 +18,10 @@
 
     .container   
         .start-with-the-basics__grid
-            +course_card("./assets/images/02/Course cards (1).png", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Web-дизайн с нуля", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-the-basics__card
-            +course_card("./assets/images/02/d9ce11eb54039a199c19e9908e72a39e9f198fae (1).png", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Дизайнер карточек маркетплейсов", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card
-            +course_card("./assets/images/02/3e6dd87e633377c092b5619ced2f272e6ea14774.png", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Дизайнер карточек маркетплейсов", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card
-            +course_card("./assets/images/02/877202577bf322bb5ed42c3c82940101b43f12ed.png", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#", "Web-дизайн с нуля", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card
+            +course_card("./assets/images/02/Course cards (1).webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Web-дизайн с нуля", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-the-basics__card
+            +course_card("./assets/images/02/d9ce11eb54039a199c19e9908e72a39e9f198fae (1).webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Дизайнер карточек маркетплейсов", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card
+            +course_card("./assets/images/02/3e6dd87e633377c092b5619ced2f272e6ea14774.webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Дизайнер карточек маркетплейсов", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card
+            +course_card("./assets/images/02/877202577bf322bb5ed42c3c82940101b43f12ed.webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#", "Web-дизайн с нуля", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card
             .course-card.start-with-the-basics__card.start-with-the-basics__card_big.row
                 .course-card__left.column
                     +card__marker("./assets/images/unlock-icon.svg", "Бесплатный курс", "black")
@@ -34,13 +34,21 @@
                     a
                         +side-media("Подробнее", "./assets/images/02/Vector (18).svg", true)
                 .course-card__image
-                    img(src="./assets/images/02/6a75e9a752846c8e3e21f0fa541cb12a257e1e97.png", alt="Старт в 3D-визуализации")
+                    img(loading="lazy", src="./assets/images/02/6a75e9a752846c8e3e21f0fa541cb12a257e1e97.webp", alt="Старт в 3D-визуализации")
+        .start-with-the-basics__swiper
+            +mobile-slider
+                +course_card("./assets/images/02/Course cards (1).webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Web-дизайн с нуля", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-the-basics__card.swiper-slide
+                +course_card("./assets/images/02/d9ce11eb54039a199c19e9908e72a39e9f198fae (1).webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Дизайнер карточек маркетплейсов", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card.swiper-slide
+                +course_card("./assets/images/02/3e6dd87e633377c092b5619ced2f272e6ea14774.webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#",  "Дизайнер карточек маркетплейсов", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card.swiper-slide
+                +course_card("./assets/images/02/877202577bf322bb5ed42c3c82940101b43f12ed.webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#", "Web-дизайн с нуля", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card.swiper-slide
+                +course_card("./assets/images/02/6a75e9a752846c8e3e21f0fa541cb12a257e1e97.webp", "Бесплатный курс", "./assets/images/unlock-icon.svg", "#", "Старт в 3D-визуализации", 'Индивидуальная обратная связь', 'Сертификат', '3 работы в портфолио').start-with-the-basics__card.swiper-slide
+                
 
 
 
     .start-with-the-basics__interlayer.gradient-border.observe-remove
         .start-with-the-basics__interlayer-icon.gradient-border
-            img(src="./assets/images/info-icon.svg", alt="alt")  
+            img(loading="lazy", src="./assets/images/info-icon.svg", alt="alt")  
         .start-with-the-basics__interlayer-text Старт сразу после регистрации
 
 

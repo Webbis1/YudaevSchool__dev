@@ -3,15 +3,20 @@ mixin student-results-card(data)
     .student-results-card__image
         .wrapper.gradient-border
             .image-wrapper.gradient-border
-                img(
+                img(loading="lazy", 
                     src=data.image || "./assets/images/lamba.jpg", 
                     alt=data.name,
-                    loading="lazy"
+                    
                 )
     .student-results-card__content.column.gradient-border
       .student-results-card__quote= data.quote  
       .student-results-card__name= data.name  
       .student-results-card__experience= data.experience  
+    button.student-results-card__cta.gradient-border
+      svg(width="20", height="20", viewBox="0 0 24 24")
+          use(href="#plus-20")
+
+
 
 +sectionName('05', 'результаты учеников').student-results__title
 
@@ -117,3 +122,30 @@ mixin student-results-card(data)
   
   .student-results__show-more
     +side-media("Показать ещё", "./assets/images/07/Plus 20.svg", true)
+
+
++mobile-slider.student-results__mobile-slider
+  +student-results-card({
+      quote: "На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к",
+      name: "Леонид Нечаев",
+      experience: "1,5 года опыта",
+      image: "./assets/images/lamba.jpg"
+    }).student-results__card.swiper-slide
+  +student-results-card({
+      quote: "На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к",
+      name: "Леонид Нечаев",
+      experience: "1,5 года опыта",
+      image: "./assets/images/lamba.jpg"
+    }).student-results__card.swiper-slide
+  +student-results-card({
+      quote: "На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к",
+      name: "Леонид Нечаев",
+      experience: "1,5 года опыта",
+      image: "./assets/images/lamba.jpg"
+    }).student-results__card.swiper-slide
+  +student-results-card({
+      quote: "На колледже понимал, что работать по профессии не буду. Начал пробовать UX/UI-дизайн и концу курса заработал 300к",
+      name: "Леонид Нечаев",
+      experience: "1,5 года опыта",
+      image: "./assets/images/lamba.jpg"
+    }).student-results__card.swiper-slide

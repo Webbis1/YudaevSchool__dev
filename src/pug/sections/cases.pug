@@ -1,7 +1,7 @@
 mixin caseCard()
     .cases__card
         .cases__image.gradient-border
-            img(src=`./assets/images/student-result-card.png` alt="Работа ученика")
+            img(loading="lazy", src=`./assets/images/student-result-card.webp` alt="Работа ученика")
             .cases__image-counter
                 .counter.gradient-border
         
@@ -29,7 +29,7 @@ mixin caseCard()
                                     +caseCard()
                 .swiper-controllers.gradient-border.row
                     .swiper__arrow.swiper__arrow_prev
-                        img(src="./assets/images/left-arrow.svg", alt="prev")
+                        img(loading="lazy", src="./assets/images/left-arrow.svg", alt="prev")
                     .swiper__pagination
                     .swiper__arrow.swiper__arrow_next
-                        img(src="./assets/images/next-arrow.svg", alt="next")
+                        img(loading="lazy", src="./assets/images/next-arrow.svg", alt="next")

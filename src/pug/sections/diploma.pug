@@ -6,8 +6,8 @@
     | государственного образца
 .diploma__cards.row
     .diploma__card.qualification.gradient-border.row
-        img(src="./assets/images/diploma-green.svg", alt="green").qualification__card.qualification__card_green
-        img(src="./assets/images/diploma-document.png", alt="document").qualification__card.qualification__card_document
+        img(loading="lazy", src="./assets/images/diploma-green.svg", alt="green").qualification__card.qualification__card_green
+        img(loading="lazy", src="./assets/images/diploma-document.webp", alt="document").qualification__card.qualification__card_document
         .qualification__cta
             +cta("Лицензия на образовательную деятельность")
         .qualification__curtain.column
@@ -25,7 +25,7 @@
                 br
                 | от стоимости курсов                
         .benefits__detail
-            img(src="./assets/images/return.svg", alt="return")
+            img(loading="lazy", src="./assets/images/return.svg", alt="return")
             .benefits__label 
                 +green-arrow(img)
                 .benefits__discription За деталями обращайтесь к куратору

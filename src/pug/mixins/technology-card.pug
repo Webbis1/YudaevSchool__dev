@@ -1,7 +1,7 @@
 mixin technology-card(image, alt="alt")
     .technology-card&attributes(attributes)
         .technology-card__image.gradient-border
-            img(src= image, alt= alt)
+            img(loading="lazy", src= image, alt= alt)
 
 
 mixin wb-card(size=115)

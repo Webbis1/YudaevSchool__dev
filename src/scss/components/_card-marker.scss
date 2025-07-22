@@ -41,5 +41,8 @@
     line-height: 135%;
     letter-spacing: 0.2px;
     color: rgb(145, 145, 145);
+    font-smooth: always;
+      
+      -webkit-font-smoothing: subpixel-antialiased;
   }
 }

@@ -12,6 +12,9 @@
     // padding-bottom: 120px;
   }
   &__content {
+    @include less(500px){
+      display: none;
+    }
     padding-top: 120px;
     display: flex;
     align-items: center;
@@ -30,6 +33,10 @@
       grid-template-columns: repeat(4, 1fr);
     }
 
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     // На 768px и меньше - 2 колонки
     @media (max-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
@@ -46,6 +53,7 @@
     // border-radius: 12px;
     // padding: 20px;
     // box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    // min-width: 300px;
     @media (max-width: 1440px) {
       // Скрываем карточки, которые пусты (или содержат только пробелы)
       &:empty {
@@ -56,6 +64,9 @@
 
   &__show-more {
     margin-top: 115px;
+    @include less(1024px){
+      margin-top: 72px;
+    }
     // width: fit-content;
     text-align: center;
     cursor: pointer;
@@ -90,6 +101,10 @@
       letter-spacing: -0.2px;
     }
   }
+
+  &__mobile-slider{
+    margin-top: 60px;
+  }
 }
 
 .student-results-card {
@@ -110,6 +125,8 @@
     // left: 50%;
     z-index: 2;
     // transform: ;
+    left: 50%;
+    translate: -50%;
     position: absolute;
     .wrapper,
     .image-wrapper {
@@ -193,5 +210,27 @@
     font-weight: 500;
     font-family: "Inter";
     letter-spacing: 1px;
+  }
+  &__cta.gradient-border{
+    position: absolute;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: 42px;
+    height: 42px;
+    background-color: #FCFCFC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    bottom: 0;
+    translate: 50% 50%;
+    border: none;
+    box-shadow: -6px 6px 10px 0px #0000000D;
+
+backdrop-filter: blur(20px);
+
+    svg{
+      color: #969696;
+    }
   }
 }

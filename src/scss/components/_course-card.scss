@@ -1,3 +1,8 @@
+@use "../variables/resolutions" as *;
+@use "../variables/colors" as *;
+@use "../mixins/media" as *;
+@use "../mixins/font" as *;
+
 .course-card {
   border-radius: 30px;
   box-shadow: 1px 5px 6px 0px rgba(0, 0, 0, 0.1);
@@ -70,10 +75,10 @@
     font-family: "Inter", sans-serif;
     font-weight: 500;
     font-size: 15px;
-        line-height: 141%;
-    display:  inline-flex;
-        letter-spacing: -0.3px;
-        margin-right: 8px;
+    line-height: 141%;
+    display: inline-flex;
+    letter-spacing: -0.3px;
+    margin-right: 8px;
 
     align-items: center;
     gap: 6px;
@@ -88,9 +93,46 @@
       // margin-right: 8px; // или другой нужный отступ
     }
   }
-  &__link {
+  &__desktop-link {
     position: absolute;
     right: 24px;
     bottom: 24px;
+    @include less(500px) {
+      display: none;
+    }
+    .green-arrow {
+      @include less($desktop) {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  &__mobile-link {
+    padding-left: 24px;
+    @include more(500px) {
+      display: none;
+    }
+    .side-media {
+      background-color: #cfff32;
+      padding: 5px;
+      padding-left: 15px;
+      &__text {
+        color: #000000;
+        // font-family: Text/Text 14/Family;
+        font-weight: 500;
+        // font-style: Medium;
+        font-size: 14px;
+        // leading-trim: NONE;
+        line-height: 130%;
+        letter-spacing: -0.02em;
+      }
+      &__svg{
+        background-color: #000000;
+        svg{
+          fill: white;
+          color: white;
+        }
+      }
+    }
   }
 }

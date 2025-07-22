@@ -26,7 +26,26 @@ import "swiper/css/effect-cube";
 // @ts-ignore
 import "swiper/css/autoplay";
 
+import { QuestionToggler } from "./QuestionToggler";
+
+// import IconFoo from './../assets/icons/foo.svg';
+// const html = `
+//   <svg>
+//     <use xlink:href="#${IconFoo}" />
+//   </svg>
+// `;
+
 gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.config({
+  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+});
+
+// После gsap.registerPlugin(ScrollTrigger)
+gsap.defaults({
+  // force3D: false, // Отключает автоматическое 3D-преобразование
+  // transformPerspective: 1000 // Фиксирует перспективу для 3D-элементов
+});
 
 class Tabs {
   private tabs: HTMLElement;
@@ -286,102 +305,6 @@ const initIntersectionObservers = () => {
     );
     observer.observe(element);
   });
-};
-
-const initRectangleAnimation = () => {
-  const rect = document.querySelector(".rectangle") as HTMLElement;
-  const circles = [
-    document.querySelector("#circle-1") as SVGCircleElement,
-    document.querySelector("#circle-2") as SVGCircleElement,
-    document.querySelector("#circle-3") as SVGCircleElement,
-  ];
-
-  if (!rect || !circles.every(Boolean)) return;
-
-  const lengths = circles.map((circle) => {
-    const radius = parseFloat(circle.getAttribute("r")!);
-    return 2 * Math.PI * radius;
-  });
-
-  circles.forEach((circle, i) => {
-    circle.setAttribute("stroke-dasharray", `${lengths[i]} ${lengths[i]}`);
-    circle.setAttribute("stroke-dashoffset", `${lengths[i]}`);
-  });
-
-  const rectangle_time = 1500;
-
-  const getCardsWrapperHeight = () => {
-    const el = document.querySelector(
-      ".from-scratch-to-pro__cards"
-    ) as HTMLElement;
-    return el ? el.offsetHeight : 0;
-  };
-
-  const getCardHeight = (): number => {
-    const card = document.querySelector<HTMLElement>(
-      ".from-scratch-to-pro__cards .from-scratch-to-pro__card-section"
-    );
-    return card ? card.offsetHeight : 0;
-  };
-
-  const getRectangleHeight = (): number => {
-    const rect = document.querySelector(".circle-section") as HTMLElement;
-    return rect ? rect.offsetHeight : 0;
-  };
-
-  const getPercentage = (a: number, b: number): number => (b / a) * 100;
-
-  const offset = getPercentage(
-    getCardsWrapperHeight(),
-    (getCardHeight() - getRectangleHeight()) / 2
-  );
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".from-scratch-to-pro",
-      start: "top top",
-      end: `+=${rectangle_time}`,
-      scrub: true,
-      pin: true,
-      markers: false,
-      id: "main-timeline",
-    },
-  });
-
-  const circleAnimation = (id: string) => {
-    const til = gsap.timeline();
-    til.to(id, {
-      strokeDashoffset: 0,
-      duration: 0.25,
-      ease: "none",
-    });
-    return til;
-  };
-
-  tl.to(
-    rect,
-    {
-      width: "100%",
-      height: "100%",
-      ease: "none",
-      duration: 1,
-    },
-    0
-  );
-
-  tl.add(circleAnimation("#circle-1"), "<0.25");
-  tl.add(circleAnimation("#circle-2"), ">");
-  tl.add(circleAnimation("#circle-3"), ">");
-
-  tl.to(
-    ".from-scratch-to-pro__cards",
-    {
-      transform: `translate(-50%, ${offset}%)`,
-      duration: 2,
-      ease: "none",
-    },
-    0.7
-  );
 };
 
 const initSpiralAnimations = () => {
@@ -738,51 +661,6 @@ const initStudentResults = () => {
   });
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  initIntersectionObservers();
-  initRectangleAnimation();
-  initSpiralAnimations();
-  initCircleModule();
-  initBurgerMenu();
-  initHeaderScroll();
-  initHeroSlider();
-  initImageBlurEffect();
-  initStudentResults();
-
-  new Tabs();
-  new CasesSlider();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.querySelector(".fon-toggle") as HTMLElement;
-  // const fonElement = document.querySelector('.fon');
-
-  // Проверяем сохраненное состояние в localStorage
-  const isFonEnabled = localStorage.getItem("fonEnabled") !== "false";
-
-  // Инициализируем начальное состояние
-  if (isFonEnabled) {
-    document.body.classList.add("fon-enabled");
-  } else {
-    document.body.classList.remove("fon-enabled");
-  }
-
-  // Обработчик клика
-  toggleBtn?.addEventListener("click", () => {
-    document.body.classList.toggle("fon-enabled");
-
-    // Сохраняем состояние
-    const isEnabled = document.body.classList.contains("fon-enabled");
-    localStorage.setItem("fonEnabled", isEnabled.toString());
-
-    // Анимация для обратной связи
-    toggleBtn.style.transform = "scale(0.9)";
-    setTimeout(() => {
-      toggleBtn.style.transform = "";
-    }, 200);
-  });
-});
-
 const initMobileCoursesNavigation = () => {
   console.log("Функция initMobileCoursesNavigation вызвана");
 
@@ -887,10 +765,297 @@ const initMobileCoursesNavigation = () => {
 };
 
 // Проверяем, вызывается ли функция вообще
-console.log("Запуск инициализации мобильной навигации...");
+// console.log("Запуск инициализации мобильной навигации...");
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM полностью загружен");
   initMobileCoursesNavigation();
 });
-// Инициализация при загрузке
-// document.addEventListener('DOMContentLoaded', initMobileCoursesNavigation);
+
+const initRectangleAnimation = () => {
+  // Кэшируем элементы
+  const elements = {
+    rect: document.querySelector(".rectangle") as HTMLElement,
+    circles: [
+      document.querySelector("#circle-1") as SVGCircleElement,
+      document.querySelector("#circle-2") as SVGCircleElement,
+      document.querySelector("#circle-3") as SVGCircleElement,
+    ],
+    progressBarsBg: [
+      document.querySelector("#progress-barr-3") as SVGCircleElement,
+      document.querySelector("#progress-barr-2") as SVGCircleElement,
+      document.querySelector("#progress-barr-1") as SVGCircleElement,
+    ],
+    progressBars: [
+      document.querySelector("#progress-barr-3-green") as SVGCircleElement,
+      document.querySelector("#progress-barr-2-green") as SVGCircleElement,
+      document.querySelector("#progress-barr-1-green") as SVGCircleElement,
+    ],
+  };
+
+  // Проверка элементов с более чистым выводом
+  if (!validateElements(elements)) return;
+
+  // Настройка прогресс-баров
+  const { barLengths } = setupProgressBars(
+    elements.progressBarsBg,
+    elements.progressBars
+  );
+
+  // Конфигурация анимации
+  const config = {
+    rectangleTime: 1500,
+    totalDuration: 2,
+    offset: calculateOffset(),
+  };
+
+  // Создаем timeline
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".from-scratch-to-pro",
+      start: "top top",
+      end: `+=${config.rectangleTime}`,
+      scrub: true,
+      pin: true,
+      markers: false,
+      id: "main-timeline",
+    },
+  });
+
+  // Анимация прямоугольника
+  tl.to(
+    elements.rect,
+    {
+      width: "100%",
+      height: "100%",
+      ease: "none",
+      duration: 1,
+      transformStyle: "flat",
+      // force3D: false,
+    },
+    0
+  );
+
+  // Анимация кругов
+  animateCircles(tl);
+
+  // Анимация карточек
+  tl.to(
+    ".from-scratch-to-pro__cards",
+    {
+      transform: `translate(-50%, ${config.offset}%)`,
+      duration: 2,
+      ease: "none",
+      force3D: false,
+      transformStyle: "flat",
+    },
+    0.7
+  );
+
+  // Анимация прогресс-баров
+  animateProgressBars(
+    tl,
+    elements.progressBars,
+    barLengths,
+    config.totalDuration
+  );
+};
+
+// Вспомогательные функции
+function validateElements(elements: any): boolean {
+  const missing = [];
+  if (!elements.rect) missing.push("Rectangle element (.rectangle)");
+  elements.circles.forEach((circle: HTMLElement, i: number) => {
+    if (!circle) missing.push(`Circle #${i + 1} (#circle-${i + 1})`);
+  });
+  elements.progressBarsBg.forEach((bar: HTMLElement, i: number) => {
+    if (!bar)
+      missing.push(
+        `Progress bar background #${i + 1} (#progress-barr-${i + 1})`
+      );
+  });
+  elements.progressBars.forEach((bar: HTMLElement, i: number) => {
+    if (!bar)
+      missing.push(`Progress bar #${i + 1} (#progress-bar-${i + 1}-green)`);
+  });
+
+  if (missing.length) {
+    console.log("Missing elements:", missing.join(", "));
+    return false;
+  }
+  return true;
+}
+
+function setupProgressBars(
+  bgBars: SVGCircleElement[],
+  progressBars: SVGCircleElement[]
+) {
+  const startAngles = [0, 0, 0];
+  const endAngles = [24, 48, 28];
+
+  bgBars.forEach((bar, i) => {
+    const radius = parseFloat(bar.getAttribute("r")!);
+    const circumference = 2 * Math.PI * radius;
+    const arcLength = ((endAngles[i] - startAngles[i]) / 360) * circumference;
+    const startOffset = (startAngles[i] / 360) * circumference;
+
+    bar.setAttribute(
+      "stroke-dasharray",
+      `${arcLength} ${circumference - arcLength}`
+    );
+    bar.setAttribute("stroke-dashoffset", `${startOffset}`);
+  });
+
+  return {
+    barLengths: progressBars.map((bar, i) => {
+      const radius = parseFloat(bar.getAttribute("r")!);
+      const circumference = 2 * Math.PI * radius;
+      const arcLength = ((endAngles[i] - startAngles[i]) / 360) * circumference;
+      const startOffset = (startAngles[i] / 360) * circumference;
+
+      bar.setAttribute("stroke-dasharray", `0 ${circumference}`);
+      bar.setAttribute("stroke-dashoffset", `${startOffset}`);
+
+      return { circumference, arcLength, startOffset };
+    }),
+  };
+}
+
+function calculateOffset(): number {
+  const wrapper = document.querySelector(
+    ".from-scratch-to-pro__cards"
+  ) as HTMLElement;
+  const card = document.querySelector(
+    ".from-scratch-to-pro__card-section"
+  ) as HTMLElement;
+  const rect = document.querySelector(".circle-section") as HTMLElement;
+
+  if (!wrapper || !card || !rect) return 0;
+
+  return (
+    ((card.offsetHeight - rect.offsetHeight) / 2 / wrapper.offsetHeight) * 100
+  );
+}
+
+function animateCircles(tl: gsap.core.Timeline) {
+  const circleAnim = (id: string) => {
+    return gsap.timeline().to(id, {
+      strokeDashoffset: 0,
+      duration: 0.25,
+      ease: "none",
+      force3D: false,
+    });
+  };
+
+  tl.add(circleAnim("#circle-1"), "<0.25")
+    .add(circleAnim("#circle-2"), ">")
+    .add(circleAnim("#circle-3"), ">");
+}
+
+function animateProgressBars(
+  tl: gsap.core.Timeline,
+  progressBars: SVGCircleElement[],
+  barLengths: any[],
+  totalDuration: number
+) {
+  // Порядок анимации: [2, 1, 0] - соответствует [3, 2, 1] в оригинале
+  const animationOrder = [2, 1, 0];
+  const durations = [0.4, 0.4, 0.2];
+  const delays = [0.7, 0.7 + totalDuration * 0.4, 0.7 + totalDuration * 0.8];
+
+  animationOrder.forEach((barIndex, i) => {
+    tl.to(
+      progressBars[barIndex],
+      {
+        strokeDasharray: `${barLengths[barIndex].arcLength} ${
+          barLengths[barIndex].circumference - barLengths[barIndex].arcLength
+        }`,
+        duration: durations[i],
+        ease: "none",
+        force3D: false,
+      },
+      delays[i]
+    );
+  });
+}
+
+document
+  .querySelectorAll(".mobile-slider")
+  .forEach((sliderContainer, index) => {
+    console.log(`[Slider ${index}] Начинаем инициализацию`);
+
+    const swiperEl = sliderContainer.querySelector(
+      ".swiper"
+    ) as HTMLElement | null;
+    const paginationEl = sliderContainer.querySelector(
+      ".swiper-pagination"
+    ) as HTMLElement | null;
+
+    console.log(`[Slider ${index}] Элемент .swiper найден?`, !!swiperEl);
+    console.log(
+      `[Slider ${index}] Элемент .swiper-pagination найден?`,
+      !!paginationEl
+    );
+
+    if (!swiperEl) {
+      console.warn(`[Slider ${index}] Не найден элемент .swiper`);
+      return;
+    }
+
+    if (!paginationEl) {
+      console.warn(`[Slider ${index}] Не найден элемент .swiper-pagination`);
+      return;
+    }
+
+    console.log(
+      `[Slider ${index}] Инициализируем Swiper с элементом:`,
+      swiperEl
+    );
+
+    try {
+      new Swiper(swiperEl, {
+        modules: [Pagination, Autoplay, EffectFade, EffectFlip, EffectCube],
+        slidesPerView: 1,
+        spaceBetween: 16,
+        loop: false,
+        autoHeight: false,
+        pagination: {
+          el: paginationEl,
+          bulletElement: "span",
+          clickable: true,
+        },
+      });
+      console.log(`[Slider ${index}] Swiper успешно инициализирован`);
+    } catch (error) {
+      console.error(
+        `[Slider ${index}] Ошибка при инициализации Swiper:`,
+        error
+      );
+    }
+  });
+
+document.addEventListener("DOMContentLoaded", () => {
+  initIntersectionObservers();
+  function checkAndInitAnimation() {
+    if (window.innerWidth > 700) {
+      initRectangleAnimation();
+      initSpiralAnimations();
+    }
+  }
+
+  // Вызываем при загрузке страницы
+  checkAndInitAnimation();
+
+  // Опционально: вызывать при изменении размера окна (если пользователь ресайзит)
+  window.addEventListener("resize", checkAndInitAnimation);
+
+  initCircleModule();
+  initBurgerMenu();
+  initHeaderScroll();
+  initHeroSlider();
+  initImageBlurEffect();
+  initStudentResults();
+
+  new Tabs();
+  new CasesSlider();
+  new QuestionToggler();
+});

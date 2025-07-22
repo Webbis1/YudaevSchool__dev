@@ -2,21 +2,17 @@ include ../mixins/index.pug
 include ../components/course_card.pug 
 //- include ../components/expandable-grid.pug
 include ../sections/header.pug
-//- .fon 
-//-     img(src="./assets/images/header/Hero (3).png", alt="").pc
-//-     img(src="./assets/images/header/Menu – Phone 2.png", alt="").mobile
-#hero
-include ../sections/hero
 
-//- img(src="./assets/images/header/Menu.png", alt="alt", style="padding-top: 300px; max-width: 100%")
+#hero
+section.hero.row
+    include ../sections/hero
+
+
 
 main.main
-    
     //- 1 
     section.start-with-the-basics#first
         include ../sections/start-with-the-basics__01.pug
-        //- .fon 
-        //-     img(src="./assets/images/section/01-1920.png", alt="")
     //- ->
     section.from-scratch-to-pro#color-section
         include ../sections/from-scratch-to-pro.pug
@@ -40,19 +36,16 @@ main.main
     //- 7
     section.advantages.row.container.ll
         include ../sections/advantages__07.pug
-        //- .fon 
-        //-     img(src="./assets/images/section/07-1920.png", alt="")
     //- Y
-    section.according-to-Yandex-Wordstat
+    section.according-to-Yandex-Wordstat.null
     //- 9
-    section.designers-are-widely-in-demand
+    section.designers-are-widely-in-demand.null
     //- 10
-    section.help-with-vacancies
+    section.help-with-vacancies.column.container
+        include ../sections/help-with-vacancies__10.pug
     //- 11
     section.faq.column.container
         include ../sections/faq__11.pug
-        //- .fon 
-        //-     img(src="./assets/images/11/Frame 2147224401.png", alt="")
     //- 12
     section.questions-block.container.column
         include ../sections/questions__12.pug
@@ -61,7 +54,7 @@ footer.footer
     include ../sections/footer.pug
 section.after-footer.container
     .after-footer__text.gradient-border 
-        img(src="./assets/images/yudaev/Yudaev.png", alt="Yudaev")
+        img(loading="lazy", src="./assets/images/yudaev/Yudaev.webp", alt="Yudaev")
     a.go-to-start(href="#hero")
         +side-media("Вернуться в начало сайта", "./assets/images/yudaev/Arrow Up 16.svg", true)
 
@@ -70,8 +63,3 @@ section.after-footer.container
 
 
 
-//- button.fon-toggle(aria-label="Переключить подложку")
-//-   svg(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
-//-     path(d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2")
-//-     path(d="M2 12H22" stroke="currentColor" stroke-width="2")
-//-     path(d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="currentColor" stroke-width="2")

@@ -1,7 +1,7 @@
 .footer__container.container.gradient-border
     .footer__logo-section
         .footer__logo.gradient-border
-            img(src="./assets/images/logo.svg" alt="Логотип" width="30" height="30")
+            img(loading="lazy", src="./assets/images/logo.svg" alt="Логотип" width="30" height="30")
         .footer__title
             span.footer__title-main Профессиональное обучение дизайну
             br
@@ -26,7 +26,7 @@
             each social in [{icon: 'be.svg', name: 'Behance'}, {icon: 'pint.svg', name: 'Pinterest'}, {icon: 'inst.svg', name: 'Instagram'}, {icon: 'tg.svg', name: 'Telegram'}, {icon: 'vk.svg', name: 'VK'}, {icon: 'yt.svg', name: 'YouTube'}]
                 a.footer__social-item
                     .footer__social-icon
-                        img.footer__social-img(src=`./assets/images/header/icons/${social.icon}` alt=social.name)
+                        img.footer__social-img(loading="lazy", src=`./assets/images/header/icons/${social.icon}` alt=social.name)
                     span.footer__social-name= social.name
 
         .footer__bottom-section
@@ -61,7 +61,7 @@
         each social in [{icon: 'be.svg', name: 'Behance'}, {icon: 'pint.svg', name: 'Pinterest'}, {icon: 'inst.svg', name: 'Instagram'}, {icon: 'tg.svg', name: 'Telegram'}, {icon: 'vk.svg', name: 'VK'}, {icon: 'yt.svg', name: 'YouTube'}]
             .footer__social-item
                 .footer__social-icon
-                    img.footer__social-img(src=`./assets/images/header/icons/${social.icon}` alt=social.name)
+                    img.footer__social-img(loading="lazy", src=`./assets/images/header/icons/${social.icon}` alt=social.name)
                 span.footer__social-name= social.name
 
     .footer__divider

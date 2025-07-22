@@ -1,0 +1,57 @@
+@use "../variables/resolutions" as *;
+@use "../variables/colors" as *;
+@use "../mixins/media" as *;
+@use "../mixins/font" as *;
+
+.mobile-slider {
+  position: relative;
+  //   padding-bottom: 30px;
+  width: 100%;
+
+  @include more(500px) {
+    display: none;
+  }
+
+  .swiper {
+    overflow: hidden;
+    // padding-bottom: 30px;
+    &-wrapper {
+      align-items: stretch;
+    }
+    &-slide{
+      height: auto;
+    }
+  }
+
+  .swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal  {
+    position: relative;
+    // bottom: 0;
+    margin-top: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+    border-radius: 40px;
+    background-color: #F2F2F2;
+    width: fit-content;
+    padding: 10px 12px;
+
+
+    .swiper-pagination-bullet {
+      background: #ccc;
+      opacity: 1;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      margin: 0;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 24px;
+      border-radius: 30px;
+      background: #CFFF32;
+    }
+  }
+}

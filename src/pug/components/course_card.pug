@@ -2,7 +2,7 @@
 mixin course_card(image_src, marker_text, marker_icon, link, card_name, ...card_tags)
     .course-card&attributes(attributes)
         .course-card__image
-            img(src=image_src, alt=card_name)
+            img(loading="lazy", src=image_src, alt=card_name)
         +card__marker(marker_icon, marker_text, "black")
         .course-card__name=card_name
         .course-card__tags
@@ -11,7 +11,13 @@ mixin course_card(image_src, marker_text, marker_icon, link, card_name, ...card_
                 if index === 0
                     br
         
-        a(href="") 
+        a(href="").course-card__desktop-link
             +green-arrow().course-card__link
+        a(href="#").course-card__mobile-link
+            .side-media.row.gradient-border
+                .side-media__text Подробнее
+                .side-media__svg.gradient-border
+                    svg(width="16", height="16", viewBox="0 0 24 24")
+                        use(href="#arrow-diagonal-16")
 
 

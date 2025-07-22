@@ -4,6 +4,7 @@
 @use "../mixins/font" as *;
 
 .from-scratch-to-pro {
+  // will-change: transform;
   &__card-section {
     display: flex;
     gap: 20px;
@@ -15,7 +16,7 @@
   }
   &__card {
     min-width: 330px;
-    @include less($tablet) {
+    @include less(1400px) {
       min-width: 285px;
     }
     flex: 1;
@@ -32,6 +33,10 @@
       font-weight: 600;
       font-family: "Inter";
       font-size: 20px;
+      letter-spacing: -0.02em;
+      font-smooth: always;
+      
+      -webkit-font-smoothing: subpixel-antialiased;
     }
     &-discription {
       font-size: 16px;
@@ -40,16 +45,18 @@
       font-family: "Inter";
 
       letter-spacing: 0.3px;
+      font-smooth: always;
+  -webkit-font-smoothing: subpixel-antialiased;
       color: #00000066;
     }
     &-images {
       width: 100%;
       flex: 1;
       position: relative;
-      background-image: url("@/assets/images/Frame 2147224217.png");
+      background-image: url("@/assets/images/Frame 2147224217.webp");
       background-position: top center;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
     }
     // backdrop-filter: blur(60px);
   }
@@ -288,5 +295,227 @@
         animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
       }
     }
+  }
+
+  &:nth-child(2) {
+    background-color: transparent;
+    align-items: flex-start;
+    justify-content: center;
+    background: none;
+    box-shadow: none;
+    // max-width: 285px !important;
+    @include more(728px) {
+      translate: -40px;
+    }
+  }
+  &__marker {
+    margin-bottom: 20px;
+  }
+  &__text {
+    padding: 20px;
+    gap: 5px;
+    background-color: #f1f1f1;
+    margin-bottom: 9px;
+    width: 100%;
+    border-radius: 20px;
+    // backdrop-filter: blur(60px);
+    box-shadow: 0px 6px 35px 0px #0000000d, 0px -10px 14px 0px #ffffff80 inset,
+      0px 10px 14px 0px #ffffff80 inset, 4px 0px 50px 0px #ffffffcc inset;
+  }
+  &__title {
+    color: #000000e5;
+    letter-spacing: -0.02em;
+    font-family: "Inter";
+    line-height: 125%;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__disk {
+    color: #00000066;
+    letter-spacing: -0.02em;
+    font-family: "Inter";
+    line-height: 125%;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.career-center-right {
+  // background-image: none;
+  .training-to-day__discription {
+    max-width: 80%;
+  }
+  &__image {
+    // background-image: none;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    img {
+      margin-top: auto;
+      object-fit: contain;
+      object-position: center;
+      max-height: 100%;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.career-center-left {
+  .payment-after__discription {
+    max-width: 78%;
+  }
+  &__image {
+    position: static;
+    img.background {
+      // width: 100%;
+      min-width: 100%;
+
+      right: 0;
+      left: 0;
+      top: 0;
+      position: absolute;
+    }
+  }
+  &__icon {
+    position: absolute;
+    max-width: 48px;
+    aspect-ratio: 1;
+
+    top: 90px;
+    animation: icon 2.5s cubic-bezier(0.54, 0.19, 0.33, 0.9) infinite;
+    left: 47px;
+
+    img {
+      // width: 100%;
+      object-fit: contain;
+      object-position: center;
+      pointer-events: none;
+    }
+    &:nth-child(4) {
+      top: 175px;
+      left: 11px;
+      animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    &:nth-child(3) {
+      top: 119px;
+      right: 19px;
+      left: auto;
+      animation-timing-function: cubic-bezier(0.3, 0.1, 0.64, 0.99);
+    }
+    &:nth-child(2) {
+      top: 31px;
+      left: 124px;
+      animation-timing-function: ease-in-out;
+    }
+  }
+}
+
+.work-check {
+  .from-scratch-to-pro__card-discription {
+    max-width: none;
+  }
+  &__info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    align-items: center;
+    justify-content: center;
+  }
+  &__time {
+    font-family: "GNF";
+    font-weight: 400;
+    translate: -13px;
+    letter-spacing: -0.05em;
+    font-size: 100px;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.4) 100%);
+    -webkit-background-clip: text; /* Обрезаем фон по тексту (для Safari/Chrome) */
+    background-clip: text; /* Стандартное свойство */
+    -webkit-text-fill-color: transparent; /* Делаем текст прозрачным (для Safari/Chrome) */
+    color: transparent; /* Делаем текст прозрачным (стандартное свойство) */
+    display: inline-block;
+  }
+  &__label {
+    &.gradient-border {
+      position: absolute;
+    }
+    right: -50px;
+    top: 5px;
+    background-color: #ceff2f;
+    border-radius: 40px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #76950f;
+    -webkit-text-fill-color: #76950f;
+    z-index: 3;
+    padding: 5px 10px;
+    line-height: 90%;
+    font-weight: 400;
+    letter-spacing: 0;
+    backdrop-filter: blur(40px);
+
+    box-shadow: 0px 2px 7px 0px #00000014, -2px -2px 10px 0px #ffffffe5 inset,
+      2px 2px 10px 0px #ffffffe5 inset;
+  }
+  &__text{
+    color: #00000066;
+    font-size: 14px;
+    font-family: "Inter";
+    font-weight: 500;
+    text-wrap: nowrap;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+  }
+}
+
+
+.special-offer{
+  background-color: #F9F9F9;
+  padding: 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 15px;
+
+  &__spa{
+    background-color: transparent;
+    border: none;
+    margin-top: auto;
+    cursor: pointer;
+  }
+  .side-media{
+    padding: 5px;
+    padding-left: 20px;
+    background-color: #FAFAFA;
+    gap: 15px;
+    // justify-self: flex-end;
+    box-shadow: 0px 6px 10px 0px #0000000D;
+
+// backdrop-filter: blur(5px);
+
+  }
+  .side-media__img{
+    min-height: 32px;
+    min-width: 32px;
+  }
+  .side-media__text{
+    color: #323232;
+    padding-inline: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+  }
+  &__title{
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "GNF";
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
   }
 }
