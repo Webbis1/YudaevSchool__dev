@@ -16,15 +16,27 @@
 @use "components/expandable-grid";
 @use "components/faq-quest";
 @use "components/mobile-slider";
-@use "sections/index" as *;
+@use "components/circle-icon";
+@use "components/card-name";
 
+@use "sections/index" as *;
 svg {
   shape-rendering: crispEdges; /* Для четких линий */
+}
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --second-family: "SF Pro Display", sans-serif;
+  --third-family: "GNF", sans-serif;
+  --font3: "Loos Extended", sans-serif;
 }
 
 a {
   cursor: pointer;
   text-decoration: none;
+}
+button {
+  border: none;
 }
 .null {
   display: none !important;
@@ -32,6 +44,22 @@ a {
 
 * {
   // outline: 1px darkcyan dashed;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(0, -5%);
+  }
+  50% {
+    transform: translate(0, 0%);
+  }
+  75% {
+    transform: translate(0, 5%);
+  }
 }
 
 // @use 'sass:list';
@@ -259,7 +287,7 @@ body {
     // aspect-ratio: 1;
     padding-right: 1px;
   }
-  &__svg{
+  &__svg {
     aspect-ratio: 1;
     width: 32px;
     height: 32px;
@@ -358,11 +386,6 @@ body {
   // overflow-x: hidden;
 }
 
-
-
-
-
-
 .section_wrapper {
   height: 125vh;
   position: relative;
@@ -456,3 +479,4 @@ body {
     line-height: 130%;
   }
 }
+

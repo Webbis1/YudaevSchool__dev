@@ -11,22 +11,29 @@
 }
 .column {
 }
+
+
 .employment-opportunities {
+  flex: 1;
   // align-items: flex-start;
+  overflow: hidden;
   justify-content: space-between;
   background: radial-gradient(50% 50% at 50% 50%, #ffffff 0%, #f2f2f2 100%)
     /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 
-  gap: 214px;
-  padding: 30px;
+  // gap: 214px;
+  // gap: 35%;
+  max-height: 650px;
   .card-marker {
     margin-bottom: auto;
   }
   &__count {
-    font-family: GNF;
+    font-family: "GNF";
     font-weight: 400;
     font-style: Regular;
-    font-size: 170px;
+    // font-size: 170px;
+    @include font-size(110px, 90px, 120px, 170px);
+    
     line-height: 120%;
     letter-spacing: -0.01em;
     text-transform: uppercase;
@@ -37,34 +44,45 @@
 
     font-size: 18px;
     color: #00000066;
+    text-wrap: nowrap;
     line-height: 130%;
     letter-spacing: -0.02em;
     vertical-align: bottom;
+    padding-top: 40px;
   }
   &__image {
     max-width: 100%;
-    overflow: hidden;
+    flex: 1;
     max-height: 100%;
     display: flex;
     align-items: center;
+    position: relative;
     justify-content: center;
     img {
+      animation: float 6s infinite linear;
       width: 100%;
+      height: 100%;
       // height: 100%;
       object-fit: contain;
       object-position: center;
     }
+    .tower-card {
+      position: absolute;
+    }
   }
   &__sub-count {
-    font-family: GNF;
+    font-family: "GNF";
     font-weight: 400;
-    font-style: Regular;
+    // font-style: Regular;
     font-size: 30px;
+    @include font-size(26px, 22px, 28px, 34px);
+    
     line-height: 120%;
     letter-spacing: -0.01em;
     text-transform: uppercase;
   }
   &__text {
+    padding: 30px;
     align-items: flex-start;
   }
 }
@@ -76,16 +94,25 @@
   padding-top: 250px;
   align-items: flex-start;
   flex-wrap: wrap;
+  width: 100%;
   padding-bottom: 276px;
   &__card {
     border-radius: 40px;
     box-shadow: 0px 6px 30px 0px #0000001a;
     &:nth-child(1) {
-      max-width: 60%;
+      // max-width: 60%;
     }
   }
   &__content {
+    width: 100%;
     gap: 20px;
+    @include less(1023px){
+      &.row{
+        flex-direction: column;
+        align-items: center;
+
+      }
+    }
   }
   &__name {
   }
@@ -103,13 +130,83 @@
   align-items: center;
   flex: 1;
   padding: 30px;
+  position: relative;
+  @include more(1024px){
+    max-width: 676px;
+  }
+  @include less(1023px){
+    width: 100%;
+  }
   &__card {
+    animation: icon 3s infinite;
+    animation-timing-function: cubic-bezier(
+      0.16,
+      1.08,
+      0.4,
+      1
+    ); // Плавный финиш (5-й)
+
+    &:nth-child(1) {
+      animation-timing-function: cubic-bezier(
+        0.5,
+        0,
+        0.5,
+        1
+      ); // Почти линейно, но с ускорением
+    }
+
+    &:nth-child(2) {
+      animation-timing-function: cubic-bezier(0.4, 0.2, 0.6, 1);
+    }
+
+    &:nth-child(3) {
+      animation-timing-function: cubic-bezier(0.35, 0.35, 0.7, 1);
+    }
+
+    &:nth-child(4) {
+      animation-timing-function: cubic-bezier(0.28, 0.45, 0.75, 1);
+    }
+
+    &:nth-child(5) {
+      animation-timing-function: cubic-bezier(
+        0.16,
+        1.08,
+        0.4,
+        1
+      ); // Самый плавный
+
+    }
   }
   &__cards {
     width: 100%;
     gap: 7px;
+    position: relative;
   }
-  &__cta {
+  &__cta.gradient-border {
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    padding-left: 15px;
+    transform: translateY(50%);
+    .side-media__text {
+      color: #000000cc;
+    }
+    .side-media__img {
+      height: 32px;
+      width: 32px;
+    }
+    .side-media__text {
+      // font-weight: 500;
+      font-size: 14px;
+      line-height: 130%;
+      letter-spacing: -0.02em;
+    }
+  }
+  .card-marker {
+    background-color: #ffffff66;
+    &-icon {
+      background-color: white;
+    }
   }
   &__title {
     margin-top: 35px;
@@ -117,7 +214,7 @@
     font-family: "Loos Extended";
     font-weight: 500;
 
-    font-size: Font 34px;
+    font-size: 34px;
     // leading-trim: NONE;
     line-height: 114.99999999999999%;
     letter-spacing: -0.01em;
@@ -127,7 +224,31 @@
 .join-card {
   backdrop-filter: blur(59.27387619018555px);
 
-box-shadow: 0px 8.89px 37.05px 0px #0000001A;
+  box-shadow: 0px 8.89px 37.05px 0px #0000001a;
+  &:nth-child(2) {
+    z-index: 3;
+  }
+  &:nth-child(3) {
+    scale: 0.9;
+    z-index: 2;
+    position: relative;
+    bottom: 25px;
+    // transform: translateY(-35%);
+  }
+  &:nth-child(4) {
+    position: absolute;
+    bottom: 13px;
+    scale: 0.8;
+    z-index: 1;
+    // transform: translateY(-23%);
+  }
+  &:nth-child(5) {
+    position: absolute;
+    bottom: 0px;
+    scale: 0.7;
+    z-index: 0;
+    // transform: translateY(-10%);
+  }
 
   background-color: #ffffff33;
   align-items: center;
@@ -145,16 +266,29 @@ box-shadow: 0px 8.89px 37.05px 0px #0000001A;
     line-height: 135%;
     // letter-spacing: 0%;
     vertical-align: bottom;
-    color: #0000004D;
+    color: #0000004d;
   }
   &__image {
     padding-right: 23px;
+    height: 40px;
+    img {
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      height: 100%;
+    }
   }
   &__index {
+    // width: 33px;
+    // height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute !important;
     left: 0;
     translate: -50%;
-    font-family: " SF Pro Display";
+    font-family: "SF Pro Display";
+    color: #00000066;
     font-weight: 500;
     aspect-ratio: 1;
     padding: 14px;
@@ -166,10 +300,10 @@ box-shadow: 0px 8.89px 37.05px 0px #0000001A;
     // letter-spacing: 0%;
     vertical-align: bottom;
 
-    background-color: #f2fbd5;
+    background-color: #ffffff80;
   }
   &__name {
-    font-family: " SF Pro Display";
+    font-family: "SF Pro Display";
     font-weight: 600;
     // font-style: Semibold;
     font-size: 17.78px;
@@ -182,15 +316,14 @@ box-shadow: 0px 8.89px 37.05px 0px #0000001A;
   &__price {
     margin-left: auto;
     font-family: GNF;
-font-weight: 400;
-// font-style: Regular;
-font-size: 23.71px;
-// leading-trim: NONE;
-line-height: 135%;
-letter-spacing: 0%;
-text-align: right;
-vertical-align: bottom;
-
+    font-weight: 400;
+    // font-style: Regular;
+    font-size: 23.71px;
+    // leading-trim: NONE;
+    line-height: 135%;
+    letter-spacing: 0%;
+    text-align: right;
+    vertical-align: bottom;
   }
   &__text {
   }
@@ -211,5 +344,151 @@ vertical-align: bottom;
   &__img {
   }
   &__text {
+  }
+}
+
+.tower-card {
+  animation: icon 4s infinite;
+
+  &:nth-child(6) {
+    top: 180px;
+    left: 160px;
+    animation-timing-function: cubic-bezier(0.36, 0.05, 0.64, 1);
+  }
+
+  &:nth-child(2) {
+    top: -70px;
+    right: 80px;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.7, 1.1);
+  }
+
+  &:nth-child(3) {
+    bottom: 90px;
+    right: -50px;
+    animation-timing-function: cubic-bezier(0.18, 0.5, 0.8, 1);
+  }
+
+  &:nth-child(4) {
+    bottom: 3px;
+    left: 57px;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.4, 1);
+  }
+
+  &:nth-child(5) {
+    top: 11px;
+    left: 42%;
+    animation-timing-function: cubic-bezier(0.3, 0.05, 0.5, 1.1);
+  }
+
+  &:nth-child(7) {
+    top: 55%;
+    left: 51%;
+    animation-timing-function: cubic-bezier(0.15, 0.2, 0.75, 0.9);
+  }
+
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+  align-items: flex-start;
+  font-family: "SF Pro Display";
+  backdrop-filter: blur(88.77314758300781px);
+
+  box-shadow: 0px 6.55px 26.18px 0px #00000017;
+  padding: 12.11px;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  &__remove {
+    background-color: white;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0px 1.61px 4.04px 0px #0000001a;
+
+    margin-bottom: 12px;
+  }
+  &__disk {
+    color: #00000033;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 150%;
+    margin-bottom: 8px;
+  }
+  &__name {
+    color: #000000cc;
+    font-weight: 600;
+    font-size: 11px;
+    // font-family: "SF Pro Display";
+    line-height: 150%;
+    margin-bottom: 12px;
+  }
+  &__tag {
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0.6)
+      ),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+    border-radius: 5px;
+    box-shadow: 0px 0.81px 4.84px 0px #0000001a;
+
+    padding: 6px;
+    // font-family: "SF Pro Display";
+    color: #00000080;
+    font-weight: 500;
+    // font-style: Medium;
+    font-size: 8.07px;
+    // leading-trim: CAP_HEIGHT;
+    line-height: 150%;
+    // letter-spacing: 0%;
+    // vertical-align: middle;
+    margin-bottom: auto;
+  }
+  &__cta {
+    background: linear-gradient(0deg, #ffffff, #ffffff),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03));
+    border-radius: 24px;
+    padding: 4px;
+    margin-top: 26px;
+    padding-left: 13px;
+    box-shadow: 0px 0.81px 4.84px 0px #0000001a;
+
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__text {
+    align-items: flex-start;
+    justify-content: center;
+  }
+  &__zp {
+    // font-family: SF Pro Display;
+    font-weight: 500;
+    color: #00000033;
+    // font-style: Medium;
+    font-size: 7.26px;
+    // leading-trim: CAP_HEIGHT;
+    line-height: 150%;
+    letter-spacing: 0%;
+    // vertical-align: middle;
+    margin-bottom: 5px;
+  }
+  &__price {
+    // font-family: SF Pro Display;
+    font-weight: 600;
+    // font-style: Semibold;
+    font-size: 10.49px;
+    // leading-trim: CAP_HEIGHT;
+    line-height: 150%;
+    // letter-spacing: 0%;
+    // vertical-align: middle;
+  }
+  .green-arrow {
+    width: 26px;
+    height: 26px;
+    padding: 5px;
   }
 }

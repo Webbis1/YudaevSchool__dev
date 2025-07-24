@@ -1,28 +1,59 @@
+mixin tower-card(name = "Junior UX / UI дизайнер")
+    .tower-card.gradient-border.column
+        button.tower-card__remove.gradient-border x
+        .tower-card__disk Driftline
+        .tower-card__name= name
+        .tower-card__tags.row
+            .tower-card__tag.gradient-border Удаленка
+        .tower-card__cta.gradient-border.row
+            .tower-card__text.column
+                .tower-card__zp Зарплата
+                .tower-card__price 60 000 ₽ / мес
+            +green-arrow()
+
+
+
 +sectionName('10', 'Помогаем с вакансиями').help-with-vacancies__name
 .section-title.help-with-vacancies__title Мы активно работаем над улучшением ситуации на рынке дизайна, закрывая все эти потребности
 .help-with-vacancies__content.row
-    .help-with-vacancies__card.employment-opportunities.row
+    .help-with-vacancies__card.employment-opportunities.row.gradient-border
         .employment-opportunities__text.column
             .card-marker
                 .card-marker-icon.gradient-border
                     svg(width="20", height="20", viewBox="0 0 24 24")
-                        use(href="#plus-20")
+                        use(href="#work-12")
                 .card-marker-text Трудоустройство
             .employment-opportunities__count 20
             .employment-opportunities__sub-count проектов в день
-            .employment-opportunities__disk Мы публикуем нашим студентам и гарантируем индивидуальную поддержку в трудоустройстве
+            .employment-opportunities__disk 
+                | Мы публикуем нашим студентам
+                br
+                | и гарантируем индивидуальную 
+                br
+                | поддержку в трудоустройстве
         .employment-opportunities__image
-            img(src="./assets/images/10/Frame 2147224423.png", alt="")
-    .help-with-vacancies__card.join.column
+            //- img(src="./assets/images/10/Frame 2147224423.png", alt="")
+            img.employment-opportunities__tower(src="./assets/images/10/fb4aad3476a921934ef942b4bc00afef4a4a7f83.png", alt="")
+            +tower-card
+            +tower-card
+            +tower-card
+            +tower-card
+            +tower-card
+            +tower-card
+
+    .help-with-vacancies__card.join.column.gradient-border
         .card-marker
             .card-marker-icon.gradient-border
                 svg(width="20", height="20", viewBox="0 0 24 24")
-                    use(href="#plus-20")
+                    use(href="#join-12")
             .card-marker-text Присоединяйся
-        .join__title Ты сможешь повторить их успех
+        .join__title 
+            | Ты сможешь 
+            br
+            | повторить их успех
         .join__cards.column
             .join__card.row.join-card.gradient-border
-                .join-card__index.gradient-border 1
+                .join-card__index.gradient-border 01
                 .join-card__image 
                     img(src="./assets/images/10/Frame 2147224268.png", alt="")
                 .join-card__text.column.gradient-border
@@ -30,7 +61,7 @@
                     .join-card__experience 6 мес в дизайне
                 .join-card__price 360 000 ₽
             .join__card.row.join-card
-                .join-card__index.gradient-border 1
+                .join-card__index.gradient-border 02
                 .join-card__image 
                     img(src="./assets/images/10/Frame 2147224268.png", alt="")
                 .join-card__text.column.gradient-border
@@ -38,7 +69,7 @@
                     .join-card__experience 6 мес в дизайне
                 .join-card__price 360 000 ₽
             .join__card.row.join-card
-                .join-card__index.gradient-border 1
+                .join-card__index.gradient-border 03
                 .join-card__image 
                     img(src="./assets/images/10/Frame 2147224268.png", alt="")
                 .join-card__text.column.gradient-border
@@ -46,7 +77,15 @@
                     .join-card__experience 6 мес в дизайне
                 .join-card__price 360 000 ₽
             .join__card.row.join-card
-                .join-card__index.gradient-border 1
+                .join-card__index.gradient-border 04
+                .join-card__image 
+                    img(src="./assets/images/10/Frame 2147224268.png", alt="")
+                .join-card__text.column.gradient-border
+                    .join-card__name Имя Фамилия
+                    .join-card__experience 6 мес в дизайне
+                .join-card__price 360 000 ₽
+            .join__card.row.join-card
+                .join-card__index.gradient-border 05
                 .join-card__image 
                     img(src="./assets/images/10/Frame 2147224268.png", alt="")
                 .join-card__text.column.gradient-border
@@ -55,4 +94,4 @@
                 .join-card__price 360 000 ₽
 
                 
-        +side-media("Выбрать программу").join__cta
+        +side-media("Выбрать программу","./assets/images/green-arrow.svg", true).join__cta

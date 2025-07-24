@@ -19,7 +19,7 @@
   @include less(1400px) {
     height: auto;
     position: relative;
-    background-color: #E8E8E8;
+    background-color: #e8e8e8;
     // overflow: scroll;
   }
 
@@ -54,12 +54,15 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      background: linear-gradient(180deg, rgba(232, 232, 232, 0) 0%, rgba(232, 232, 232, 0.64) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(232, 232, 232, 0) 0%,
+        rgba(232, 232, 232, 0.64) 100%
+      );
 
       height: 50px;
       z-index: 1;
       backdrop-filter: blur(1px);
-
     }
   }
   &__disc {
@@ -103,10 +106,9 @@
       position: absolute;
       inset: 0;
       box-shadow: 0px -20px 55px 0px #00000012;
-
     }
-    @include less(500px){
-        box-shadow: none;
+    @include less(500px) {
+      box-shadow: none;
     }
     background: repeating-linear-gradient(
       to right,
@@ -116,7 +118,6 @@
       rgba(255, 255, 255, 0.1) 18px
     );
     backdrop-filter: blur(35px);
-
   }
   &__free {
     background-color: #cfff32;
@@ -194,14 +195,18 @@
       left: 50%;
       translate: -50% 50%;
     }
-    @include less(500px){
-      &::after{
+    @include less(500px) {
+      &::after {
         content: "";
         position: absolute;
         width: 100vw;
         height: 200%;
         // background-color: #000000;
-        background: linear-gradient(180deg, #E8E8E8 0%, rgba(232, 232, 232, 0) 100%);
+        background: linear-gradient(
+          180deg,
+          #e8e8e8 0%,
+          rgba(232, 232, 232, 0) 100%
+        );
 
         top: 50%;
         left: 50%;
@@ -211,30 +216,34 @@
     }
   }
   &__running-line {
-    border-radius: 50px;
-    background-color: #cfff32;
-    padding-block: 12px;
-    padding-inline: 3px;
-    text-wrap: nowrap;
-    // backdrop-filter: blur(60px);
-    font-size: 16px;
     @include less(1400px) {
       display: none;
     }
+
+    // backdrop-filter: blur(60px);
+    background-color: #cfff32;
+    border-radius: 50px;
+    font-size: 16px;
+    overflow: hidden;
+    padding-block: 12px;
+    padding-inline: 3px;
+    text-wrap: nowrap;
+    min-height: 40.5px;
+    width: 100%;
     box-shadow: 0px 4px 8px 0px #00000014, 0px -5px 14px 0px #ffffffe5 inset,
       0px 5px 14px 0px #ffffffe5 inset, 4px 0px 30px 0px #ffffffcc inset,
       -4px 0px 30px 0px #ffffffcc inset;
-    overflow: hidden;
-    width: 100%;
+
     span {
-      text-transform: uppercase;
-      display: inline-block;
       // padding-left: 100%;
-      color: #00000080;
-      font-weight: 400;
-      font-family: "GNF";
       animation: marquee 5s linear infinite;
+      color: #00000080;
+      display: inline-block;
+      font-family: "GNF";
+      font-weight: 400;
       padding-right: 8px;
+      text-transform: uppercase;
+
       &:nth-child(1) {
         // background-color: aqua;
       }
@@ -272,10 +281,9 @@
   }
   &__pagination {
     // position: relative !important;
-    &.swiper-pagination-bullets.swiper-pagination-horizontal{
-
+    &.swiper-pagination-bullets.swiper-pagination-horizontal {
       top: 164px;
-      left: 50% ;
+      left: 50%;
       transform: translateX(-50%);
     }
     display: flex;
@@ -283,11 +291,10 @@
     gap: 20px;
     align-items: flex-start;
 
-
     justify-content: center;
     // z-index: 0;
-    @include less(1400px){
-      &.swiper-pagination-bullets.swiper-pagination-horizontal{
+    @include less(1400px) {
+      &.swiper-pagination-bullets.swiper-pagination-horizontal {
         top: 70px;
       }
     }
@@ -327,57 +334,110 @@
   }
   &__icon {
     z-index: 50;
+    aspect-ratio: 1;
+    img{
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    @include less($desktop) {
+      max-width: 115px;
+    }
+    @include less($tablet){
+      max-width: 90px;
+    }
     img {
       pointer-events: none;
     }
     &--blander {
       top: 26%;
       left: 35%;
+      @include less($desktop) {
+        top: 15%;
+        left: 15%;
+      }
     }
 
     &--circle {
       top: 51%;
       right: 9%;
+      @include less($desktop) {
+        top: 15%;
+        right: 12%;
+      }
     }
 
     &--ps {
       bottom: 42%;
       left: 37%;
+      @include less($desktop) {
+        bottom: 42%;
+        left: 12%;
+      }
     }
 
     &--ai {
       top: 20%;
       right: 11%;
+      @include less($desktop) {
+        top: 20%;
+        right: 25%;
+      }
     }
 
     &--figma {
       bottom: 52%;
       left: 28%;
+      @include less($desktop) {
+        bottom: 52%;
+        left: 12%;
+      }
     }
 
     &--t {
       top: 56%;
       left: 70%;
+      @include less($desktop) {
+        top: 56%;
+        left: 64%;
+      }
     }
 
     &--arrow {
       bottom: 67%;
       right: 3%;
+      @include less($desktop) {
+        bottom: 78%;
+        right: 23%;
+      }
     }
 
     &--wb {
       top: 31%;
       right: 58%;
+      @include less($desktop) {
+        top: 40%;
+        right: 73%;
+      }
     }
 
     &--ozon {
       bottom: 51%;
       left: 82%;
+      @include less($desktop) {
+        bottom: 51%;
+        left: 74%;
+      }
     }
 
     &--gpt {
       top: 24%;
       left: 31%;
+      @include less($desktop) {
+        top: 40%;
+        left: 7%;
+      }
     }
 
     &--r {

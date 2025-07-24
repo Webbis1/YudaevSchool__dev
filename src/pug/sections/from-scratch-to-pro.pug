@@ -22,10 +22,10 @@
 .from-scratch-to-pro__title
     span.wave-text Обучаем дизайнеров
     b
-        .wave-text с нуля 
+        span.wave-text с нуля 
         .from-scratch-to-pro__direction.gradient-border
             img(loading="lazy", src="./assets/images/right-arrow.svg", alt="direction")
-        .wave-text до PRO
+        span.wave-text до PRO
 
 .circle-section
     .rectangle#rect
@@ -215,13 +215,13 @@
                 .from-scratch-to-pro__card.gradient-border.payment-after.career-center-left
                     .payment-after__image.from-scratch-to-pro__card-images.career-center-left__image
                         img(loading="lazy", src="./assets/images/02/Group 2087327115.webp", alt="").background
-                    +card__marker("./assets/images/02/Vector (19).svg", "Окружение", "white")
+                    +card-name("Окружение", "community-12")
                     .payment-after__title.from-scratch-to-pro__card-title
                         h3.from-scratch-to-pro__card-title Дизайн-тусовка
                     .payment-after__discription.from-scratch-to-pro__card-discription Мы собрали комьюнити новичков
                         | и профи, чтобы обмениваться опытом, вдохновлять, находить полезные связи и поддерживать тёплую атмосферу
                 .from-scratch-to-pro__card.gradient-border.training-to-day.career-center-right.work-check
-                    +card__marker("./assets/images/02/Vector (19).svg", "Проверки работ", "white")
+                    +card-name("Проверки работ", "review-12")
                     .training-to-day__title.from-scratch-to-pro__card-title.wave-text Персональная обратная связь
                     .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Каждое задание проверяется наставником в течение 24 часов. 
                         br 
@@ -237,63 +237,16 @@
             
             .from-scratch-to-pro__card-section
                 .from-scratch-to-pro__card_big.gradient-border.column.special-offer
-                    +card__marker("./assets/images/02/Vector (19).svg", "Спец. предложение", "white")
+                    +card-name("Спец. предложение", "percent-12")
                     .special-offer__title Получите скидку 
                         br
                         | -15% только сегодня
                     button.special-offer__spa
-                        +side-media("Забрать скидку", "public/assets/images/02/Vector (20).svg", true)
+                        +side-media("Забрать скидку", "./assets/images/02/Vector (20).svg", true)
 
 
 +mobile-slider().from-scratch-to-pro__mobile-slider.container
-    .from-scratch-to-pro__slide.swiper-slide
-        .from-scratch-to-pro__card.gradient-border.training-to-day
-            .training-to-day__images.from-scratch-to-pro__card-images
-                .training-to-day__blander
-                    img(loading="lazy", src="./assets/images/02/blender.svg", alt="blender")
-                .training-to-day__ozon
-                    img(loading="lazy", src="./assets/images/02/ozon.svg", alt="ozon")
-                .training-to-day__wb
-                    img(loading="lazy", src="./assets/images/02/wb.svg", alt="wb")
-                .training-to-day__figma
-                    img(loading="lazy", src="./assets/images/02/figma.svg", alt="figma")
-            +card__marker("./assets/images/study.svg", "Обучение сегодня", "white")
-            .training-to-day__title.from-scratch-to-pro__card-title.wave-text Начните с бесплатных базовых курсов сейчас
-            .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Чтобы понять, в каком направлении двигаться
-            +card__marker("./assets/images/payment.svg", "Оплата позже", "white")
-            .payment-after__title.from-scratch-to-pro__card-title
-                span.wave-text Отсрочка 3 месяца
-                b   
-                    br
-                    .wave-text для первого платежа
-            .payment-after__discription.from-scratch-to-pro__card-discription Действует для всех флагманских программ с карьерной поддержкой
-
-    .from-scratch-to-pro__slide.swiper-slide
-        .from-scratch-to-pro__card.gradient-border.training-to-day
-            +card__marker("./assets/images/study.svg", "Обучение сегодня", "white")
-            .training-to-day__title.from-scratch-to-pro__card-title.wave-text Начните с бесплатных базовых курсов сейчас
-            .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Чтобы понять, в каком направлении двигаться
-            .training-to-day__images.from-scratch-to-pro__card-images
-                .training-to-day__blander
-                    img(loading="lazy", src="./assets/images/02/blender.svg", alt="blender")
-                .training-to-day__ozon
-                    img(loading="lazy", src="./assets/images/02/ozon.svg", alt="ozon")
-                .training-to-day__wb
-                    img(loading="lazy", src="./assets/images/02/wb.svg", alt="wb")
-                .training-to-day__figma
-                    img(loading="lazy", src="./assets/images/02/figma.svg", alt="figma")
-    .from-scratch-to-pro__slide.swiper-slide
-        .from-scratch-to-pro__card.gradient-border.training-to-day
-            +card__marker("./assets/images/study.svg", "Обучение сегодня", "white")
-            .training-to-day__title.from-scratch-to-pro__card-title.wave-text Начните с бесплатных базовых курсов сейчас
-            .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Чтобы понять, в каком направлении двигаться
-            .training-to-day__images.from-scratch-to-pro__card-images
-                .training-to-day__blander
-                    img(loading="lazy", src="./assets/images/02/blender.svg", alt="blender")
-                .training-to-day__ozon
-                    img(loading="lazy", src="./assets/images/02/ozon.svg", alt="ozon")
-                .training-to-day__wb
-                    img(loading="lazy", src="./assets/images/02/wb.svg", alt="wb")
-                .training-to-day__figma
-                    img(loading="lazy", src="./assets/images/02/figma.svg", alt="figma")
-                
+    include ../mixins/cards/second/01.pug
+    include ../mixins/cards/second/02.pug
+    include ../mixins/cards/second/03.pug
+    include ../mixins/cards/second/04.pug
