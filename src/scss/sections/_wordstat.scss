@@ -14,6 +14,15 @@
     );
 }
 
+@keyframes rockUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 #wordstat {
     background-color: #FAFAFA;
     border-radius: #{fluid(60, 30)};
@@ -192,14 +201,14 @@
         translate: -50% -83%;
         width: 215px;
 
-        &:nth-child(1 of &) { left: 21.5%; top: 13.5% }
-        &:nth-child(2 of &) { left: 40.6%; top: 7.1% }
-        &:nth-child(3 of &) { left: 59.2%; top: 7.1% }
-        &:nth-child(4 of &) { left: 78.5%; top: 13.6% }
-        &:nth-child(5 of &) { left: 9%; top: 41.7% }
-        &:nth-child(6 of &) { left: 36.4%; top: 33.9% }
-        &:nth-child(7 of &) { left: 64%; top: 33.9% }
-        &:nth-child(8 of &) { left: 91%; top: 41.7% }
+        &:nth-child(1 of &) { left: 21.5%; top: 13% }
+        &:nth-child(2 of &) { left: 40.6%; top: 6.6% }
+        &:nth-child(3 of &) { left: 59.2%; top: 6.6% }
+        &:nth-child(4 of &) { left: 78.5%; top: 13.1% }
+        &:nth-child(5 of &) { left: 9%; top: 41.2% }
+        &:nth-child(6 of &) { left: 36.4%; top: 33.4% }
+        &:nth-child(7 of &) { left: 64%; top: 33.4% }
+        &:nth-child(8 of &) { left: 91%; top: 41.2% }
     }
 
     .div-floater-inner {
@@ -242,8 +251,55 @@
         margin-block-end: 10px;
     }
 
+    .p-floater-title,
+    .div-floater-inner {
+        animation: rockUpDown 2s ease-in-out infinite;
+    }
+
+    .div-floater {
+        &:nth-child(1 of &) .p-floater-title,
+        &:nth-child(1 of &) .div-floater-inner {
+            animation-delay: 0.25s;
+        }
+
+        &:nth-child(2 of &) .p-floater-title,
+        &:nth-child(2 of &) .div-floater-inner {
+            animation-delay: 0.5s;
+        }
+
+        &:nth-child(3 of &) .p-floater-title,
+        &:nth-child(3 of &) .div-floater-inner {
+            animation-delay: 0.75s;
+        }
+
+        &:nth-child(4 of &) .p-floater-title,
+        &:nth-child(4 of &) .div-floater-inner {
+            animation-delay: 1s;
+        }
+
+        &:nth-child(5 of &) .p-floater-title,
+        &:nth-child(5 of &) .div-floater-inner {
+            animation-delay: 1.25s;
+        }
+
+        &:nth-child(6 of &) .p-floater-title,
+        &:nth-child(6 of &) .div-floater-inner {
+            animation-delay: 1.5s;
+        }
+
+        &:nth-child(7 of &) .p-floater-title,
+        &:nth-child(7 of &) .div-floater-inner {
+            animation-delay: 1.75s;
+        }
+
+        &:nth-child(8 of &) .p-floater-title,
+        &:nth-child(8 of &) .div-floater-inner {
+            animation-delay: 2s;
+        }
+    }
+
     .div-progress {
-        --progress: 0.2;
+        --progress: 0.1;
 
         align-items: center;
         display: flex;
@@ -253,7 +309,8 @@
             border-radius: 5px;
             box-shadow: 0px 8px 25px color-mix(in srgb, black 20%, transparent);
             height: 26px;
-            transition: 0.3s;
+            transition-delay: 1s;
+            transition: 2s;
         }
 
         div:nth-child(1) {
