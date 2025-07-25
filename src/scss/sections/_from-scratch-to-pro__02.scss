@@ -191,6 +191,7 @@
   @include less(700px) {
     display: none;
   }
+
   // background-color: aqua;
 }
 
@@ -198,6 +199,10 @@
   // @include less(700px) {
   //     display: none;
   //   }
+  //   background-image: url("@/assets/images/Frame 2147224112.png");
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position: center;
   position: absolute;
   top: 50%;
   left: 50%;

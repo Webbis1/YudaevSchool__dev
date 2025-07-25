@@ -403,6 +403,7 @@ const initCircleModule = () => {
     0.1
   );
 };
+const blurBackground = document.getElementById("background-blur");
 
 const initBurgerMenu = () => {
   // Элементы для PC версии
@@ -428,7 +429,7 @@ const initBurgerMenu = () => {
   const hamburgerInput = document.querySelector<HTMLInputElement>(
     '.hamburger input[type="checkbox"]'
   );
-  const blurBackground = document.getElementById("background-blur");
+  
 
   // Анимация для блока курсов (PC)
   const animateCourses = () => {
@@ -602,11 +603,11 @@ const initHeroSlider = () => {
       shadowOffset: 20,
       shadowScale: 0.94,
     },
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    //   waitForTransition: true,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+      waitForTransition: true,
+    },
     pagination: {
       el: ".hero__pagination",
       clickable: true,
@@ -772,43 +773,70 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const initRectangleAnimation = () => {
-  // Кэшируем элементы
+  // Поиск элементов
+  const rect = document.querySelector(".rectangle");
+  const circle1 = document.querySelector("#circle-1");
+  const circle2 = document.querySelector("#circle-2");
+  const circle3 = document.querySelector("#circle-3");
+
+  const progressBarr3 = document.querySelector("#progress-barr-3");
+  const progressBarr2 = document.querySelector("#progress-barr-2");
+  const progressBarr1 = document.querySelector("#progress-barr-1");
+
+  const progressBarr3Green = document.querySelector("#progress-barr-3-green");
+  const progressBarr2Green = document.querySelector("#progress-barr-2-green");
+  const progressBarr1Green = document.querySelector("#progress-barr-1-green");
+
+  // Проверка, что все элементы — нужного типа и существуют
+  if (
+    !rect ||
+    !circle1 ||
+    !circle2 ||
+    !circle3 ||
+    !progressBarr3 ||
+    !progressBarr2 ||
+    !progressBarr1 ||
+    !progressBarr3Green ||
+    !progressBarr2Green ||
+    !progressBarr1Green
+  ) {
+    console.warn("Missing required elements");
+    return;
+  }
+
+  // Теперь приводим к нужным типам — TypeScript знает, что они не null
   const elements = {
-    rect: document.querySelector(".rectangle") as HTMLElement,
+    rect: rect as HTMLElement,
     circles: [
-      document.querySelector("#circle-1") as SVGCircleElement,
-      document.querySelector("#circle-2") as SVGCircleElement,
-      document.querySelector("#circle-3") as SVGCircleElement,
+      circle1 as SVGCircleElement,
+      circle2 as SVGCircleElement,
+      circle3 as SVGCircleElement,
     ],
     progressBarsBg: [
-      document.querySelector("#progress-barr-3") as SVGCircleElement,
-      document.querySelector("#progress-barr-2") as SVGCircleElement,
-      document.querySelector("#progress-barr-1") as SVGCircleElement,
+      progressBarr3 as SVGCircleElement,
+      progressBarr2 as SVGCircleElement,
+      progressBarr1 as SVGCircleElement,
     ],
     progressBars: [
-      document.querySelector("#progress-barr-3-green") as SVGCircleElement,
-      document.querySelector("#progress-barr-2-green") as SVGCircleElement,
-      document.querySelector("#progress-barr-1-green") as SVGCircleElement,
+      progressBarr3Green as SVGCircleElement,
+      progressBarr2Green as SVGCircleElement,
+      progressBarr1Green as SVGCircleElement,
     ],
   };
 
-  // Проверка элементов с более чистым выводом
   if (!validateElements(elements)) return;
 
-  // Настройка прогресс-баров
   const { barLengths } = setupProgressBars(
     elements.progressBarsBg,
     elements.progressBars
   );
 
-  // Конфигурация анимации
   const config = {
     rectangleTime: 1500,
     totalDuration: 2,
     offset: calculateOffset(),
   };
 
-  // Создаем timeline
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".from-scratch-to-pro",
@@ -821,7 +849,6 @@ const initRectangleAnimation = () => {
     },
   });
 
-  // Анимация прямоугольника
   tl.to(
     elements.rect,
     {
@@ -830,35 +857,126 @@ const initRectangleAnimation = () => {
       ease: "none",
       duration: 1,
       transformStyle: "flat",
-      // force3D: false,
     },
     0
   );
 
-  // Анимация кругов
   animateCircles(tl);
 
-  // Анимация карточек
   tl.to(
     ".from-scratch-to-pro__cards",
     {
       transform: `translate(-50%, ${config.offset}%)`,
       duration: 2,
       ease: "none",
-      force3D: false,
       transformStyle: "flat",
     },
     0.7
   );
 
-  // Анимация прогресс-баров
   animateProgressBars(
     tl,
     elements.progressBars,
     barLengths,
     config.totalDuration
   );
+
+  // === ПОЗИЦИОНИРУЕМ ЧЕКПОИНТЫ ПОСЛЕ РЕНДЕРА ===
+  positionCheckpoints(); // 🟢 Вызываем после setupProgressBars
+
+  // === АНИМАЦИЯ СОСТОЯНИЙ ЧЕКПОИНТОВ ===
+  ScrollTrigger.create({
+    trigger: ".from-scratch-to-pro",
+    start: "top top",
+    end: `+=${config.rectangleTime}`,
+    scrub: true,
+    onUpdate: (self) => {
+      // const
+      const progress = (self.progress - 0.7 / config.rectangleTime) * 10;
+      const piece = 2;
+      const stage = Math.floor(progress / piece);
+      console.log(progress);
+      console.log(piece);
+      console.log(stage);
+
+      document.querySelectorAll(".checkpoint").forEach((cp, i) => {
+        console.log(`${i}  -  ${stage}`);
+        if (i < stage) {
+          cp.classList.add("completed");
+          gsap.to(cp, {
+            // attr: { r: 4 },
+            fill: "#CFFF32",
+            stroke: "#CFFF32",
+            duration: 0.3,
+          });
+        } else {
+          cp.classList.remove("completed");
+          gsap.to(cp, {
+            // attr: { r: 4 },
+            fill: "#F2F2F2",
+            stroke: "#F2F2F2",
+            duration: 0.3,
+          });
+        }
+      });
+    },
+  });
 };
+
+function extractProgressData() {
+  const bar1 = document.querySelector("#progress-barr-1") as SVGCircleElement;
+  const bar2 = document.querySelector("#progress-barr-2") as SVGCircleElement;
+  const bar3 = document.querySelector("#progress-barr-3") as SVGCircleElement;
+
+  if (!bar1 || !bar2 || !bar3) {
+    console.error("Missing progress bars");
+    return null;
+  }
+
+  // Центр — берем из любого
+  const cx = parseFloat(bar1.getAttribute("cx")!);
+  const cy = parseFloat(bar1.getAttribute("cy")!);
+
+  // Радиусы
+  const pr1 = parseFloat(bar1.getAttribute("r")!);
+  const pr2 = parseFloat(bar2.getAttribute("r")!);
+  const pr3 = parseFloat(bar3.getAttribute("r")!);
+
+  // Угол поворота: извлекаем из transform
+  // Пример: rotate(120 100 100) → ищем первое число
+  const parseRotation = (el: SVGGraphicsElement) => {
+    const transform = el.transform.baseVal.consolidate()?.matrix;
+    if (transform) {
+      // Это сложно, лучше распарсить строку
+      const transformStr = el.getAttribute("transform") || "";
+      const match = transformStr.match(/rotate\(([^,|\s]+)[,|\s]+/);
+      return match ? parseFloat(match[1]) : 0;
+    }
+    return 0;
+  };
+
+  const startAngle_bar1 = parseRotation(bar1);
+  const startAngle_bar2 = parseRotation(bar2);
+  const startAngle_bar3 = parseRotation(bar3);
+
+  // Мы знаем, что bar1 начинается на startAngle_bar1
+  // bar2 — на startAngle_bar2, bar3 — на startAngle_bar3
+  // Но нам нужен **базовый startAngle** (например, bar1)
+
+  const startAngle = startAngle_bar1; // базовый угол
+
+  return {
+    centerx: cx,
+    centery: cy,
+    pr1,
+    pr2,
+    pr3,
+    startAngle,
+    startAngle_bar1,
+    startAngle_bar2,
+    startAngle_bar3,
+  };
+}
 
 // Вспомогательные функции
 function validateElements(elements: any): boolean {
@@ -890,7 +1008,7 @@ function setupProgressBars(
   progressBars: SVGCircleElement[]
 ) {
   const startAngles = [0, 0, 0];
-  const endAngles = [24, 48, 28];
+  const endAngles = [30, 50, 50];
 
   bgBars.forEach((bar, i) => {
     const radius = parseFloat(bar.getAttribute("r")!);
@@ -969,13 +1087,81 @@ function animateProgressBars(
         strokeDasharray: `${barLengths[barIndex].arcLength} ${
           barLengths[barIndex].circumference - barLengths[barIndex].arcLength
         }`,
-        duration: durations[i],
+        strokeLinecap: "round", // ← добавляем только при анимации
+        duration: durations[i] * 2,
         ease: "none",
         force3D: false,
+        // Опционально: можно добавить onStart, если хочется больше контроля
+        onStart: () => {
+          progressBars[barIndex].style.strokeLinecap = "round";
+        },
       },
       delays[i]
     );
   });
+}
+
+function positionCheckpoints() {
+  const data = extractProgressData();
+  if (!data) return;
+
+  const {
+    centerx,
+    centery,
+    pr1,
+    pr2,
+    pr3,
+    startAngle_bar1,
+    startAngle_bar2,
+    startAngle_bar3,
+  } = data;
+
+  // Длины дуг (в градусах) — ты должен знать их из логики
+  // Допустим:
+  const arc1Degrees = 50; // от startAngle_bar1 до startAngle_bar1 + 55
+  const arc2Degrees = 50; // от startAngle_bar2 до startAngle_bar2 + 55
+  const arc3Degrees = 30; // от startAngle_bar3 до startAngle_bar3 + 50
+
+  const checkpoints = document.querySelectorAll(".checkpoint");
+
+  checkpoints.forEach((cp) => {
+    const forBar = cp.getAttribute("data-for");
+    const pos = cp.getAttribute("data-pos");
+    let angle = 0;
+    let r = 0;
+
+    if (forBar === "bar1") {
+      r = pr1;
+      if (pos === "center") {
+        angle = startAngle_bar1 + arc1Degrees / 2;
+      } else if (pos === "end") {
+        angle = startAngle_bar1 + arc1Degrees;
+      }
+    } else if (forBar === "bar2") {
+      r = pr2;
+      if (pos === "center") {
+        angle = startAngle_bar2 + arc2Degrees / 2;
+      } else if (pos === "end") {
+        angle = startAngle_bar2 + arc2Degrees;
+      }
+    } else if (forBar === "bar3") {
+      r = pr3;
+      if (pos === "end") {
+        angle = startAngle_bar3 + arc3Degrees;
+      }
+    }
+
+    const { x, y } = getPointOnCircle(centerx, centery, r, angle);
+    gsap.set(cp, { attr: { cx: x, cy: y } });
+  });
+}
+
+function getPointOnCircle(cx: number, cy: number, r: number, angleDeg: number) {
+  const angleRad = (angleDeg * Math.PI) / 180;
+  return {
+    x: cx + r * Math.cos(angleRad),
+    y: cy + r * Math.sin(angleRad),
+  };
 }
 
 document
@@ -1058,4 +1244,38 @@ document.addEventListener("DOMContentLoaded", () => {
   new Tabs();
   new CasesSlider();
   new QuestionToggler();
+
+  const dotButton = document.getElementById("hero__dot")  as HTMLElement;
+  const readMore = document.getElementById("hero__read-more") as HTMLElement;
+
+  let isOpen = true;
+
+  if (dotButton && readMore) {
+    dotButton.addEventListener("click", () => {
+      if (isOpen) {
+        // Скрываем
+        gsap.to(readMore, {
+          duration: 0.6,
+          x: "100%",
+          opacity: 1,
+          zIndex: 1,
+          ease: "power2.out",
+        });
+        // blurBackground?.classList.add("active");
+        dotButton?.classList.add("active");
+      } else {
+        // Показываем
+        gsap.to(readMore, {
+          duration: 0.7,
+          x: "0%",
+          opacity: 0,
+          zIndex: -1,
+          ease: "power2.out",
+        });
+        // blurBackground?.classList.remove("active");
+        dotButton?.classList.remove("active");
+      }
+      isOpen = !isOpen;
+    });
+  }
 });

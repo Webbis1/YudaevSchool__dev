@@ -6,17 +6,18 @@
 - var r1 = 322 * scale;
 - var r2 = 378 * scale;
 - var r3 = 435 * scale;
-- var pr1 = 1118 * scale / 2.1;
-- var pr2 = 1056 * scale / 2.1;
-- var pr3 = 992  * scale / 2.1;
+- var pr1 = 1150 * scale / 2.23;
+- var pr2 = 1070 * scale / 2.23;
+- var pr3 = 1000  * scale / 2.23;
 - var stroke_width = 1;
 - var progress_stroke_width = 25;
+- var start_angel = 115; 
 
 .from-scratch-to-pro__background
     .from-scratch-to-pro__background-right
-        img(loading="lazy", src="./assets/images/02/Frame 2147224216 (2).webp", alt="spiral")
+        //- img(loading="lazy", src="./assets/images/02/Frame 2147224216 (2).webp", alt="spiral")
     .from-scratch-to-pro__background-left
-        img(loading="lazy", src="./assets/images/02/Frame 2147224216 (2).webp", alt="spiral")
+        //- img(loading="lazy", src="./assets/images/02/Frame 2147224216 (2).webp", alt="spiral")
     
 
 .from-scratch-to-pro__title
@@ -72,9 +73,9 @@
                 r=pr1 
                 fill="none" 
                 stroke="#E5E5E5" 
-                stroke-width=progress_stroke_width 
+                stroke-width=progress_stroke_width
                 stroke-linecap="round"
-                transform=`rotate(130 ${centerx} ${centery})`
+                transform=`rotate(${start_angel} ${centerx} ${centery})`
             )
             circle#progress-barr-1-green(
                 cx=centerx 
@@ -84,8 +85,7 @@
                 filter="url(#progress-shadow)"
                 stroke="#FAFAFA" 
                 stroke-width=progress_stroke_width 
-                stroke-linecap="round"
-                transform=`rotate(130 ${centerx} ${centery})`
+                transform=`rotate(${start_angel} ${centerx} ${centery})`
             )
             circle#progress-barr-2(
                 cx=centerx 
@@ -96,7 +96,7 @@
                 stroke="#E5E5E5" 
                 stroke-width=progress_stroke_width 
                 stroke-linecap="round"
-                transform=`rotate(160 ${centerx} ${centery})`
+                transform=`rotate(${start_angel + 55} ${centerx} ${centery})`
             )
             circle#progress-barr-2-green(
                 cx=centerx 
@@ -106,8 +106,7 @@
                 fill="none" 
                 stroke="#FAFAFA" 
                 stroke-width=progress_stroke_width 
-                stroke-linecap="round"
-                transform=`rotate(160 ${centerx} ${centery})`
+                transform=`rotate(${start_angel + 55} ${centerx} ${centery})`
             )
             circle#progress-barr-3(
                 cx=centerx 
@@ -117,7 +116,7 @@
                 stroke="#E5E5E5" 
                 stroke-width=progress_stroke_width 
                 stroke-linecap="round"
-                transform=`rotate(216 ${centerx} ${centery})`
+                transform=`rotate(${start_angel + 110} ${centerx} ${centery})`
             )
             circle#progress-barr-3-green(
                 cx=centerx 
@@ -127,9 +126,15 @@
                 fill="none" 
                 stroke="#FAFAFA" 
                 stroke-width=progress_stroke_width 
-                stroke-linecap="round"
-                transform=`rotate(216 ${centerx} ${centery})`
+                transform=`rotate(${start_angel + 110} ${centerx} ${centery})`
             )
+
+            g.checkpoint-group
+                circle.checkpoint(data-for="bar1" data-pos="center" r=`${11/2}` cx="0" cy="0").gradient-border
+                circle.checkpoint(data-for="bar1" data-pos="end" r=`${11/2}` cx="0" cy="0").gradient-border
+                circle.checkpoint(data-for="bar2" data-pos="center" r=`${11/2}` cx="0" cy="0").gradient-border
+                circle.checkpoint(data-for="bar2" data-pos="end" r=`${11/2}` cx="0" cy="0").gradient-border
+                circle.checkpoint(data-for="bar3" data-pos="end" r=`${11/2}` cx="0" cy="0").gradient-border
 
 
         .from-scratch-to-pro__cards
@@ -212,27 +217,8 @@
                         img(loading="lazy", src="./assets/images/02/Frame 2147224283.webp", alt="alt")
             
             .from-scratch-to-pro__card-section
-                .from-scratch-to-pro__card.gradient-border.payment-after.career-center-left
-                    .payment-after__image.from-scratch-to-pro__card-images.career-center-left__image
-                        img(loading="lazy", src="./assets/images/02/Group 2087327115.webp", alt="").background
-                    +card-name("Окружение", "community-12")
-                    .payment-after__title.from-scratch-to-pro__card-title
-                        h3.from-scratch-to-pro__card-title Дизайн-тусовка
-                    .payment-after__discription.from-scratch-to-pro__card-discription Мы собрали комьюнити новичков
-                        | и профи, чтобы обмениваться опытом, вдохновлять, находить полезные связи и поддерживать тёплую атмосферу
-                .from-scratch-to-pro__card.gradient-border.training-to-day.career-center-right.work-check
-                    +card-name("Проверки работ", "review-12")
-                    .training-to-day__title.from-scratch-to-pro__card-title.wave-text Персональная обратная связь
-                    .training-to-day__discription.from-scratch-to-pro__card-discription.wave-text Каждое задание проверяется наставником в течение 24 часов. 
-                        br 
-                        | Даже на бесплатных курсах
-                    .career-center-right__image.payment-after__image
-                        img(loading="lazy", src="./assets/images/02/speedometr.webp", alt="alt")
-                        .work-check__info.column
-                            .work-check__time
-                                | 40
-                                .work-check__label.gradient-border минут
-                            .work-check__text Среднее время проверки
+                include ../mixins/cards/second-pc/environment.pug
+                include ../mixins/cards/second-pc/work-check.pug
             
             
             .from-scratch-to-pro__card-section

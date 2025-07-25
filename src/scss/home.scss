@@ -18,6 +18,7 @@
 @use "components/mobile-slider";
 @use "components/circle-icon";
 @use "components/card-name";
+@use "sections/demand";
 
 @use "sections/index" as *;
 svg {
@@ -480,3 +481,17 @@ body {
   }
 }
 
+.checkpoint {
+  box-shadow: 0px 2px 5px 0px #0000001a;
+
+  backdrop-filter: blur(10px);
+  border: 1.5px solid;
+  border-image-source: conic-gradient(
+    from -18.65deg at 50% 50%,
+    rgba(255, 255, 255, 0.2) 0deg,
+    rgba(255, 255, 255, 0.6) 90deg,
+    rgba(255, 255, 255, 0.2) 181.58deg,
+    rgba(255, 255, 255, 0.6) 270deg,
+    rgba(255, 255, 255, 0.2) 360deg
+  );
+}

@@ -12,7 +12,10 @@
     font-weight: 500;
     font-size: 38px;
     color: black;
-    font-family: "Inter";
+    // font-family: "Inter";
+    font-family: $font3;
+    line-height: 115%;
+    letter-spacing: -0.01em;
     margin-top: 20px;
     margin-bottom: 80px;
     b {
