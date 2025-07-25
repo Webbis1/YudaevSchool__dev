@@ -41,97 +41,97 @@
                 <p class="p-floater-title">Новосибирск</p>
                 <div class="div-floater-inner">
                     <p class="p-floater">100k</p>
-                    <div class="div-progress" style="--progress: 0.7">
+                    <div class="div-progress" data-progress=0.7>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
-                img(class="img-separator", src="./assets/images/shadow.webp", loading="lazy")
+                img(class="img-shadow", src="./assets/images/shadow.webp", loading="lazy")
             </div>
             <div class="div-floater">
                 <p class="p-floater-title">Москва</p>
                 <div class="div-floater-inner">
                     <p class="p-floater">250k</p>
-                    <div class="div-progress" style="--progress: 0.85">
+                    <div class="div-progress" data-progress=0.85>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
-                img(class="img-separator", src="./assets/images/shadow.webp", loading="lazy")
+                img(class="img-shadow", src="./assets/images/shadow.webp", loading="lazy")
             </div>
             <div class="div-floater">
                 <p class="p-floater-title">Санкт-Петербург</p>
                 <div class="div-floater-inner">
                     <p class="p-floater">200k</p>
-                    <div class="div-progress" style="--progress: 0.75">
+                    <div class="div-progress" data-progress=0.75>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
-                img(class="img-separator", src="./assets/images/shadow.webp", loading="lazy")
+                img(class="img-shadow", src="./assets/images/shadow.webp", loading="lazy")
             </div>
             <div class="div-floater">
                 <p class="p-floater-title">Екатеринбург</p>
                 <div class="div-floater-inner">
                     <p class="p-floater">125k</p>
-                    <div class="div-progress" style="--progress: 0.75">
+                    <div class="div-progress" data-progress=0.75>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
-                img(class="img-separator", src="./assets/images/shadow.webp", loading="lazy")
+                img(class="img-shadow", src="./assets/images/shadow.webp", loading="lazy")
             </div>
             <div class="div-floater">
                 <p class="p-floater-title">Челябинск</p>
                 <div class="div-floater-inner">
                     <p class="p-floater">50k</p>
-                    <div class="div-progress" style="--progress: 0.4">
+                    <div class="div-progress" data-progress=0.4>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
-                img(class="img-separator", src="./assets/images/shadow.webp", loading="lazy")
+                img(class="img-shadow", src="./assets/images/shadow.webp", loading="lazy")
             </div>
             <div class="div-floater">
                 <p class="p-floater-title">Казань</p>
                 <div class="div-floater-inner">
                     <p class="p-floater">75k</p>
-                    <div class="div-progress" style="--progress: 0.4">
+                    <div class="div-progress" data-progress=0.4>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
-                img(class="img-separator", src="./assets/images/shadow.webp", loading="lazy")
+                img(class="img-shadow", src="./assets/images/shadow.webp", loading="lazy")
             </div>
             <div class="div-floater">
                 <p class="p-floater-title">Нижний Новгород</p>
                 <div class="div-floater-inner">
                     <p class="p-floater">85k</p>
-                    <div class="div-progress" style="--progress: 0.55">
+                    <div class="div-progress" data-progress=0.55>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
-                img(class="img-separator", src="./assets/images/shadow.webp", loading="lazy")
+                img(class="img-shadow", src="./assets/images/shadow.webp", loading="lazy")
             </div>
             <div class="div-floater">
                 <p class="p-floater-title">Красноярск</p>
                 <div class="div-floater-inner">
                     <p class="p-floater">45k</p>
-                    <div class="div-progress" style="--progress: 0.3">
+                    <div class="div-progress" data-progress=0.3>
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
                 </div>
-                img(class="img-separator", src="./assets/images/shadow.webp", loading="lazy")
+                img(class="img-shadow", src="./assets/images/shadow.webp", loading="lazy")
             </div>
 
 
@@ -173,6 +173,10 @@
 </html>
 
 script.
+    /**
+     * PEOPLE COUNTER
+     */
+
     let timerSeconds = 0;
 
     const timerElement = document.querySelector('#wordstat .p-timer span');
@@ -209,3 +213,24 @@ script.
     }
 
     setInterval(updatePeople, 3000);
+
+
+    /**
+     * ANIMATION
+     */
+
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const progress = el.getAttribute('data-progress');
+            el.style.setProperty('--progress', progress);
+        }
+    });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.div-progress').forEach(el => {
+        observer.observe(el);
+    });
