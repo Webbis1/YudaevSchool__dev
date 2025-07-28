@@ -13,17 +13,31 @@ include ../components/basic-courses__card.pug
             .basic-courses__group-text Флагманские программы
         .basic-courses__group-count.gradient-border 2
     .basic-courses__cards
-        +basic-courses__card(1080, 1)
-        +basic-courses__card(770, 2)
+        //- +basic-courses__card(1080, 1)
+        include ../components/basic-course__card/1.pug
+        include ../components/basic-course__card/2.pug
+    +mobile-slider
+        .swiper-slide
+            include ../components/basic-course__card/1.pug
+        .swiper-slide
+            include ../components/basic-course__card/2.pug
 
 
 .basic-courses__group
     .basic-courses__group-head
         .basic-courses__group-title.gradient-border
             +green-arrow("./assets/images/03/Vector (15).svg").basic-courses__logo
-            .basic-courses__group-text Флагманские программы
-        .basic-courses__group-count.gradient-border 2
+            .basic-courses__group-text Быстрые программы
+        .basic-courses__group-count.gradient-border 3
     .basic-courses__cards
-        +basic-courses__card(925, 3)
-        +basic-courses__card(458, 4)
-        +basic-courses__card(458, 5)
+        include ../components/basic-course__card/3.pug
+        .column
+            include ../components/basic-course__card/4.pug
+            include ../components/basic-course__card/5.pug
+    +mobile-slider
+        .swiper-slide
+            include ../components/basic-course__card/3.pug
+        .swiper-slide
+            include ../components/basic-course__card/4.pug
+        .swiper-slide
+            include ../components/basic-course__card/5.pug

@@ -1,0 +1,26 @@
+.basic-courses__card.digital
+    .basic-courses__card-image
+        img(loading="lazy", src="./assets/images/03/card1.webp", alt="Digital-дизайнер")
+
+    .basic-courses__card-blur
+        .basic-courses__card-title Digital-дизайнер
+
+        .basic-courses__card-discription
+            .side-media.row.gradient-border.basic-courses__card-month-count
+                +circle-icon("time-12").side-media__img.gradient-border
+                span.side-media__text 12 месяцев
+            .basic-courses__card-tags
+                +course-list
+                .basic-courses__card-tag Программа трудоустройства
+                .basic-courses__card-tag Диплом
+                .basic-courses__card-tag 
+                    span 5 курсов в 1
+                    button.basic-courses__card-read-more.gradient-border#basic-courses__card-read-more
+                        +circle-icon("dots-12")
+    .basic-courses__card-footer
+        .basic-courses__card-price
+            .basic-courses__card-old-price 9 776 ₽ / мес
+            .basic-courses__card-new-price от 4 888 ₽ / мес
+        a(href="#") 
+            +side-media("Записаться на курс")
+        

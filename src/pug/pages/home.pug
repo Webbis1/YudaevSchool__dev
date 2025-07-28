@@ -16,6 +16,30 @@ main.main
     //- ->
     section.from-scratch-to-pro#color-section
         include ../sections/from-scratch-to-pro.pug
+    
+    .popup#popup
+        div.questions-block__content
+            div.questions-container
+                +sectionName('%', 'Забрать скидку').questions-block__title
+                div.question-subtitle-container
+                    div.questions-block__subtitle
+                        p Оставьте заявку, чтобы получить скидку 15%
+
+                form.question-block__form(action="")
+                    input(type="text", placeholder="Имя", class="question-block__input").gradient-border
+                    div.question-block__input.phone-input
+                        div.phone-input__phone-code
+                            select
+                                option(value="+375") +375
+                                option(value="+7") +7
+                                option(value="+380") +380
+                        input(type="tel", placeholder="(29) 111-11-11", class="phone-input__phone-number").gradient-border
+                    input(type="email", placeholder="Почта", class="question-block__input last-input").gradient-border
+
+                    button.question-block__form-button.question-button.gradient-border
+                        p Оставить заявку
+                        +circle-icon("arrow-diagonal-16").question-button__button-icon
+
         
     //- 3
     section.basic-courses.container
@@ -31,7 +55,7 @@ main.main
     section.student-results.column.container
         include ../sections/student-results__05.pug
     //- 6
-    section.cases.container.column.null
+    section.cases.container.column
         include ../sections/cases.pug
     //- 7
     section.advantages.row.container

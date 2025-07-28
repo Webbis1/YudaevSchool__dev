@@ -223,12 +223,16 @@
             
             .from-scratch-to-pro__card-section
                 .from-scratch-to-pro__card_big.gradient-border.column.special-offer
-                    +card-name("Спец. предложение", "percent-12")
-                    .special-offer__title Получите скидку 
-                        br
-                        | -15% только сегодня
-                    button.special-offer__spa
-                        +side-media("Забрать скидку", "./assets/images/02/Vector (20).svg", true)
+                    +card-name("Спец. предложение", "percent-12").special-offer__card-name
+                    .special-offer__text
+                        .special-offer__title Получите скидку 
+                            br
+                            | -15% только сегодня
+                        button.special-offer__spa#special-offer__spa
+                            +side-media("Забрать скидку", "./assets/images/02/Vector (20).svg", true)
+                    .special-offer__image
+                        img(src="./assets/images/02/Frame 2147224698.png", alt="Получите скидку")
+
 
 
 +mobile-slider().from-scratch-to-pro__mobile-slider.container
@@ -236,3 +240,4 @@
     include ../mixins/cards/second/02.pug
     include ../mixins/cards/second/03.pug
     include ../mixins/cards/second/04.pug
+

@@ -429,7 +429,6 @@ const initBurgerMenu = () => {
   const hamburgerInput = document.querySelector<HTMLInputElement>(
     '.hamburger input[type="checkbox"]'
   );
-  
 
   // Анимация для блока курсов (PC)
   const animateCourses = () => {
@@ -1245,7 +1244,7 @@ document.addEventListener("DOMContentLoaded", () => {
   new CasesSlider();
   new QuestionToggler();
 
-  const dotButton = document.getElementById("hero__dot")  as HTMLElement;
+  const dotButton = document.getElementById("hero__dot") as HTMLElement;
   const readMore = document.getElementById("hero__read-more") as HTMLElement;
 
   let isOpen = true;
@@ -1277,5 +1276,100 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       isOpen = !isOpen;
     });
+  }
+
+  let isOpen3 = false;
+  const button3 = document.getElementById(
+    "basic-courses__card-read-more"
+  ) as HTMLElement | null;
+  const courseList = document.getElementById(
+    "course-list"
+  ) as HTMLElement | null;
+  // 🔍 Диагностика: проверяем, найдены ли элементы
+  if (!button3) {
+    console.warn("Кнопка #basic-courses__card-read-more не найдена в DOM");
+    return;
+  }
+
+  if (!courseList) {
+    console.warn("Элемент #course-list не найден в DOM");
+    return;
+  }
+
+  console.log("✅ Элементы найдены, вешаем обработчик");
+  button3.addEventListener("touchstart", handleToggle, { passive: true });
+  button3.addEventListener('click', handleToggle);
+  function handleToggle(e: Event) {
+    e.preventDefault();
+    console.log("Сработал клик или тач!");
+    // ... остальная логика
+  }
+  // Вешаем обработчик
+  button3.addEventListener("click", (e) => {
+    console.log("Клик сработал! Текущее состояние: isOpen3 =", isOpen3);
+    e.stopPropagation();
+    if (isOpen3) {
+      // Скрываем: уезжает вправо + исчезает
+      gsap.to(courseList, {
+        duration: 0.6,
+        x: "100%", // уезжает вправо
+        opacity: 0,
+        ease: "power2.out",
+        onComplete: () => {
+          courseList.style.pointerEvents = "none";
+        },
+      });
+    } else {
+      // Показываем: выезжает справа
+      courseList.style.pointerEvents = "auto";
+      gsap.fromTo(
+        courseList,
+        {
+          x: "100%", // начинается справа (за пределами)
+          opacity: 0,
+        },
+        {
+          x: 0, // приезжает в исходную позицию
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    }
+    isOpen3 = !isOpen3;
+  });
+});
+// popupController.ts
+
+const disableScroll = () => {
+  document.body.style.overflow = "hidden";
+};
+
+const enableScroll = () => {
+  document.body.style.overflow = "";
+};
+
+const popup = document.getElementById("popup") as HTMLElement;
+const openButton = document.getElementById(
+  "special-offer__spa"
+) as HTMLButtonElement;
+
+// Проверяем, что элементы существуют
+if (!popup || !openButton) {
+  console.warn("Popup или кнопка не найдены");
+  // export {};
+}
+
+// 1. Открытие popup по кнопке
+openButton?.addEventListener("click", () => {
+  popup.style.display = "flex"; // или 'block', если используешь другой layout
+  disableScroll();
+});
+
+// 2. Закрытие popup при клике на фон (не внутри контента)
+popup?.addEventListener("click", (e: MouseEvent) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+    enableScroll();
   }
 });
